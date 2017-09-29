@@ -5,7 +5,7 @@ using UnityStandardAssets.Characters.FirstPerson;
 
 interface IPlayerComponent
 {
-	void SetPlayer(PlayerCoreController m_Player);
+	void SetPlayer (PlayerCoreController m_Player);
 }
 
 [RequireComponent (typeof(RigidbodyFirstPersonController))]
@@ -15,13 +15,15 @@ public class PlayerCoreController : MonoBehaviour
 	public RigidbodyFirstPersonController rigidController;
 	public PlayerAnimationController animController;
 
-	void Awake()
+	void Awake ()
 	{
-		rigidController = GetComponent<RigidbodyFirstPersonController>();
-		animController = GetComponent<PlayerAnimationController>();
+		rigidController = GetComponent<RigidbodyFirstPersonController> ();
+		animController = GetComponent<PlayerAnimationController> ();
 
-		if(rigidController) rigidController.SetPlayer(this);
-		if(animController) animController.SetPlayer(this);
+		if (rigidController)
+			rigidController.SetPlayer (this);
+		if (animController)
+			animController.SetPlayer (this);
 	}
 
 	// Use this for initialization
