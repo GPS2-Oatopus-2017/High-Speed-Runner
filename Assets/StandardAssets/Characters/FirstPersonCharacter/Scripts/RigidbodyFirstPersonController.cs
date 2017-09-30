@@ -245,14 +245,14 @@ namespace UnityStandardAssets.Characters.FirstPerson
 	//		//Calculate new angle when turned left or right
 	//		float newYRotation = oldYRotation + (CrossPlatformInputManager.GetAxis ("Horizontal") * 100 * Time.deltaTime);
 
-			if(SwipeScript.Instance.GetSwipe() == SwipeDirection.Left || Input.GetKeyDown (KeyCode.A))
-			{
-				rotAngle -= 90.0f;
-			}
-			else if(SwipeScript.Instance.GetSwipe() == SwipeDirection.Right || Input.GetKeyDown (KeyCode.D))
-			{
-				rotAngle += 90.0f;
-			}
+//			if(SwipeScript.Instance.GetSwipe() == SwipeDirection.Left || Input.GetKeyDown (KeyCode.A))
+//			{
+//				rotAngle -= 90.0f;
+//			}
+//			else if(SwipeScript.Instance.GetSwipe() == SwipeDirection.Right || Input.GetKeyDown (KeyCode.D))
+//			{
+//				rotAngle += 90.0f;
+//			}
 
 			//Rotate to desired direction after swiping
 			float newYRotation = Mathf.LerpAngle(oldYRotation, rotAngle, 10 * Time.deltaTime);
