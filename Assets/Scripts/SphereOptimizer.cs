@@ -24,21 +24,22 @@ public class SphereOptimizer : MonoBehaviour
 
 	void OnTriggerEnter (Collider other)
 	{
-		if (this.tag == "Environment" && other.tag == "SphereCheck") {
+		if (this.gameObject.layer == 8 && other.gameObject.layer == 9) {
 			mRender.enabled = true;
 		}
+
 	}
 
 	void OnTriggerStay (Collider other)
 	{
-		if (this.tag == "Environment" && other.tag == "SphereCheck") {
+		if (this.gameObject.layer == 8 && other.gameObject.layer == 9) {
 			mRender.enabled = true;
 		}
 	}
 
 	void OnTriggerExit (Collider other)
 	{
-		if (this.tag == "Environment" && other.tag == "SphereCheck") {
+		if (this.gameObject.layer == 8 && other.gameObject.layer == 9) {
 			mRender.enabled = false;
 		}
 	}

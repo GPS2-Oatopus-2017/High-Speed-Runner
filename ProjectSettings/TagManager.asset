@@ -8,6 +8,7 @@ TagManager:
   - SphereCheck
   - Detector
   - Effector
+  - TrapTag
   layers:
   - Default
   - TransparentFX
@@ -18,7 +19,7 @@ TagManager:
   - 
   - 
   - Environment
-  - 
+  - SphereCheck
   - 
   - 
   - 

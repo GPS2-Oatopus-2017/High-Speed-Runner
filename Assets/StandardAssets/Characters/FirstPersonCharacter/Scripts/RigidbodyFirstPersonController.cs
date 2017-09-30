@@ -141,7 +141,9 @@ namespace UnityStandardAssets.Characters.FirstPerson
 			RotateView ();
 
 			if (SwipeScript.Instance.GetSwipe () == SwipeDirection.Up && !m_Jump || Input.GetKeyDown (KeyCode.Space) && !m_Jump) {
-				m_Jump = true;
+				if (!isSliding) {
+					m_Jump = true;
+				}
 			}
 
 			if (!isSliding && (SwipeScript.Instance.GetSwipe () == SwipeDirection.Down || Input.GetKeyDown (KeyCode.S))) {
@@ -273,6 +275,7 @@ namespace UnityStandardAssets.Characters.FirstPerson
 		public bool isSliding = false;
 		public float slideDuration = 1.0f;
 		private float slideTimer = 0.0f;
+		public bool doOnce = true;
 
 		private void Sliding ()
 		{
@@ -293,9 +296,21 @@ namespace UnityStandardAssets.Characters.FirstPerson
 				isSliding = false;
 				slideTimer = 0.0f;
 			} else if (slideTimer >= slideDuration / 2.0f) {
+				//this.transform.Rotate (new Vector3 (transform.rotation.x + 90.0f, transform.rotation.y, transform.rotation.z));
 				newXRotation = Mathf.LerpAngle (oldXRotation, 0.0f, 10 * Time.deltaTime);
+				if (!doOnce) {
+					m_Capsule.radius += 0.3f;
+					m_Capsule.height += 1.0f;
+					doOnce = true;
+				}
 			} else if (slideTimer >= 0.0f) {
-				newXRotation = Mathf.LerpAngle (oldXRotation, -30.0f, 20 * Time.deltaTime);
+				//this.transform.Rotate (new Vector3 (transform.rotation.x - 90.0f, transform.rotation.y, transform.rotation.z));
+				newXRotation = Mathf.LerpAngle (oldXRotation, -20.0f, 20 * Time.deltaTime);
+				if (doOnce) {
+					m_Capsule.radius -= 0.3f;
+					m_Capsule.height -= 1.0f;
+					doOnce = false;
+				}
 			}
 
 			//Apply new angle to the gameobject
