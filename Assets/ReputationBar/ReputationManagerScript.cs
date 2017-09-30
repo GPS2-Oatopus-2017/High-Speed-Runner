@@ -117,7 +117,7 @@ public class ReputationManagerScript : MonoBehaviour {
 			enemyCount = 4;
 		}
 
-		displayECount = "Enemy Count: " + enemyCount;
+		displayECount = "SD Count: " + enemyCount + "\nHD Count: "+ enemyCount;
 		enemyAmountText.text = displayECount;
 	}
 
