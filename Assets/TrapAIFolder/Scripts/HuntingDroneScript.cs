@@ -2,12 +2,12 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SurveillanceDroneScript : MonoBehaviour {
+public class HuntingDroneScript : MonoBehaviour {
 
 	public GameObject player; // Public for now
 
-	public float movementSpeed = 4.0f;
-	public float turnSpeed = 8.0f;
+	public float movementSpeed = 2.0f;
+	public float turnSpeed = 4.0f;
 
 	public int chaseMaxDistance = 10; // To be adjusted
 	public int chaseMinDistance = 2; // To be adjusted
@@ -15,11 +15,18 @@ public class SurveillanceDroneScript : MonoBehaviour {
 	public float hoverForce = 90.0f; // To be adjusted
 	public float hoverHeight = 3.5f; // To be adjusted
 
-	private Rigidbody surveillanceDroneRigidbody;
+	private Rigidbody huntingDroneRigidbody;
+
+	public GameObject bullet;
+	public Transform droneGunHardPoint1;
+	public Transform droneGunHardPoint2;
+	public float fireRate = 3.0f;
+	private float nextFire;
+	private bool lastGunHardPoint;
 
 	void Awake()
 	{
-		surveillanceDroneRigidbody = GetComponent<Rigidbody>();
+		huntingDroneRigidbody = GetComponent<Rigidbody>();
 	}
 
 
@@ -29,6 +36,8 @@ public class SurveillanceDroneScript : MonoBehaviour {
 
 		float randNum = Random.Range(3,6);
 		hoverHeight = randNum;
+
+		nextFire = fireRate;
 	}
 
 
@@ -44,7 +53,24 @@ public class SurveillanceDroneScript : MonoBehaviour {
 			if(Vector3.Distance(transform.position, player.transform.position) <= chaseMinDistance)
 			{
 				// Some action here when close to the player
-				Debug.Log("Suveillance Drone Used Taser!");
+				Debug.Log("Hunting Drone Body Slammed You! -- You Take 1 DMG");
+			}
+		}
+
+		// For Drone Shooting
+		if(Time.time > nextFire)
+		{
+			nextFire = Time.time + fireRate;
+
+			if(lastGunHardPoint == true)
+			{
+				Instantiate(bullet, droneGunHardPoint1.position, droneGunHardPoint1.rotation);
+				lastGunHardPoint = false;
+			}
+			else
+			{
+				Instantiate(bullet, droneGunHardPoint2.position, droneGunHardPoint2.rotation);
+				lastGunHardPoint = true;
 			}
 		}
 	}
@@ -60,7 +86,7 @@ public class SurveillanceDroneScript : MonoBehaviour {
 		{
 			float propotionalHeight = (hoverHeight - hoverHit.distance) / hoverHeight;
 			Vector3 appliedHoverForce = Vector3.up * propotionalHeight * hoverForce;
-			surveillanceDroneRigidbody.AddForce(appliedHoverForce, ForceMode.Acceleration);
+			huntingDroneRigidbody.AddForce(appliedHoverForce, ForceMode.Acceleration);
 		}
 	}
 }
