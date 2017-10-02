@@ -50,6 +50,7 @@ public class InteractScript : MonoBehaviour
 					//lightObject.transform.rotation = Quaternion.Euler (20f, -90f, lightObject.transform.rotation.z);
 					//lightObject.transform.rotation = Quaternion.Lerp (lightObject.transform.rotation, Quaternion.identity, Time.deltaTime);
 					lightSet.color = Random.ColorHSV (0f, 1f, 0f, 1f, 0f, 1f, 0f, 1f);
+					hit.transform.gameObject.SetActive (false);
 				}
 			}
 		}
