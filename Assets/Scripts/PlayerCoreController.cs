@@ -40,4 +40,10 @@ public class PlayerCoreController : MonoBehaviour
 
 	//Cross-object functions
 	//...
+	public void RotateTowards (Vector3 targetPos)
+	{
+		Vector3 direction = targetPos - transform.position;
+		float angle = Quaternion.LookRotation (direction).eulerAngles.y;
+		rigidController.rotAngle = angle;
+	}
 }

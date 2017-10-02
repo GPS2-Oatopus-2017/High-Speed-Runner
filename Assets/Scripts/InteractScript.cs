@@ -9,6 +9,19 @@ public class InteractScript : MonoBehaviour
 	RaycastHit hit;
 	Ray ray;
 	UnityStandardAssets.Characters.FirstPerson.RigidbodyFirstPersonController controller;
+	PlayerCoreController player;
+
+	public float rayDistance = 10f;
+
+	GameObject lightObject;
+	Light lightSet;
+
+	void Awake ()
+	{
+		player = GetComponent<PlayerCoreController> ();
+		lightObject = GameObject.Find ("Directional Light");
+		lightSet = FindObjectOfType<Light> ();
+	}
 
 	void Start ()
 	{
@@ -25,12 +38,19 @@ public class InteractScript : MonoBehaviour
 
 	void CheckInteract ()
 	{
-		if (Input.GetMouseButton (0) || Input.touchCount > 0) {
+		if (Input.GetMouseButtonDown (0) || Input.touchCount > 0) {
 			ray = Camera.main.ScreenPointToRay (Input.mousePosition);
-			if (Physics.Raycast (ray, out hit, 100.0f)) {
+			if (Physics.Raycast (ray, out hit, rayDistance)) {
 				Debug.DrawRay (transform.position, hit.transform.position, Color.red);
 				Debug.Log (hit.transform.name);
-
+				if (hit.transform.tag == "Interactable") {
+					player.RotateTowards (hit.transform.position);
+				}
+				if (hit.transform.tag == "MountainDew") {
+					//lightObject.transform.rotation = Quaternion.Euler (20f, -90f, lightObject.transform.rotation.z);
+					//lightObject.transform.rotation = Quaternion.Lerp (lightObject.transform.rotation, Quaternion.identity, Time.deltaTime);
+					lightSet.color = Random.ColorHSV (0f, 1f, 0f, 1f, 0f, 1f, 0f, 1f);
+				}
 			}
 		}
 	}

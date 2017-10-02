@@ -9,6 +9,8 @@ TagManager:
   - Detector
   - Effector
   - TrapTag
+  - Interactable
+  - MountainDew
   layers:
   - Default
   - TransparentFX
