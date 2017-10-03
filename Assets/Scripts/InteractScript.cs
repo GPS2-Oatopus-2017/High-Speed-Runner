@@ -16,11 +16,22 @@ public class InteractScript : MonoBehaviour
 	GameObject lightObject;
 	Light lightSet;
 
+	public static InteractScript _instance;
+
+	public static InteractScript Instance { get { return _instance; } }
+
 	void Awake ()
 	{
 		player = GetComponent<PlayerCoreController> ();
 		lightObject = GameObject.Find ("Directional Light");
 		lightSet = FindObjectOfType<Light> ();
+
+		if (_instance != null && _instance != this) {
+			Destroy (this.gameObject);
+		} else {
+			_instance = this;
+		}
+
 	}
 
 	void Start ()
@@ -50,7 +61,8 @@ public class InteractScript : MonoBehaviour
 					//lightObject.transform.rotation = Quaternion.Euler (20f, -90f, lightObject.transform.rotation.z);
 					//lightObject.transform.rotation = Quaternion.Lerp (lightObject.transform.rotation, Quaternion.identity, Time.deltaTime);
 					lightSet.color = Random.ColorHSV (0f, 1f, 0f, 1f, 0f, 1f, 0f, 1f);
-					hit.transform.gameObject.SetActive (false);
+					hit.transform.Translate (Vector3.up * Time.deltaTime * 3.0f);
+					//hit.transform.gameObject.SetActive (false);
 				}
 			}
 		}

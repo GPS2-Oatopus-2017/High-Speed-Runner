@@ -23,7 +23,8 @@ GameObject:
   - component: {fileID: 136319344580016868}
   - component: {fileID: 23513892858440638}
   - component: {fileID: 114633558019771488}
-  m_Layer: 0
+  - component: {fileID: 114704440858538078}
+  m_Layer: 8
   m_Name: MountainDew
   m_TagString: MountainDew
   m_Icon: {fileID: 0}
@@ -49,7 +50,7 @@ MeshRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1034493078775730}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_MotionVectors: 1
@@ -94,6 +95,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spinSpeed: 100
+--- !u!114 &114704440858538078
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1034493078775730}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: caa506535ed70fd4084a1c403973307a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!136 &136319344580016868
 CapsuleCollider:
   m_ObjectHideFlags: 1
