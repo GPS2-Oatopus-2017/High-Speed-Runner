@@ -37,25 +37,27 @@ public class MainMenuManager : MonoBehaviour
         menuWindows[menu].SetActive(false); //Deactivate Menu
     }
 
-   /* public void SetupBGM(GameObject slider)  // Will work on this with Syabil soon
+    public void SetupBGM(GameObject slider)  // Will work on this with Syabil soon
     {
-        slider.GetComponent<Slider>().value = SoundManagerScript.Instance.bgmVolume;
+        slider.GetComponent<Slider>().value = MenuSettings.Instance.bgmVolume;
     }
 
     public void SetupSFX(GameObject slider)
     {
-        slider.GetComponent<Slider>().value = SoundManagerScript.Instance.sfxVolume;
-    }*/
+        slider.GetComponent<Slider>().value = MenuSettings.Instance.sfxVolume;
+    }
 
-    /*public void ChangeBGM(GameObject slider)
+    public void ChangeBGM(GameObject slider)
     {
-        SoundManagerScript.Instance.SetBGMVolume(slider.GetComponent<Slider>().value);
+        MenuSettings.Instance.SetBGMVolume(slider.GetComponent<Slider>().value);
+        Debug.Log("Current BGM value is : " + slider.GetComponent<Slider>().value);
     }
 
     public void ChangeSFX(GameObject slider)
     {
-        SoundManagerScript.Instance.SetSFXVolume(slider.GetComponent<Slider>().value);
-    }*/
+        MenuSettings.Instance.SetSFXVolume(slider.GetComponent<Slider>().value);
+        Debug.Log("Current SFX value is : " + slider.GetComponent<Slider>().value);
+    }
 
     public void SetupBrightness(GameObject slider) //Set initial screen brightness
     {
