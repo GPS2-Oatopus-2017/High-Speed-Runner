@@ -28,7 +28,6 @@ public class ReputationManagerScript : MonoBehaviour {
 	public Text enemyAmountText;
 	public Text playerStatus;
 	string displayECount;
-	int enemyCount;
 	string status;
 	public string[] statusList;
 
@@ -36,7 +35,6 @@ public class ReputationManagerScript : MonoBehaviour {
 	public float resetTime;
 	// Use this for initialization
 	void Start () {
-		enemyCount = 1;
 		UpdateCount();
 		maxRep = starList.Count;
 		//currentRep = maxRep;
@@ -95,29 +93,11 @@ public class ReputationManagerScript : MonoBehaviour {
 				starList[i].sprite = lightDown;
 			}
 		}
-		lastRep = currentRep;
 	}
 
 	void UpdateCount() //need to change to sd and hd
 	{
-		if(currentRep == 0)
-		{
-			enemyCount = 1;
-		}
-		else if(currentRep == 2)
-		{
-			enemyCount = 2;
-		}
-		else if(currentRep == 4)
-		{
-			enemyCount = 3;
-		}
-		else if(currentRep == 6)
-		{
-			enemyCount = 4;
-		}
-
-		displayECount = "SD Count: " + enemyCount + "\nHD Count: "+ enemyCount;
+		displayECount = "SD Count: " + SpawnManagerScript.Instance.sdCount + "\nHD Count: "+ SpawnManagerScript.Instance.hdCount;
 		enemyAmountText.text = displayECount;
 	}
 
@@ -131,5 +111,10 @@ public class ReputationManagerScript : MonoBehaviour {
 			}
 		}
 		playerStatus.text = status;
+	}
+
+	void LateUpdate()
+	{
+		lastRep = currentRep;
 	}
 }

@@ -585,7 +585,7 @@ MonoBehaviour:
   - Notorious
   - Bad Mtfckr
   resetCounter: 0
-  resetTime: 2
+  resetTime: 20
 --- !u!114 &114902628069917600
 MonoBehaviour:
   m_ObjectHideFlags: 1
