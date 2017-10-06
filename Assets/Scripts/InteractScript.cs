@@ -65,16 +65,32 @@ public class InteractScript : MonoBehaviour
 					//hit.transform.gameObject.SetActive (false);
 				}
 				if (hit.transform.tag == "DoorSwitch") {
+					
 					Transform doorThing = hit.transform.GetChild (0); // Get the child of the switch and deactivates it
-					doorThing.gameObject.SetActive (false);
+
 					Renderer doorRender = hit.transform.gameObject.GetComponent<Renderer> ();
-					doorRender.material.color = Color.green;
+
+					if (doorRender.material.color == Color.red) {
+						doorRender.material.color = Color.green;
+						doorThing.gameObject.SetActive (false);
+					} else {
+						doorRender.material.color = Color.red;
+						doorThing.gameObject.SetActive (true);
+					}
 				}
 				if (hit.transform.tag == "TrapSwitch") {
+					
 					Transform trapThing = hit.transform.GetChild (0);
-					trapThing.gameObject.SetActive (false);
+
 					Renderer trapRender = hit.transform.gameObject.GetComponent<Renderer> ();
-					trapRender.material.color = Color.green;
+
+					if (trapRender.material.color == Color.red) {
+						trapRender.material.color = Color.green;
+						trapThing.gameObject.SetActive (false);
+					} else {
+						trapRender.material.color = Color.red;
+						trapThing.gameObject.SetActive (true);
+					}
 				}
 			}
 		}
