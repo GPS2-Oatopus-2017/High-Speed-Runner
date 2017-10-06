@@ -11,6 +11,8 @@ TagManager:
   - TrapTag
   - Interactable
   - MountainDew
+  - DoorSwitch
+  - TrapSwitch
   layers:
   - Default
   - TransparentFX
