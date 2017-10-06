@@ -9,7 +9,8 @@ namespace UnityStandardAssets.Characters.FirstPerson
 	public class RigidbodyFirstPersonController : MonoBehaviour, IPlayerComponent
 	{
 		private PlayerCoreController m_Player;
-		public void SetPlayer(PlayerCoreController m_Player)
+
+		public void SetPlayer (PlayerCoreController m_Player)
 		{
 			this.m_Player = m_Player;
 		}
@@ -95,7 +96,7 @@ namespace UnityStandardAssets.Characters.FirstPerson
 
 		public Camera cam;
 		public MovementSettings movementSettings = new MovementSettings ();
-	//	public MouseLook mouseLook = new MouseLook ();
+		//	public MouseLook mouseLook = new MouseLook ();
 		public AdvancedSettings advancedSettings = new AdvancedSettings ();
 
 		private Rigidbody m_RigidBody;
@@ -132,20 +133,20 @@ namespace UnityStandardAssets.Characters.FirstPerson
 		{
 			m_RigidBody = GetComponent<Rigidbody> ();
 			m_Capsule = GetComponent<CapsuleCollider> ();
-	//		mouseLook.Init (transform, cam.transform);
+			//		mouseLook.Init (transform, cam.transform);
 		}
 
 		private void Update ()
 		{
 			RotateView ();
 
-			if (SwipeScript.Instance.GetSwipe() == SwipeDirection.Up && !m_Jump || Input.GetKeyDown (KeyCode.Space) && !m_Jump)
-			{
-				m_Jump = true;
+			if (SwipeScript.Instance.GetSwipe () == SwipeDirection.Up && !m_Jump || Input.GetKeyDown (KeyCode.Space) && !m_Jump) {
+				if (!isSliding) {
+					m_Jump = true;
+				}
 			}
 
-			if (!isSliding && (SwipeScript.Instance.GetSwipe() == SwipeDirection.Down || Input.GetKeyDown (KeyCode.S)))
-			{
+			if (!isSliding && (SwipeScript.Instance.GetSwipe () == SwipeDirection.Down || Input.GetKeyDown (KeyCode.S))) {
 				isSliding = true;
 				slideTimer = 0.0f;
 			}
@@ -169,7 +170,7 @@ namespace UnityStandardAssets.Characters.FirstPerson
 				desiredMove.y = desiredMove.y * movementSettings.CurrentTargetSpeed;
 
 				if (m_RigidBody.velocity.sqrMagnitude <
-					(movementSettings.CurrentTargetSpeed * movementSettings.CurrentTargetSpeed)) {
+				    (movementSettings.CurrentTargetSpeed * movementSettings.CurrentTargetSpeed)) {
 					m_RigidBody.AddForce (desiredMove * SlopeMultiplier (), ForceMode.Impulse);
 				}
 			}
@@ -208,8 +209,8 @@ namespace UnityStandardAssets.Characters.FirstPerson
 		{
 			RaycastHit hitInfo;
 			if (Physics.SphereCast (transform.position, m_Capsule.radius * (1.0f - advancedSettings.shellOffset), Vector3.down, out hitInfo,
-				((m_Capsule.height / 2f) - m_Capsule.radius) +
-				advancedSettings.stickToGroundHelperDistance, Physics.AllLayers, QueryTriggerInteraction.Ignore)) {
+				    ((m_Capsule.height / 2f) - m_Capsule.radius) +
+				    advancedSettings.stickToGroundHelperDistance, Physics.AllLayers, QueryTriggerInteraction.Ignore)) {
 				if (Mathf.Abs (Vector3.Angle (hitInfo.normal, Vector3.up)) < 85f) {
 					m_RigidBody.velocity = Vector3.ProjectOnPlane (m_RigidBody.velocity, hitInfo.normal);
 				}
@@ -221,16 +222,16 @@ namespace UnityStandardAssets.Characters.FirstPerson
 		{
 			// Sabotaged to make auto-run
 			Vector2 input = Vector2.up;
-	//		Vector2 input = new Vector2
-	//		{
-	//			x = CrossPlatformInputManager.GetAxis ("Horizontal"),
-	//			y = CrossPlatformInputManager.GetAxis ("Vertical")
-	//		};
+			//		Vector2 input = new Vector2
+			//		{
+			//			x = CrossPlatformInputManager.GetAxis ("Horizontal"),
+			//			y = CrossPlatformInputManager.GetAxis ("Vertical")
+			//		};
 			movementSettings.UpdateDesiredTargetSpeed (input);
 			return input;
 		}
 
-		[Header("Rot Angle")]
+		[Header ("Rot Angle")]
 		public float rotAngle = 0.0f;
 
 		private void RotateView ()
@@ -242,42 +243,43 @@ namespace UnityStandardAssets.Characters.FirstPerson
 			// get the rotation before it's changed
 			float oldYRotation = transform.eulerAngles.y;
 
-	//		//Calculate new angle when turned left or right
-	//		float newYRotation = oldYRotation + (CrossPlatformInputManager.GetAxis ("Horizontal") * 100 * Time.deltaTime);
+			//		//Calculate new angle when turned left or right
+			//		float newYRotation = oldYRotation + (CrossPlatformInputManager.GetAxis ("Horizontal") * 100 * Time.deltaTime);
 
-			if(SwipeScript.Instance.GetSwipe() == SwipeDirection.Left || Input.GetKeyDown (KeyCode.A))
-			{
+			/*
+
+			if (SwipeScript.Instance.GetSwipe () == SwipeDirection.Left || Input.GetKeyDown (KeyCode.A)) {
 				rotAngle -= 90.0f;
-			}
-			else if(SwipeScript.Instance.GetSwipe() == SwipeDirection.Right || Input.GetKeyDown (KeyCode.D))
-			{
+			} else if (SwipeScript.Instance.GetSwipe () == SwipeDirection.Right || Input.GetKeyDown (KeyCode.D)) {
 				rotAngle += 90.0f;
 			}
+			
+			*/
 
 			//Rotate to desired direction after swiping
-			float newYRotation = Mathf.LerpAngle(oldYRotation, rotAngle, 10 * Time.deltaTime);
+			float newYRotation = Mathf.LerpAngle (oldYRotation, rotAngle, 10 * Time.deltaTime);
 	
 			//Apply new angle to the gameobject
 			transform.rotation = Quaternion.Euler (0, newYRotation, 0);
 
-	//      mouseLook.LookRotation (transform, cam.transform);
+			//      mouseLook.LookRotation (transform, cam.transform);
 
-			if (m_IsGrounded || advancedSettings.airControl)
-			{
+			if (m_IsGrounded || advancedSettings.airControl) {
 				// Rotate the rigidbody velocity to match the new direction that the character is looking
 				Quaternion velRotation = Quaternion.AngleAxis (transform.eulerAngles.y - oldYRotation, Vector3.up);
 				m_RigidBody.velocity = velRotation * m_RigidBody.velocity;
 			}
 		}
 
-		[Header("Sliding")]
+		[Header ("Sliding")]
 		public bool isSliding = false;
 		public float slideDuration = 1.0f;
 		private float slideTimer = 0.0f;
+		public bool doOnce = true;
 
 		private void Sliding ()
 		{
-			if(!isSliding)
+			if (!isSliding)
 				return;
 			
 			//avoids the mouse looking if the game is effectively paused
@@ -290,18 +292,25 @@ namespace UnityStandardAssets.Characters.FirstPerson
 
 			slideTimer += Time.deltaTime;
 
-			if(slideTimer >= slideDuration)
-			{
+			if (slideTimer >= slideDuration) {
 				isSliding = false;
 				slideTimer = 0.0f;
-			}
-			else if(slideTimer >= slideDuration / 2.0f)
-			{
-				newXRotation = Mathf.LerpAngle(oldXRotation, 0.0f, 10 * Time.deltaTime);
-			}
-			else if(slideTimer >= 0.0f)
-			{
-				newXRotation = Mathf.LerpAngle(oldXRotation, 30.0f, 20 * Time.deltaTime);
+			} else if (slideTimer >= slideDuration / 2.0f) {
+				//this.transform.Rotate (new Vector3 (transform.rotation.x + 90.0f, transform.rotation.y, transform.rotation.z));
+				newXRotation = Mathf.LerpAngle (oldXRotation, 0.0f, 10 * Time.deltaTime);
+				if (!doOnce) {
+					m_Capsule.radius += 0.3f;
+					m_Capsule.height += 1.0f;
+					doOnce = true;
+				}
+			} else if (slideTimer >= 0.0f) {
+				//this.transform.Rotate (new Vector3 (transform.rotation.x - 90.0f, transform.rotation.y, transform.rotation.z));
+				newXRotation = Mathf.LerpAngle (oldXRotation, -20.0f, 20 * Time.deltaTime);
+				if (doOnce) {
+					m_Capsule.radius -= 0.3f;
+					m_Capsule.height -= 1.0f;
+					doOnce = false;
+				}
 			}
 
 			//Apply new angle to the gameobject
@@ -325,7 +334,7 @@ namespace UnityStandardAssets.Characters.FirstPerson
 			m_PreviouslyGrounded = m_IsGrounded;
 			RaycastHit hitInfo;
 			if (Physics.SphereCast (transform.position, m_Capsule.radius * (1.0f - advancedSettings.shellOffset), Vector3.down, out hitInfo,
-				((m_Capsule.height / 2f) - m_Capsule.radius) + advancedSettings.groundCheckDistance, Physics.AllLayers, QueryTriggerInteraction.Ignore)) {
+				    ((m_Capsule.height / 2f) - m_Capsule.radius) + advancedSettings.groundCheckDistance, Physics.AllLayers, QueryTriggerInteraction.Ignore)) {
 				m_IsGrounded = true;
 				m_GroundContactNormal = hitInfo.normal;
 			} else {
