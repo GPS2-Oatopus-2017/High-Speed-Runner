@@ -38,4 +38,8 @@ public class PlayerCoreController : MonoBehaviour
 
 	//Cross-object functions
 	//...
+    public void ToggleRunning(bool isRunning)
+    {
+        rigidController.movementSettings.m_Running = isRunning;
+    }
 }
