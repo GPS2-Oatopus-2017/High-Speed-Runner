@@ -60,6 +60,8 @@ public class SpawnManagerScript : MonoBehaviour {
 				hdCount+=1;
 				Spawn("Surveillance_Drone",spawnPoint,Quaternion.identity);
 				Spawn("Hunting drone",spawnPoint,Quaternion.identity);
+				TimelineScript.Instance.CreateEnemyIcon("Surveillance_Drone", 1);
+				TimelineScript.Instance.CreateEnemyIcon("Hunting drone", 1);
 			}
 			else if(reputation == 2)
 			{
@@ -67,7 +69,9 @@ public class SpawnManagerScript : MonoBehaviour {
 				for(int i=0; i<2; i++)
 				{
 					Spawn("Hunting drone",spawnPoint,Quaternion.identity);
+
 				}
+				TimelineScript.Instance.CreateEnemyIcon("Hunting drone", 2);
 			}
 			else if(reputation == 3)
 			{
@@ -78,6 +82,8 @@ public class SpawnManagerScript : MonoBehaviour {
 				{
 					Spawn("Hunting drone",spawnPoint,Quaternion.identity);
 				}
+				TimelineScript.Instance.CreateEnemyIcon("Surveillance_Drone", 1);
+				TimelineScript.Instance.CreateEnemyIcon("Hunting drone", 2);
 			}
 			else if(reputation == 4)
 			{
@@ -88,6 +94,8 @@ public class SpawnManagerScript : MonoBehaviour {
 				{
 					Spawn("Hunting drone",spawnPoint,Quaternion.identity);
 				}
+				TimelineScript.Instance.CreateEnemyIcon("Surveillance_Drone", 1);
+				TimelineScript.Instance.CreateEnemyIcon("Hunting drone", 3);
 			}
 			else if(reputation == 5)
 			{
@@ -101,6 +109,8 @@ public class SpawnManagerScript : MonoBehaviour {
 				{
 					Spawn("Hunting drone",spawnPoint,Quaternion.identity);
 				}
+				TimelineScript.Instance.CreateEnemyIcon("Surveillance_Drone", 3);
+				TimelineScript.Instance.CreateEnemyIcon("Hunting drone", 3);
 			}
 		}
 	}
