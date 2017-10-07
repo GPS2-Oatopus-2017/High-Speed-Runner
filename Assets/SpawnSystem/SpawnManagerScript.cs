@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System.Linq;
 
 public class SpawnManagerScript : MonoBehaviour {
 
@@ -14,6 +15,7 @@ public class SpawnManagerScript : MonoBehaviour {
 	public List<int> numberOfObjectsToPool;
 	Dictionary<string,Stack<GameObject>> pool;
 
+	public Transform player;
 	public float spawnDistance = 4.0f;
 	public int reputation;
 	public float countDownTimer;
@@ -21,13 +23,16 @@ public class SpawnManagerScript : MonoBehaviour {
 	public int sdCount;
 	public int hdCount;
 
+	Vector3 spawnPoint;
+
 	void Awake()
 	{
 		if(mInstance == null) mInstance = this;
 		else if(mInstance != this) Destroy(this.gameObject);
 	}
 
-	public Transform playerLastLocation;
+	public Transform playerLastLocation;//testing
+
 	// Use this for initialization
 	void Start () {
 		InitializePoolManager();
@@ -44,46 +49,45 @@ public class SpawnManagerScript : MonoBehaviour {
 		{
 			countDownTimer = 0;
 		}
+
 		if(countDownTimer >= spawnTime)
 		{
+			countDownTimer = 0;
+			CalculateSpawnPoint();
 			if(reputation == 1)
 			{
 				sdCount+=1;
 				hdCount+=1;
-				Spawn("Surveillance drone",playerLastLocation.position,Quaternion.identity);
-				Spawn("Hunting drone",playerLastLocation.position,Quaternion.identity);
-				Debug.Log("1SD,1HD");
+				Spawn("Surveillance_Drone",spawnPoint,Quaternion.identity);
+				Spawn("Hunting drone",spawnPoint,Quaternion.identity);
 			}
 			else if(reputation == 2)
 			{
 				hdCount+=2;
 				for(int i=0; i<2; i++)
 				{
-					Spawn("Hunting drone",playerLastLocation.position,Quaternion.identity);
+					Spawn("Hunting drone",spawnPoint,Quaternion.identity);
 				}
-				Debug.Log("2HD");
 			}
 			else if(reputation == 3)
 			{
 				sdCount+=1;
 				hdCount+=2;
-				Spawn("Surveillance drone",playerLastLocation.position,Quaternion.identity);
+				Spawn("Surveillance_Drone",spawnPoint,Quaternion.identity);
 				for(int i=0; i<2; i++)
 				{
-					Spawn("Hunting drone",playerLastLocation.position,Quaternion.identity);
+					Spawn("Hunting drone",spawnPoint,Quaternion.identity);
 				}
-				Debug.Log("1SD,2HD");
 			}
 			else if(reputation == 4)
 			{
 				sdCount+=1;
 				hdCount+=3;
-				Spawn("Surveillance drone",playerLastLocation.position,Quaternion.identity);
+				Spawn("Surveillance_Drone",spawnPoint,Quaternion.identity);
 				for(int i=0; i<3; i++)
 				{
-					Spawn("Hunting drone",playerLastLocation.position,Quaternion.identity);
+					Spawn("Hunting drone",spawnPoint,Quaternion.identity);
 				}
-				Debug.Log("1SD,3HD");
 			}
 			else if(reputation == 5)
 			{
@@ -91,15 +95,13 @@ public class SpawnManagerScript : MonoBehaviour {
 				hdCount+=3;
 				for(int i=0; i<3; i++)
 				{
-					Spawn("Surveillance drone",playerLastLocation.position,Quaternion.identity);
+					Spawn("Surveillance_Drone",spawnPoint,Quaternion.identity);
 				}
 				for(int i=0; i<3; i++)
 				{
-					Spawn("Hunting drone",playerLastLocation.position,Quaternion.identity);
+					Spawn("Hunting drone",spawnPoint,Quaternion.identity);
 				}
-				Debug.Log("3SD,3HD");
 			}
-			countDownTimer = 0;
 		}
 	}
 
@@ -121,7 +123,29 @@ public class SpawnManagerScript : MonoBehaviour {
 
 	void CalculateSpawnPoint()
 	{
-
+		WaypointNodeScript lastNode = WayPointManagerScript.Instance.tracePlayerNodes.Last();
+		float distance = Vector3.Distance(player.transform.position,lastNode.transform.position);
+		Debug.Log(distance);
+		if(distance >= spawnDistance)
+		{
+			//spawnPoint = Vector3.Lerp(player.transform.position,lastNode.transform.position, (distance - spawnDistance)/1.0f);
+			spawnPoint = Vector3.Lerp(player.transform.position,lastNode.transform.position, ((distance-spawnDistance)/distance));
+			Debug.Log(">=4");
+			Debug.Log((distance-spawnDistance)/distance);
+			Debug.Log(spawnPoint);
+		}
+		else if(distance < spawnDistance)
+		{
+			Debug.Log("<=4");
+			for(int i=WayPointManagerScript.Instance.tracePlayerNodes.Count-2; i<0 ; i--)
+			{
+				distance += Vector3.Distance(WayPointManagerScript.Instance.tracePlayerNodes[i].transform.position,WayPointManagerScript.Instance.tracePlayerNodes[i-1].transform.position);
+				if(distance >= spawnDistance)
+				{
+					spawnPoint = Vector3.Lerp(WayPointManagerScript.Instance.tracePlayerNodes[i].transform.position,WayPointManagerScript.Instance.tracePlayerNodes[i-1].transform.position, (distance - spawnDistance)/1.0f);
+				}
+			}
+		}
 	}
 
 	//Spawn
@@ -134,9 +158,17 @@ public class SpawnManagerScript : MonoBehaviour {
 		}
 	}
 
-	public void SpawnMuliple(string objectName,Vector3 newPosition, Quaternion newRotation)
+	public void SpawnMuliple(string objectName,Vector3 newPosition, Quaternion newRotation,int amount)
 	{
-		
+		for(int i=0; i<=amount ; i++)
+		{
+			if(pool[objectName].Count > 0){
+				GameObject go = pool[objectName].Pop();
+				go.transform.position = newPosition;
+				go.transform.rotation = newRotation;
+				go.SetActive(true);
+			}
+		}
 	}
 
 	//Despawn

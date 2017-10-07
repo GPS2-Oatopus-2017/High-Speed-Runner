@@ -26,6 +26,7 @@ public class WayPointManagerScript : MonoBehaviour
 	public Vector3 pointingPos;
 
 	//Nodes that the player touches
+	public List<WaypointNodeScript> tracePlayerNodes = new List<WaypointNodeScript>();
 	public List<WaypointNodeScript> touchedNodes = new List<WaypointNodeScript>();
 	public bool isInProximity
 	{
@@ -110,6 +111,7 @@ public class WayPointManagerScript : MonoBehaviour
 
 	public void RegisterNode(WaypointNodeScript node)
 	{
+		tracePlayerNodes.Add(node);
 		touchedNodes.Add(node);
 	}
 

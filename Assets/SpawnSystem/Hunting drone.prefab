@@ -22,7 +22,6 @@ GameObject:
   - component: {fileID: 33644959514735892}
   - component: {fileID: 65946629625705982}
   - component: {fileID: 23846238778643812}
-  - component: {fileID: 114437669932156906}
   - component: {fileID: 54323816551518514}
   m_Layer: 0
   m_Name: Hunting drone
@@ -110,15 +109,3 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &114437669932156906
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1419483024605138}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 93045b7693a949d46bfa42f7fc283edc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  movementSpeed: 3
