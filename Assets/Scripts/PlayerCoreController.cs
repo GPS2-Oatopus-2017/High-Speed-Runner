@@ -46,4 +46,9 @@ public class PlayerCoreController : MonoBehaviour
 		float angle = Quaternion.LookRotation(direction).eulerAngles.y;
 		rigidController.rotAngle = angle;
 	}
+	
+    public void ToggleRunning(bool isRunning)
+    {
+        rigidController.movementSettings.m_Running = isRunning;
+    }
 }

@@ -32,7 +32,7 @@ namespace UnityStandardAssets.Characters.FirstPerson
 			[HideInInspector] public float CurrentTargetSpeed = 8f;
 
 			//#if !MOBILE_INPUT
-			private bool m_Running;
+			public bool m_Running;
 			//#endif
 
 			public void UpdateDesiredTargetSpeed (Vector2 input)
@@ -53,8 +53,12 @@ namespace UnityStandardAssets.Characters.FirstPerson
 					CurrentTargetSpeed = ForwardSpeed;
 				}
 
-				CurrentTargetSpeed *= RunMultiplier;
-				m_Running = true;
+                if(m_Running)
+                {
+                    CurrentTargetSpeed *= RunMultiplier; 
+                }
+//				CurrentTargetSpeed *= RunMultiplier;
+//				m_Running = true;
 
 				//#if !MOBILE_INPUT
 				//	            if (Input.GetKey(RunKey))
