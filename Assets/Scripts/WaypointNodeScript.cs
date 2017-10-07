@@ -179,7 +179,7 @@ public class WaypointNodeScript : MonoBehaviour
 			if(other.GetComponent<PlayerCoreController>())
 			{
 				Debug.Log("enter");
-				WayPointManagerScript.Instance.RegisterNode(this);;
+				WaypointManagerScript.Instance.RegisterNode(this);;
 			}
 		}
 	}
@@ -191,7 +191,7 @@ public class WaypointNodeScript : MonoBehaviour
 			if(other.GetComponent<PlayerCoreController>())
 			{
 				Debug.Log("exit");
-				WayPointManagerScript.Instance.UnregisterNode(this);
+				WaypointManagerScript.Instance.UnregisterNode(this);
 			}
 		}
 	}
