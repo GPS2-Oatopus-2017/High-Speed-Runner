@@ -6,7 +6,7 @@ public class SurveillanceDroneScript : MonoBehaviour {
 
 	public GameObject player; // Public for now
 
-	public float movementSpeed = 17.0f;
+	public float movementSpeed = 11.0f;
 	public float turnSpeed = 8.0f;
 
 	public float alertDistance = 12.0f; // To be adjusted

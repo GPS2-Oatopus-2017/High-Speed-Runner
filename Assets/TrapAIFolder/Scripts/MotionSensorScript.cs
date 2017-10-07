@@ -9,7 +9,7 @@ public class MotionSensorScript : MonoBehaviour {
 
 	public bool isActive;
 	
-	public float alertDistance = 3; // To be adjusted
+	public float alertDistance = 6; // To be adjusted
 
 	void Start() 
 	{

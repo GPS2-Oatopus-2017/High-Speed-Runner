@@ -417,7 +417,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 0}
-  movementSpeed: 13
+  movementSpeed: 9
   turnSpeed: 4
   safeDistance: 26
   hoverForce: 90

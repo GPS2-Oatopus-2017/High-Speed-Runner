@@ -108,4 +108,4 @@ MonoBehaviour:
   player: {fileID: 0}
   electricWall: {fileID: 0}
   isActive: 0
-  alertDistance: 3
+  alertDistance: 6
