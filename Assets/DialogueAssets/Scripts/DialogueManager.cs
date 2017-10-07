@@ -86,13 +86,13 @@ public class DialogueManager : MonoBehaviour
     }
 
     public void WinSceneDialogue() // Call this function at win scene
-    {
+    {                              // DialogueManager.Instance.WinSceneDialogue();
         dialogueBox.SetActive(true);
         dialogue.text = "Proceed to the delivery mission";
     }
 
-    public void LoseSceneDialogue() // Call this function at lose scene
-    {
+    public void LoseSceneDialogue() // Call this function when player loses the game either by dying or by failing to reach end point in time.
+    {                               // DialogueManager.Instance.LoseSceneDialogue();
         dialogueBox.SetActive(true);
         dialogue.text = "Another failure";
     }
