@@ -2,67 +2,60 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+public enum Direction
+{
+    North = 0,
+    East,
+    South,
+    West,
+
+    Total
+}
+
 [System.Serializable]
 public class WaypointNodeData
 {
-	public bool isJunction;
+    public WaypointNodeScript[] directionalNodes;
 
-	public WaypointNodeScript node1;
-	public WaypointNodeScript node2;
-
-	public List<WaypointNodeScript> backNodes;
-
-	public WaypointNodeScript forwardNode
+	public WaypointNodeScript rightNode(Direction fromDir)
 	{
-		get
-		{
-			if(!isJunction)
-				return node1;
-			else
-				return null;
-		}
-		set
-		{
-			if(!isJunction)
-				node1 = value;
-		}
+		return rightNode((int) fromDir);
 	}
 
-	public WaypointNodeScript leftNode
+	public WaypointNodeScript rightNode(int fromDir)
 	{
-		get
-		{
-			if(isJunction)
-				return node1;
-			else
-				return null;
-		}
-		set
-		{
-			if(isJunction)
-				node1 = value;
-		}
+		int right = (fromDir + 1) % (int)Direction.Total;
+//		Debug.Log((Direction)right);
+		return directionalNodes[right];
 	}
 
-	public WaypointNodeScript rightNode
+	public WaypointNodeScript forwardNode(Direction fromDir)
 	{
-		get
-		{
-			if(isJunction)
-				return node2;
-			else
-				return null;
-		}
-		set
-		{
-			if(isJunction)
-				node2 = value;
-		}
+		return forwardNode((int) fromDir);
+	}
+
+	public WaypointNodeScript forwardNode(int fromDir)
+	{
+		int forward = (fromDir + 2) % (int)Direction.Total;
+//		Debug.Log((Direction)right);
+		return directionalNodes[forward];
+	}
+
+	public WaypointNodeScript leftNode(Direction fromDir)
+	{
+		return leftNode((int) fromDir);
+	}
+
+	public WaypointNodeScript leftNode(int fromDir)
+	{
+		int left = (fromDir + 3) % (int)Direction.Total;
+//		Debug.Log((Direction)right);
+		return directionalNodes[left];
 	}
 
 	public WaypointNodeData()
 	{
-		backNodes = new List<WaypointNodeScript>();
+        directionalNodes = new WaypointNodeScript[(int)(Direction.Total)];
 	}
 }
 
@@ -75,9 +68,12 @@ public class WaypointNodeScript : MonoBehaviour
 
 	void OnValidate()
 	{
-		UpdateJunctionMode();
-		UpdateBackNodes();
-		BackupPreviousData();
+		UpdateNodes();
+	}
+
+	void Awake()
+	{
+		ResetNodes(true);
 	}
 
 	void OnDestroy()
@@ -88,92 +84,91 @@ public class WaypointNodeScript : MonoBehaviour
 	[ContextMenu("Reset Nodes")]
 	void ResetNodes()
 	{
-		if(data.node1)
-		{
-			if(data.node1.data.backNodes.Contains(this))
-				data.node1.data.backNodes.Remove(this);
+		ResetNodes(false);
+	}
 
-			data.node1 = null;
-		}
-		if(data.node2)
+	void ResetNodes(bool softReset)
+	{
+		for(int i = 0; i < (int)Direction.Total; i++)
 		{
-			if(data.node2.data.backNodes.Contains(this))
-				data.node2.data.backNodes.Remove(this);
+			if(!softReset)
+			{
+				if(data.directionalNodes[i])
+				{
+					data.directionalNodes[i].data.directionalNodes[GetOppositeDir(i)] = null;
+					data.directionalNodes[i].BackupPreviousData();
+				}
+			}
 
-			data.node2 = null;
+			data.directionalNodes[i] = null;
 		}
 		BackupPreviousData();
 	}
 
-	void UpdateJunctionMode()
+	void UpdateNodes()
 	{
-		if(data.isJunction != prevData.isJunction)
+		for(int i = 0; i < (int)Direction.Total; i++)
 		{
-			if(data.node1)
+			if(data.directionalNodes[i] != prevData.directionalNodes[i])
 			{
-				if(data.node1.data.backNodes.Contains(this))
-					data.node1.data.backNodes.Remove(this);
-				
-				data.node1 = null;
-			}
-			if(data.node2)
-			{
-				if(data.node2.data.backNodes.Contains(this))
-					data.node2.data.backNodes.Remove(this);
-				
-				data.node2 = null;
-			}
+				if(data.directionalNodes[i])
+				{
+					// Deny node assignment when assigning this node to itself
+					if(data.directionalNodes[i] == this)
+					{
+						data.directionalNodes[i] = prevData.directionalNodes[i];
+					}
+					else
+					{
+						bool isDuplicated = false;
+						for(int j = 0; j < (int)Direction.Total; j++)
+						{
+							// Deny node assignment when it is used in other directions of this node
+							if(i != j && data.directionalNodes[i] == data.directionalNodes[j])
+							{
+								data.directionalNodes[i] = prevData.directionalNodes[i];
+								isDuplicated = true;
+								break;
+							}
+						}
 
-			prevData.isJunction = data.isJunction;
+						if(!isDuplicated)
+						{
+							// Deny node assignment when the slot is occupied
+							if(data.directionalNodes[i].data.directionalNodes[GetOppositeDir(i)])
+							{
+								data.directionalNodes[i] = prevData.directionalNodes[i];
+							}
+							else
+							{
+								data.directionalNodes[i].data.directionalNodes[GetOppositeDir(i)] = this;
+								data.directionalNodes[i].BackupPreviousData();
+
+								if(prevData.directionalNodes[i])
+								{
+									prevData.directionalNodes[i].data.directionalNodes[GetOppositeDir(i)] = null;
+									prevData.directionalNodes[i].BackupPreviousData();
+								}
+							}
+						}
+					}
+				}
+			}
 		}
+		BackupPreviousData();
 	}
 
-	void UpdateBackNodes()
+	int GetOppositeDir(int i)
 	{
-		if(!data.isJunction)
-		{
-			if(data.forwardNode)
-			{
-				if(!data.forwardNode.data.backNodes.Contains(this))
-					data.forwardNode.data.backNodes.Add(this);
-			}
-			else if(prevData.forwardNode)
-			{
-				if(prevData.forwardNode.data.backNodes.Contains(this))
-					prevData.forwardNode.data.backNodes.Remove(this);
-			}
-		}
-		else
-		{
-			if(data.leftNode)
-			{
-				if(!data.leftNode.data.backNodes.Contains(this))
-					data.leftNode.data.backNodes.Add(this);
-			}
-			else if(prevData.leftNode)
-			{
-				if(prevData.leftNode.data.backNodes.Contains(this))
-					prevData.leftNode.data.backNodes.Remove(this);
-			}
-
-			if(data.rightNode)
-			{
-				if(!data.rightNode.data.backNodes.Contains(this))
-					data.rightNode.data.backNodes.Add(this);
-			}
-			else if(prevData.rightNode)
-			{
-				if(prevData.rightNode.data.backNodes.Contains(this))
-					prevData.rightNode.data.backNodes.Remove(this);
-			}
-		}
+		return (i + 2) % (int)Direction.Total;
 	}
 
-	void BackupPreviousData()
+	public void BackupPreviousData()
 	{
-		prevData.forwardNode = data.forwardNode;
-		prevData.leftNode = data.leftNode;
-		prevData.rightNode = data.rightNode;
+		for(int i = 0; i < (int)Direction.Total; i++)
+		{
+			prevData.directionalNodes[i] = data.directionalNodes[i];
+		}
 	}
 
 	// Only In Play Mode

@@ -133,7 +133,7 @@ public class SpawnManagerScript : MonoBehaviour {
 
 	void CalculateSpawnPoint()
 	{
-		WaypointNodeScript lastNode = WayPointManagerScript.Instance.tracePlayerNodes.Last();
+		WaypointNodeScript lastNode = WaypointManagerScript.Instance.tracePlayerNodes.Last();
 		float distance = Vector3.Distance(player.transform.position,lastNode.transform.position);
 		Debug.Log(distance);
 		if(distance >= spawnDistance)
@@ -147,12 +147,12 @@ public class SpawnManagerScript : MonoBehaviour {
 		else if(distance < spawnDistance)
 		{
 			Debug.Log("<=4");
-			for(int i=WayPointManagerScript.Instance.tracePlayerNodes.Count-2; i<0 ; i--)
+			for(int i=WaypointManagerScript.Instance.tracePlayerNodes.Count-2; i<0 ; i--)
 			{
-				distance += Vector3.Distance(WayPointManagerScript.Instance.tracePlayerNodes[i].transform.position,WayPointManagerScript.Instance.tracePlayerNodes[i-1].transform.position);
+				distance += Vector3.Distance(WaypointManagerScript.Instance.tracePlayerNodes[i].transform.position,WaypointManagerScript.Instance.tracePlayerNodes[i-1].transform.position);
 				if(distance >= spawnDistance)
 				{
-					spawnPoint = Vector3.Lerp(WayPointManagerScript.Instance.tracePlayerNodes[i].transform.position,WayPointManagerScript.Instance.tracePlayerNodes[i-1].transform.position, (distance - spawnDistance)/1.0f);
+					spawnPoint = Vector3.Lerp(WaypointManagerScript.Instance.tracePlayerNodes[i].transform.position,WaypointManagerScript.Instance.tracePlayerNodes[i-1].transform.position, (distance - spawnDistance)/1.0f);
 				}
 			}
 		}

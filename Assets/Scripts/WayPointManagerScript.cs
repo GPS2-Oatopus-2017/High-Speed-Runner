@@ -2,11 +2,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class WayPointManagerScript : MonoBehaviour
+public class WaypointManagerScript : MonoBehaviour
 {
 	//Singleton Setup
-	private static WayPointManagerScript mInstance;
-	public static WayPointManagerScript Instance
+	private static WaypointManagerScript mInstance;
+	public static WaypointManagerScript Instance
 	{
 		get { return mInstance; }
 	}
@@ -52,61 +52,54 @@ public class WayPointManagerScript : MonoBehaviour
 	// Update is called once per frame
 	void Update ()
 	{
-		if(!hasConfirmedEvent)
-		{
-			//Check for events
-			if(isInProximity && touchedNodes[0].data.isJunction)
-			{
-				if (SwipeScript.Instance.GetSwipe () == SwipeDirection.Left || Input.GetKeyDown (KeyCode.A)) 
-				{
-					curEvent = EventType.SwipeLeft;
-					hasConfirmedEvent = true;
-				} 
-				else if (SwipeScript.Instance.GetSwipe () == SwipeDirection.Right || Input.GetKeyDown (KeyCode.D)) 
-				{
-					curEvent = EventType.SwipeRight;
-					hasConfirmedEvent = true;
-				}
-				else
-				{
-					curEvent = EventType.None;
-					hasConfirmedEvent = false;
-				}
-			}
-			else
-			{
-				curEvent = EventType.MoveForward;
-			}
-	//
-	//		//Notify the player to turn.
-	//		if(isInProximity)
-	//		{
-	//			if(touchedNodes[0].isJunction && curEvent == EventType.None)
-	//				pointingPos = touchedNodes[0].nodes[0].transform.position;
-	//			else
-	//				pointingPos = touchedNodes[0].nodes[(int)curEvent].transform.position;
-	//		}
-			if(isInProximity)
-			{
-				switch(curEvent)
-				{
-					case EventType.MoveForward:
-						pointingPos = touchedNodes[0].data.forwardNode.transform.position;
-						break;
-					case EventType.SwipeLeft:
-						pointingPos = touchedNodes[0].data.leftNode.transform.position;
-					Debug.Log("Left");
-						break;
-					case EventType.SwipeRight:
-						pointingPos = touchedNodes[0].data.rightNode.transform.position;
-					Debug.Log("Right");
-						break;
-				}
-			}
-		}
-
-		if(curEvent != EventType.None)
-			player.RotateTowards(pointingPos);
+//		if(!hasConfirmedEvent)
+//		{
+//			//Check for events
+//			if(isInProximity && touchedNodes[0].data.isJunction)
+//			{
+//				if (SwipeScript.Instance.GetSwipe () == SwipeDirection.Left || Input.GetKeyDown (KeyCode.A)) 
+//				{
+//					curEvent = EventType.SwipeLeft;
+//					hasConfirmedEvent = true;
+//				} 
+//				else if (SwipeScript.Instance.GetSwipe () == SwipeDirection.Right || Input.GetKeyDown (KeyCode.D)) 
+//				{
+//					curEvent = EventType.SwipeRight;
+//					hasConfirmedEvent = true;
+//				}
+//				else
+//				{
+//					curEvent = EventType.None;
+//					hasConfirmedEvent = false;
+//				}
+//			}
+//			else
+//			{
+//				curEvent = EventType.MoveForward;
+//			}
+//	
+//			//Notify the player to turn.
+//			if(isInProximity)
+//			{
+//				switch(curEvent)
+//				{
+//					case EventType.MoveForward:
+//						pointingPos = touchedNodes[0].data.forwardNode.transform.position;
+//						break;
+//					case EventType.SwipeLeft:
+//						pointingPos = touchedNodes[0].data.leftNode.transform.position;
+//					Debug.Log("Left");
+//						break;
+//					case EventType.SwipeRight:
+//						pointingPos = touchedNodes[0].data.rightNode.transform.position;
+//					Debug.Log("Right");
+//						break;
+//				}
+//			}
+//		}
+//
+//		if(curEvent != EventType.None)
+//			player.RotateTowards(pointingPos);
 	}
 
 	public void RegisterNode(WaypointNodeScript node)
