@@ -16,6 +16,9 @@ public class InteractScript : MonoBehaviour
 	GameObject lightObject;
 	Light lightSet;
 
+	public bool toOpenDoor;
+	public GameObject currentDoor = null;
+
 	public static InteractScript _instance;
 
 	public static InteractScript Instance { get { return _instance; } }
@@ -50,13 +53,14 @@ public class InteractScript : MonoBehaviour
 	void CheckInteract ()
 	{
 		if (Input.GetMouseButtonDown (0) || Input.touchCount > 0) {
+			
 			ray = Camera.main.ScreenPointToRay (Input.mousePosition);
+
 			if (Physics.Raycast (ray, out hit, rayDistance)) {
+				
 				Debug.DrawRay (transform.position, hit.transform.position, Color.red);
 				Debug.Log (hit.transform.name);
-				if (hit.transform.tag == "Interactable") {
-					player.RotateTowards (hit.transform.position);
-				}
+
 				if (hit.transform.tag == "MountainDew") {
 					//lightObject.transform.rotation = Quaternion.Euler (20f, -90f, lightObject.transform.rotation.z);
 					//lightObject.transform.rotation = Quaternion.Lerp (lightObject.transform.rotation, Quaternion.identity, Time.deltaTime);
@@ -73,6 +77,8 @@ public class InteractScript : MonoBehaviour
 					if (doorRender.material.color == Color.red) {
 						doorRender.material.color = Color.green;
 						doorThing.gameObject.SetActive (false);
+						//Time.timeScale = 0.5f;
+						//player.RotateTowards (hit.transform.position);
 					} else {
 						doorRender.material.color = Color.red;
 						doorThing.gameObject.SetActive (true);
@@ -91,6 +97,28 @@ public class InteractScript : MonoBehaviour
 						trapRender.material.color = Color.red;
 						trapThing.gameObject.SetActive (true);
 					}
+				}
+			}
+		}
+
+		if (Input.GetMouseButton (0) || Input.touchCount > 0) {
+			
+			ray = Camera.main.ScreenPointToRay (Input.mousePosition);
+
+			if (Physics.Raycast (ray, out hit, rayDistance)) {
+
+				Debug.DrawRay (transform.position, hit.transform.position, Color.red);
+				Debug.Log (hit.transform.name);
+
+				if (hit.transform.tag == "Interactable") {
+					
+					player.RotateTowards (hit.transform.position);
+
+					currentDoor = hit.transform.gameObject;
+
+					toOpenDoor = true;
+				} else {
+					toOpenDoor = false;
 				}
 			}
 		}
