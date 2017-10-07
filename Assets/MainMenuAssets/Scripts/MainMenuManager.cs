@@ -8,17 +8,11 @@ public class MainMenuManager : MonoBehaviour
 {
     [Header("Menu Settings")]
     public GameObject[] menuWindows;
-    public string tutorialLevel;
     public string startingLevel;
 
     public void StartGame()
     {
         SceneManager.LoadScene(startingLevel); //Start Game
-    }
-
-    public void StartTutorial()
-    {
-        SceneManager.LoadScene(tutorialLevel); //Start Tutorial
     }
 
     public void ExitGame()
