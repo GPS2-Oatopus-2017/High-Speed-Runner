@@ -6,11 +6,10 @@ public class HuntingDroneScript : MonoBehaviour {
 
 	public GameObject player; // Public for now
 
-	public float movementSpeed = 2.0f;
+	public float movementSpeed = 13.0f;
 	public float turnSpeed = 4.0f;
 
-	public int chaseMaxDistance = 10; // To be adjusted
-	public int chaseMinDistance = 2; // To be adjusted
+	public float safeDistance = 26.0f; // To be adjusted
 
 	public float hoverForce = 90.0f; // To be adjusted
 	public float hoverHeight = 3.5f; // To be adjusted
@@ -23,6 +22,8 @@ public class HuntingDroneScript : MonoBehaviour {
 	public float fireRate = 3.0f;
 	private float nextFire;
 	private bool lastGunHardPoint;
+
+	public bool isWithinRange;
 
 	void Awake()
 	{
@@ -43,42 +44,57 @@ public class HuntingDroneScript : MonoBehaviour {
 
 	void Update()
 	{
-		// Currently chases you without a defined path. Will add following waypoints later when there is a defined path.
-		transform.LookAt(player.transform.position);
-
-		if(Vector3.Distance(transform.position, player.transform.position) >= chaseMinDistance)
-		{
-			transform.position += transform.forward * movementSpeed * Time.deltaTime;
-
-			if(Vector3.Distance(transform.position, player.transform.position) <= chaseMinDistance)
-			{
-				// Some action here when close to the player
-				Debug.Log("Hunting Drone Body Slammed You! -- You Take 1 DMG");
-			}
-		}
-
-		// For Drone Shooting
-		if(Time.time > nextFire)
-		{
-			nextFire = Time.time + fireRate;
-
-			if(lastGunHardPoint == true)
-			{
-				Instantiate(bullet, droneGunHardPoint1.position, droneGunHardPoint1.rotation);
-				lastGunHardPoint = false;
-			}
-			else
-			{
-				Instantiate(bullet, droneGunHardPoint2.position, droneGunHardPoint2.rotation);
-				lastGunHardPoint = true;
-			}
-		}
+		huntingDroneMainFunctions();
 	}
 
 
 	void FixedUpdate()
 	{
-		// For Drone Hovering
+		droneHoveringFunction();
+	}
+
+
+	void huntingDroneMainFunctions()
+	{
+		transform.LookAt(player.transform.position);
+
+		if(Vector3.Distance(transform.position, player.transform.position) >= safeDistance)
+		{
+			isWithinRange = false;
+			huntingDroneRigidbody.velocity = huntingDroneRigidbody.velocity * 0.9f;
+
+			Debug.Log("Hunting Drone No Longer Chasing Player (More Than safeDistance)");
+		}
+		else
+		{
+			isWithinRange = true;
+
+			transform.position += transform.forward * movementSpeed * Time.deltaTime;
+		}
+			
+		if(isWithinRange == true)
+		{
+			if(Time.time > nextFire)
+			{
+				nextFire = Time.time + fireRate;
+
+				if(lastGunHardPoint == true)
+				{
+					Instantiate(bullet, droneGunHardPoint1.position, droneGunHardPoint1.rotation);
+					lastGunHardPoint = false;
+				}
+				else
+				{
+					Instantiate(bullet, droneGunHardPoint2.position, droneGunHardPoint2.rotation);
+					lastGunHardPoint = true;
+				}
+			}
+		}
+	}
+
+
+	void droneHoveringFunction()
+	{
 		Ray hoverRay = new Ray (transform.position, -transform.up);
 		RaycastHit hoverHit;
 

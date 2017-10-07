@@ -417,16 +417,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 0}
-  movementSpeed: 2
+  movementSpeed: 13
   turnSpeed: 4
-  chaseMaxDistance: 10
-  chaseMinDistance: 2
+  safeDistance: 26
   hoverForce: 90
   hoverHeight: 3.5
   bullet: {fileID: 1603877288706312, guid: 9be5e4fcb2e4e3d4bafb8ab115c2616b, type: 2}
   droneGunHardPoint1: {fileID: 4600094134689960}
   droneGunHardPoint2: {fileID: 4932357329269432}
   fireRate: 3
+  isWithinRange: 0
 --- !u!135 &135918488971208560
 SphereCollider:
   m_ObjectHideFlags: 1

@@ -4,24 +4,27 @@ using UnityEngine;
 
 public class MotionSensorScript : MonoBehaviour {
 
+	public GameObject player; // Public for now
 	public GameObject electricWall;
 
 	public bool isActive;
+	
+	public float alertDistance = 3; // To be adjusted
 
 	void Start() 
 	{
+		player = GameObject.FindWithTag("Player");
+
 		isActive = true;
 	}
-		
-	void OnCollisionEnter(Collision other)
+
+
+	void Update()
 	{
-		if(isActive == true)
+		if(Vector3.Distance(transform.position, player.transform.position) <= alertDistance)
 		{
-			if(other.collider.tag == "Player")
-			{
-				electricWall.SetActive(true);
-				isActive = false;
-			}
+			electricWall.SetActive(true);
+			isActive = false;
 		}
 	}
 }
