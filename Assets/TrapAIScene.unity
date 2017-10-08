@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657844, g: 0.49641222, b: 0.57481694, a: 1}
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
@@ -271,9 +271,10 @@ MonoBehaviour:
     slowDownRate: 20
     airControl: 0
     shellOffset: 0
-  rotAngle: 90
+  rotAngle: 0
   isSliding: 0
   slideDuration: 2
+  doOnce: 1
 --- !u!1001 &339306132
 Prefab:
   m_ObjectHideFlags: 0
@@ -397,6 +398,22 @@ Prefab:
       propertyPath: m_RootOrder
       value: 7
       objectReference: {fileID: 0}
+    - target: {fileID: 114892454503096270, guid: d0b9bc6c8b6ab89478f12a9e8b56be7c,
+        type: 2}
+      propertyPath: movementSpeed
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 114892454503096270, guid: d0b9bc6c8b6ab89478f12a9e8b56be7c,
+        type: 2}
+      propertyPath: targetOffset
+      value: 22
+      objectReference: {fileID: 0}
+    - target: {fileID: 114892454503096270, guid: d0b9bc6c8b6ab89478f12a9e8b56be7c,
+        type: 2}
+      propertyPath: enemyAttackIndicator
+      value: 
+      objectReference: {fileID: 1697361152441738, guid: 9502dd6241a42eb419e0fa70099cb5d0,
+        type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: d0b9bc6c8b6ab89478f12a9e8b56be7c, type: 2}
   m_IsPrefabParent: 0
@@ -727,7 +744,7 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4149028690220668, guid: 8203041de05d8c24bbbf676adec6a004, type: 2}
       propertyPath: m_LocalPosition.x
-      value: -0.4
+      value: -9.44
       objectReference: {fileID: 0}
     - target: {fileID: 4149028690220668, guid: 8203041de05d8c24bbbf676adec6a004, type: 2}
       propertyPath: m_LocalPosition.y
@@ -957,20 +974,6 @@ Light:
   m_Lightmapping: 4
   m_AreaSize: {x: 1, y: 1}
   m_BounceIntensity: 1
-  m_FalloffTable:
-    m_Table[0]: 0
-    m_Table[1]: 0
-    m_Table[2]: 0
-    m_Table[3]: 0
-    m_Table[4]: 0
-    m_Table[5]: 0
-    m_Table[6]: 0
-    m_Table[7]: 0
-    m_Table[8]: 0
-    m_Table[9]: 0
-    m_Table[10]: 0
-    m_Table[11]: 0
-    m_Table[12]: 0
   m_ColorTemperature: 6570
   m_UseColorTemperature: 0
   m_ShadowRadius: 0

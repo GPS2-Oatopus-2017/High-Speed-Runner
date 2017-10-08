@@ -5,6 +5,10 @@ using UnityEngine;
 public class HuntingDroneScript : MonoBehaviour {
 
 	public GameObject player; // Public for now
+	public GameObject enemyAttackIndicator;
+
+	private Vector3 target;
+	public float targetOffset;
 
 	public float movementSpeed = 9.0f;
 	public float turnSpeed = 4.0f;
@@ -20,6 +24,7 @@ public class HuntingDroneScript : MonoBehaviour {
 	public Transform droneGunHardPoint1;
 	public Transform droneGunHardPoint2;
 	public float fireRate = 3.0f;
+	public float fireIndication = 1.5f;
 	private float nextFire;
 	private bool lastGunHardPoint;
 
@@ -34,6 +39,8 @@ public class HuntingDroneScript : MonoBehaviour {
 	void Start()
 	{
 		player = GameObject.FindWithTag("Player");
+
+		target = player.transform.position + player.transform.forward * targetOffset;
 
 		float randNum = Random.Range(3,6);
 		hoverHeight = randNum;
@@ -74,6 +81,15 @@ public class HuntingDroneScript : MonoBehaviour {
 			
 		if(isWithinRange == true)
 		{
+			if(Time.time > fireIndication)
+			{
+				fireIndication = Time.time + fireRate;
+
+				target = player.transform.position + (player.transform.forward * targetOffset);
+				GameObject indicator = Instantiate(enemyAttackIndicator, new Vector3(target.x, 0.1f, target.z), Quaternion.LookRotation(enemyAttackIndicator.transform.up));
+				Destroy(indicator, 2f);
+			}
+
 			if(Time.time > nextFire)
 			{
 				nextFire = Time.time + fireRate;
@@ -91,8 +107,6 @@ public class HuntingDroneScript : MonoBehaviour {
 			}
 		}
 	}
-
-
 	void droneHoveringFunction()
 	{
 		Ray hoverRay = new Ray (transform.position, -transform.up);

@@ -13,7 +13,7 @@ public class BulletScript : MonoBehaviour {
 	{
 		bulletRigidbody = GetComponent<Rigidbody>();
 	}
-
+		
 
 	void Start() 
 	{
