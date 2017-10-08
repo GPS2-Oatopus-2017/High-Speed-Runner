@@ -9,13 +9,12 @@ public class WaypointNodeEditor : Editor
 	SerializedProperty data;
 	static int currentDir = 0;
 	bool nodeFoldout = true;
-
-	// Use this for initialization
-	public override void OnInspectorGUI()
+    
+    public override void OnInspectorGUI()
 	{
 		serializedObject.Update();
 
-		data = serializedObject.FindProperty ("data");
+        data = serializedObject.FindProperty ("data");
 
 		nodeFoldout = EditorGUILayout.Foldout(nodeFoldout, "Directional Nodes");
 
@@ -96,7 +95,15 @@ public class WaypointNodeEditor : Editor
 			EditorGUI.indentLevel--;
 		}
 
-		EditorGUILayout.HelpBox("To reset this node, click on \"Reset Node\" instead of \"Reset\".", MessageType.Info);
+        if (!serializedObject.FindProperty("isSaved").boolValue)
+        {
+            EditorGUILayout.BeginHorizontal();
+            GUILayout.FlexibleSpace();
+            serializedObject.FindProperty("isSaved").boolValue = GUILayout.Button("Save", GUILayout.MaxWidth(50), GUILayout.MaxHeight(20));
+            EditorGUILayout.EndHorizontal();
+        }
+
+        EditorGUILayout.HelpBox("To reset this node, click on \"Reset Node\" instead of \"Reset\".", MessageType.Info);
 
 		serializedObject.ApplyModifiedProperties();
 	}

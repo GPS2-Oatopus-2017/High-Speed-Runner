@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using UnityEditor;
 using UnityEngine;
 
 public enum Direction
@@ -62,15 +63,18 @@ public class WaypointNodeData
 [System.Serializable]
 public class WaypointNodeScript : MonoBehaviour
 {
+    [SerializeField]
     int instanceID = 0;
 
     public WaypointNodeData data;
 	public WaypointNodeData prevData;
+    public bool isSaved = true;
 
     void OnValidate()
-	{
-		UpdateNodes();
+    {
+        UpdateNodes();
 
+        // If the object is copied, soft-reset the node
         if (instanceID == 0)
         {
             instanceID = GetInstanceID();
@@ -81,7 +85,17 @@ public class WaypointNodeScript : MonoBehaviour
             ResetNodes(true);
             Debug.LogWarning("Resetting " + gameObject.name + " as it's copied.");
         }
-	}
+    }
+
+    void SetNode(WaypointNodeScript newNode, Direction dir)
+    {
+        SetNode(newNode, (int)dir);
+    }
+
+    void SetNode(WaypointNodeScript newNode, int dir)
+    {
+        data.directionalNodes[dir] = newNode;
+    }
 
     [ContextMenu("Reset Nodes")]
     void ResetNodes()
@@ -109,7 +123,7 @@ public class WaypointNodeScript : MonoBehaviour
 		BackupPreviousData();
 	}
 
-	public void UpdateNodes()
+	void UpdateNodes()
 	{
 		for(int i = 0; i < (int)Direction.Total; i++)
 		{
@@ -149,18 +163,20 @@ public class WaypointNodeScript : MonoBehaviour
 							else
                             {
                                 data.directionalNodes[i].data.directionalNodes[GetOppositeDir(i)] = this;
-								data.directionalNodes[i].BackupPreviousData();
-
-								if(prevData.directionalNodes[i])
-                                {
-                                    prevData.directionalNodes[i].data.directionalNodes[GetOppositeDir(i)] = null;
-									prevData.directionalNodes[i].BackupPreviousData();
-								}
-							}
+                                data.directionalNodes[i].BackupPreviousData();
+                                data.directionalNodes[i].isSaved = false;
+                            }
 						}
 					}
 				}
-			}
+                
+                if (prevData.directionalNodes[i])
+                {
+                    prevData.directionalNodes[i].data.directionalNodes[GetOppositeDir(i)] = null;
+                    prevData.directionalNodes[i].BackupPreviousData();
+                    prevData.directionalNodes[i].isSaved = false;
+                }
+            }
 		}
 		BackupPreviousData();
 	}

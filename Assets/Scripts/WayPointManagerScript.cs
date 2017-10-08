@@ -19,7 +19,7 @@ public class WaypointManagerScript : MonoBehaviour
 		SwipeRight
 	}
 	public EventType curEvent;
-	private bool hasConfirmedEvent = false;
+	public bool hasConfirmedEvent = true;
 
 	//The player
 	public PlayerCoreController player;
@@ -76,7 +76,7 @@ public class WaypointManagerScript : MonoBehaviour
         else
         {
             hasConfirmedEvent = false;
-            curEvent = EventType.None;
+            curEvent = EventType.None; //?
         }
 
         if(hasConfirmedEvent)
@@ -117,8 +117,7 @@ public class WaypointManagerScript : MonoBehaviour
             }
         }
 
-        if (curEvent == EventType.None)
-            player.RotateTowards(pointingNode.transform.position);
+        player.RotateTowards(pointingNode.transform.position);
     }
 
 	public void RegisterNode(WaypointNodeScript node)

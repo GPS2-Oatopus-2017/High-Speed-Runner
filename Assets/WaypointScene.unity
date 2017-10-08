@@ -1005,7 +1005,12 @@ Prefab:
     - target: {fileID: 114628827786537068, guid: 572cd89f643cdcb41a40848479c1fb06,
         type: 2}
       propertyPath: instanceID
-      value: 11876
+      value: 10280
+      objectReference: {fileID: 0}
+    - target: {fileID: 114628827786537068, guid: 572cd89f643cdcb41a40848479c1fb06,
+        type: 2}
+      propertyPath: isSaved
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 572cd89f643cdcb41a40848479c1fb06, type: 2}
@@ -2475,7 +2480,7 @@ Prefab:
         type: 2}
       propertyPath: prevData.directionalNodes.Array.data[0]
       value: 
-      objectReference: {fileID: 1614470592}
+      objectReference: {fileID: 0}
     - target: {fileID: 114628827786537068, guid: 572cd89f643cdcb41a40848479c1fb06,
         type: 2}
       propertyPath: data.directionalNodes.Array.data[2]
@@ -2485,31 +2490,36 @@ Prefab:
         type: 2}
       propertyPath: data.directionalNodes.Array.data[0]
       value: 
-      objectReference: {fileID: 1614470592}
+      objectReference: {fileID: 0}
     - target: {fileID: 114628827786537068, guid: 572cd89f643cdcb41a40848479c1fb06,
         type: 2}
       propertyPath: data.directionalNodes.Array.data[3]
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1614470592}
     - target: {fileID: 114628827786537068, guid: 572cd89f643cdcb41a40848479c1fb06,
         type: 2}
       propertyPath: prevData.directionalNodes.Array.data[3]
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1614470592}
     - target: {fileID: 114628827786537068, guid: 572cd89f643cdcb41a40848479c1fb06,
         type: 2}
       propertyPath: data.directionalNodes.Array.data[1]
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 244980284}
     - target: {fileID: 114628827786537068, guid: 572cd89f643cdcb41a40848479c1fb06,
         type: 2}
       propertyPath: prevData.directionalNodes.Array.data[1]
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 244980284}
     - target: {fileID: 114628827786537068, guid: 572cd89f643cdcb41a40848479c1fb06,
         type: 2}
       propertyPath: instanceID
-      value: 11980
+      value: 10384
+      objectReference: {fileID: 0}
+    - target: {fileID: 114628827786537068, guid: 572cd89f643cdcb41a40848479c1fb06,
+        type: 2}
+      propertyPath: isSaved
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 572cd89f643cdcb41a40848479c1fb06, type: 2}
@@ -4130,6 +4140,11 @@ Prefab:
       propertyPath: pointingNode
       value: 
       objectReference: {fileID: 379118517}
+    - target: {fileID: 114897382283522766, guid: 4707c4cd9a03cb34d806f67c9ea13cbd,
+        type: 2}
+      propertyPath: hasConfirmedEvent
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 4707c4cd9a03cb34d806f67c9ea13cbd, type: 2}
   m_IsPrefabParent: 0
@@ -4297,7 +4312,7 @@ Prefab:
         type: 2}
       propertyPath: data.directionalNodes.Array.data[1]
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1035745194}
     - target: {fileID: 114628827786537068, guid: 572cd89f643cdcb41a40848479c1fb06,
         type: 2}
       propertyPath: data.directionalNodes.Array.data[3]
@@ -4307,7 +4322,7 @@ Prefab:
         type: 2}
       propertyPath: prevData.directionalNodes.Array.data[1]
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1035745194}
     - target: {fileID: 114628827786537068, guid: 572cd89f643cdcb41a40848479c1fb06,
         type: 2}
       propertyPath: prevData.directionalNodes.Array.data[3]
@@ -4316,7 +4331,12 @@ Prefab:
     - target: {fileID: 114628827786537068, guid: 572cd89f643cdcb41a40848479c1fb06,
         type: 2}
       propertyPath: instanceID
-      value: 12090
+      value: 10494
+      objectReference: {fileID: 0}
+    - target: {fileID: 114628827786537068, guid: 572cd89f643cdcb41a40848479c1fb06,
+        type: 2}
+      propertyPath: isSaved
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 572cd89f643cdcb41a40848479c1fb06, type: 2}
@@ -4713,21 +4733,26 @@ Prefab:
         type: 2}
       propertyPath: data.directionalNodes.Array.data[3]
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1035745194}
     - target: {fileID: 114628827786537068, guid: 572cd89f643cdcb41a40848479c1fb06,
         type: 2}
       propertyPath: prevData.directionalNodes.Array.data[3]
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1035745194}
     - target: {fileID: 114628827786537068, guid: 572cd89f643cdcb41a40848479c1fb06,
         type: 2}
       propertyPath: instanceID
-      value: 11854
+      value: 10258
       objectReference: {fileID: 0}
     - target: {fileID: 114628827786537068, guid: 572cd89f643cdcb41a40848479c1fb06,
         type: 2}
       propertyPath: data.directionalNodes.Array.data[0]
       value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 114628827786537068, guid: 572cd89f643cdcb41a40848479c1fb06,
+        type: 2}
+      propertyPath: isSaved
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 572cd89f643cdcb41a40848479c1fb06, type: 2}
