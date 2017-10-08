@@ -36,7 +36,7 @@ public class WaypointNodeData
 
 	public WaypointNodeScript forwardNode(int fromDir)
 	{
-		int forward = (fromDir + 2) % (int)Direction.Total;
+		int forward = (fromDir) % (int)Direction.Total;
 //		Debug.Log((Direction)right);
 		return directionalNodes[forward];
 	}
@@ -60,36 +60,40 @@ public class WaypointNodeData
 }
 
 [System.Serializable]
-[ExecuteInEditMode]
 public class WaypointNodeScript : MonoBehaviour
 {
-	public WaypointNodeData data;
+    int instanceID = 0;
+
+    public WaypointNodeData data;
 	public WaypointNodeData prevData;
 
-	void OnValidate()
+    void OnValidate()
 	{
 		UpdateNodes();
+
+        if (instanceID == 0)
+        {
+            instanceID = GetInstanceID();
+        }
+        else if (instanceID != GetInstanceID() && GetInstanceID() < 0)
+        {
+            instanceID = GetInstanceID();
+            ResetNodes(true);
+            Debug.LogWarning("Resetting " + gameObject.name + " as it's copied.");
+        }
 	}
 
-	void Awake()
-	{
-		ResetNodes(true);
-	}
+    [ContextMenu("Reset Nodes")]
+    void ResetNodes()
+    {
+        ResetNodes(false);
+        Debug.LogWarning("Resetting " + gameObject.name + " with context menu.");
+    }
 
-	void OnDestroy()
-	{
-		ResetNodes();
-	}
-
-	[ContextMenu("Reset Nodes")]
-	void ResetNodes()
-	{
-		ResetNodes(false);
-	}
-
-	void ResetNodes(bool softReset)
-	{
-		for(int i = 0; i < (int)Direction.Total; i++)
+    void ResetNodes(bool softReset)
+    {
+        Debug.LogWarning("Resetting " + gameObject.name + ".");
+        for (int i = 0; i < (int)Direction.Total; i++)
 		{
 			if(!softReset)
 			{
@@ -105,7 +109,7 @@ public class WaypointNodeScript : MonoBehaviour
 		BackupPreviousData();
 	}
 
-	void UpdateNodes()
+	public void UpdateNodes()
 	{
 		for(int i = 0; i < (int)Direction.Total; i++)
 		{
@@ -115,9 +119,10 @@ public class WaypointNodeScript : MonoBehaviour
 				{
 					// Deny node assignment when assigning this node to itself
 					if(data.directionalNodes[i] == this)
-					{
-						data.directionalNodes[i] = prevData.directionalNodes[i];
-					}
+                    {
+                        Debug.LogError("Unable to assign " + gameObject.name + " to itself.");
+                        data.directionalNodes[i] = prevData.directionalNodes[i];
+                    }
 					else
 					{
 						bool isDuplicated = false;
@@ -125,8 +130,9 @@ public class WaypointNodeScript : MonoBehaviour
 						{
 							// Deny node assignment when it is used in other directions of this node
 							if(i != j && data.directionalNodes[i] == data.directionalNodes[j])
-							{
-								data.directionalNodes[i] = prevData.directionalNodes[i];
+                            {
+                                Debug.LogError(gameObject.name + " has already existed in " + ((Direction)j).ToString() + " node.");
+                                data.directionalNodes[i] = prevData.directionalNodes[i];
 								isDuplicated = true;
 								break;
 							}
@@ -136,17 +142,18 @@ public class WaypointNodeScript : MonoBehaviour
 						{
 							// Deny node assignment when the slot is occupied
 							if(data.directionalNodes[i].data.directionalNodes[GetOppositeDir(i)])
-							{
-								data.directionalNodes[i] = prevData.directionalNodes[i];
+                            {
+                                Debug.LogError(data.directionalNodes[i].gameObject.name + "'s " + ((Direction)GetOppositeDir(i)).ToString() + " node has been occupied.");
+                                data.directionalNodes[i] = prevData.directionalNodes[i];
 							}
 							else
-							{
-								data.directionalNodes[i].data.directionalNodes[GetOppositeDir(i)] = this;
+                            {
+                                data.directionalNodes[i].data.directionalNodes[GetOppositeDir(i)] = this;
 								data.directionalNodes[i].BackupPreviousData();
 
 								if(prevData.directionalNodes[i])
-								{
-									prevData.directionalNodes[i].data.directionalNodes[GetOppositeDir(i)] = null;
+                                {
+                                    prevData.directionalNodes[i].data.directionalNodes[GetOppositeDir(i)] = null;
 									prevData.directionalNodes[i].BackupPreviousData();
 								}
 							}

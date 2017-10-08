@@ -23,7 +23,7 @@ public class WaypointManagerScript : MonoBehaviour
 
 	//The player
 	public PlayerCoreController player;
-	public Vector3 pointingPos;
+	public WaypointNodeScript pointingNode;
 
 	//Nodes that the player touches
 	public List<WaypointNodeScript> tracePlayerNodes = new List<WaypointNodeScript>();
@@ -46,61 +46,80 @@ public class WaypointManagerScript : MonoBehaviour
 	// Use this for initialization
 	void Start ()
 	{
-		pointingPos = Vector3.zero;
+
 	}
 	
 	// Update is called once per frame
 	void Update ()
-	{
-//		if(!hasConfirmedEvent)
-//		{
-//			//Check for events
-//			if(isInProximity && touchedNodes[0].data.isJunction)
-//			{
-//				if (SwipeScript.Instance.GetSwipe () == SwipeDirection.Left || Input.GetKeyDown (KeyCode.A)) 
-//				{
-//					curEvent = EventType.SwipeLeft;
-//					hasConfirmedEvent = true;
-//				} 
-//				else if (SwipeScript.Instance.GetSwipe () == SwipeDirection.Right || Input.GetKeyDown (KeyCode.D)) 
-//				{
-//					curEvent = EventType.SwipeRight;
-//					hasConfirmedEvent = true;
-//				}
-//				else
-//				{
-//					curEvent = EventType.None;
-//					hasConfirmedEvent = false;
-//				}
-//			}
-//			else
-//			{
-//				curEvent = EventType.MoveForward;
-//			}
-//	
-//			//Notify the player to turn.
-//			if(isInProximity)
-//			{
-//				switch(curEvent)
-//				{
-//					case EventType.MoveForward:
-//						pointingPos = touchedNodes[0].data.forwardNode.transform.position;
-//						break;
-//					case EventType.SwipeLeft:
-//						pointingPos = touchedNodes[0].data.leftNode.transform.position;
-//					Debug.Log("Left");
-//						break;
-//					case EventType.SwipeRight:
-//						pointingPos = touchedNodes[0].data.rightNode.transform.position;
-//					Debug.Log("Right");
-//						break;
-//				}
-//			}
-//		}
-//
-//		if(curEvent != EventType.None)
-//			player.RotateTowards(pointingPos);
-	}
+    {
+        if (isInProximity)
+        {
+            if (!hasConfirmedEvent)
+            {  
+                if (SwipeScript.Instance.GetSwipe() == SwipeDirection.Left || Input.GetKeyDown(KeyCode.A))
+                {
+                    curEvent = EventType.SwipeLeft;
+                    hasConfirmedEvent = true;
+                }
+                else if (SwipeScript.Instance.GetSwipe() == SwipeDirection.Right || Input.GetKeyDown(KeyCode.D))
+                {
+                    curEvent = EventType.SwipeRight;
+                    hasConfirmedEvent = true;
+                }
+                else
+                {
+                    curEvent = EventType.MoveForward;
+                    hasConfirmedEvent = false;
+                }
+            }
+        }
+        else
+        {
+            hasConfirmedEvent = false;
+            curEvent = EventType.None;
+        }
+
+        if(hasConfirmedEvent)
+        {
+            Direction facingDir = Direction.North;
+            float thresholdAngle = 45.0f;
+            float angle = Quaternion.FromToRotation(Vector3.forward, touchedNodes[0].transform.position - player.transform.position).eulerAngles.y;
+
+            for (int i = 0; i < (int)Direction.Total; i++)
+            {
+                float minAngle = 90.0f * i - thresholdAngle;
+                float maxAngle = 90.0f * i + thresholdAngle;
+
+                if (minAngle < 0.0f) minAngle += 360.0f;
+                if (maxAngle >= 360.0f) minAngle -= 360.0f;
+
+                if (angle >= minAngle && angle <= maxAngle)
+                {
+                    facingDir = (Direction)i;
+                    break;
+                }
+            }
+
+            switch (curEvent)
+            {
+                case EventType.SwipeLeft:
+                    pointingNode = touchedNodes[0].data.leftNode(facingDir);
+                    curEvent = EventType.None;
+                    break;
+                case EventType.SwipeRight:
+                    pointingNode = touchedNodes[0].data.rightNode(facingDir);
+                    curEvent = EventType.None;
+                    break;
+                case EventType.MoveForward:
+                    pointingNode = touchedNodes[0].data.forwardNode(facingDir);
+                    curEvent = EventType.None;
+                    break;
+            }
+        }
+
+        if (curEvent == EventType.None)
+            player.RotateTowards(pointingNode.transform.position);
+    }
 
 	public void RegisterNode(WaypointNodeScript node)
 	{
