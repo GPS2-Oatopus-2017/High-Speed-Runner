@@ -12,6 +12,9 @@ public class FirstEncounterScript : MonoBehaviour
     public static FirstEncounterScript Instance;
 
     public bool[] seenObj; 
+
+	private Material defaultMat;
+	public Material highlightMat;
    
     void Awake()
     {
@@ -34,29 +37,14 @@ public class FirstEncounterScript : MonoBehaviour
 
     public void ObjectEncounter()
     {
-        if (Vector3.Distance(transform.position, objects[0].transform.position)  <= distanceFromObject && seenObj[0] == false)
-        {
-            seenObj[0] = true;
-        }
-
-        if (Vector3.Distance(transform.position, objects[1].transform.position) <= distanceFromObject && seenObj[1] == false)
-        {
-            seenObj[1] = true;
-        }
-
-        if (Vector3.Distance(transform.position, objects[2].transform.position) <= distanceFromObject && seenObj[2] == false)
-        {
-            seenObj[2] = true;
-        }
-
-        if (Vector3.Distance(transform.position, objects[3].transform.position) <= distanceFromObject && seenObj[3] == false)
-        {
-            seenObj[3] = true;
-        }
-
-        if (Vector3.Distance(transform.position, objects[4].transform.position) <= distanceFromObject && seenObj[4] == false)
-        {
-            seenObj[4] = true;
-        }
+		for(int i = 0; i < objects.Count; i++)
+		{
+			if (Vector3.Distance(transform.position, objects[i].transform.position)  <= distanceFromObject && seenObj[i] == false)
+			{
+				seenObj[i] = true;
+				defaultMat= objects[i].GetComponent<MeshRenderer>().material ;
+				objects[i].GetComponent<MeshRenderer>().material = highlightMat;
+			}
+		}
     }    
 }
