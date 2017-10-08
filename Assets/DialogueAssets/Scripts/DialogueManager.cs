@@ -70,18 +70,6 @@ public class DialogueManager : MonoBehaviour
         }
             
         FirstEncounterDialogue(); 
-
-        if(Input.GetKeyDown(KeyCode.Z))
-        {
-            popUps[3].SetActive(true);
-            popUps[4].SetActive(false);
-        }
-
-        if(Input.GetKeyDown(KeyCode.X))
-        {
-            popUps[3].SetActive(false);
-            popUps[4].SetActive(true);
-        }
     }
 
     public void BeginningSceneDialogue() // Displays Dialogue in the beginning of the game 

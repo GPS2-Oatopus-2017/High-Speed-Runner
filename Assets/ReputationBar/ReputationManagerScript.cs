@@ -97,7 +97,7 @@ public class ReputationManagerScript : MonoBehaviour {
 
 	void UpdateCount() //need to change to sd and hd
 	{
-		displayECount = "SD Count: " + SpawnManagerScript.Instance.sdCount + "\nHD Count: "+ SpawnManagerScript.Instance.hdCount;
+		//displayECount = "SD Count: " + SpawnManagerScript.Instance.sdCount + "\nHD Count: "+ SpawnManagerScript.Instance.hdCount;
 		enemyAmountText.text = displayECount;
 	}
 
