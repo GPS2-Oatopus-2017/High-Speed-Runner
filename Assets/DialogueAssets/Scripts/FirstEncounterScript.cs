@@ -21,7 +21,7 @@ public class FirstEncounterScript : MonoBehaviour
 	// Use this for initialization
 	void Start () 
     {
-        for(int i = 0; i < seenObj.Length; i++)
+        for(int i = 0; i < seenObj.Length; i++) // Seen Object is all set to false because player have not seen these objects before.
         {
             seenObj[i] = false;
         }
