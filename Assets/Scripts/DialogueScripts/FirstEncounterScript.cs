@@ -39,11 +39,12 @@ public class FirstEncounterScript : MonoBehaviour
     {
 		for(int i = 0; i < objects.Count; i++)
 		{
+            // Calculates distance of player and obj and decides if it is in range. 
 			if (Vector3.Distance(transform.position, objects[i].transform.position)  <= distanceFromObject && seenObj[i] == false)
 			{
-				seenObj[i] = true;
-				defaultMat= objects[i].GetComponent<MeshRenderer>().material ;
-				objects[i].GetComponent<MeshRenderer>().material = highlightMat;
+				seenObj[i] = true; // Player is currently withing range of an obj.
+				defaultMat= objects[i].GetComponent<MeshRenderer>().material; // Set objects' default material to it's current material.
+				objects[i].GetComponent<MeshRenderer>().material = highlightMat; // Set objects' material to "highlightMat".
 			}
 		}
     }    

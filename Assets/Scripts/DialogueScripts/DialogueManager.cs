@@ -6,21 +6,29 @@ using UnityEngine.UI;
 public class DialogueManager : MonoBehaviour 
 {
     [Header("Variables")]
-    public int bsIndex = 0;
-    public int feIndex = 0;
-    public Text dialogue;       
+    public int bsIndex = 0; // BeginningScene Index count.
+    public int feIndex = 0; // First Encounter Index count.
+
+    [Header("Text Settings")]
+    public Text dialogue;   
     public Text countDown;
+    public List<string> beginningScene; // List of dialogues used at the beginning of the game.
+    public List<string> firstEncounter; // List of dialogues used for every FIRST encounter with an object.
+
+    [Header("Game Objects")]
     public GameObject dialogueBox;
-    public GameObject ttcText;
-    public float timer;
+    public GameObject ttcText; // ttc = touch-to-continue
+    public GameObject[] popUps; // An array of GameObjects for pop-up UIs (i.e HealthBar, Time-line).
+
+    [Header("Timers")]
+    public float timer; 
     public float showTimer;
-    public float cdTimer;
+    public float cdTimer; 
     public float setTime;
-    public List<string> beginningScene;
-    public List<string> firstEncounter;
-    public GameObject[] popUps;
+
+    [Header("Booleans")]
     public bool[] objectSeen;
-    public bool initTimer, initDialogue, startCD, gameWin, gameLose;
+    public bool initTimer, initDialogue, startCD;
 
     public static DialogueManager Instance;
 
@@ -31,7 +39,7 @@ public class DialogueManager : MonoBehaviour
 
     void Start()
     {
-        timer = showTimer;
+        timer = showTimer; //Set Timers to desired amount.
         cdTimer = setTime;
 
         for(int i = 0; i < objectSeen.Length; i++) // Have player ever seen these objects? No. So all booleans are set to false;
@@ -39,9 +47,9 @@ public class DialogueManager : MonoBehaviour
             objectSeen[i] = false;
         }
 
-        initTimer = false; 
-        initDialogue = false;
-        startCD = false;
+        initTimer = false;      //Initiate timer is set to false.
+        initDialogue = false;   //Initial dialogue once scene is loaded is only played once.
+        startCD = false;        //Timer for CountDownTimer is set to false.
     }
 
     void Update()
@@ -51,7 +59,7 @@ public class DialogueManager : MonoBehaviour
             timer -= Time.deltaTime;
         }
 
-        if(startCD == true)
+        if(startCD == true) // Starts counting down UI after beginning dialogue is completed.
         {
             cdTimer -= Time.deltaTime;
             CountDownTimer();
@@ -90,83 +98,47 @@ public class DialogueManager : MonoBehaviour
 
         if(bsIndex == 2)
         {
-            popUps[1].SetActive(true); //Enable HealthBar Prefab.   
+            popUps[1].SetActive(true); //Enable HealthBar/Reputation Prefab.   
         }
 
-        if(bsIndex >= beginningScene.Count)
+        if(bsIndex >= beginningScene.Count) //Once beginning dialogue is done, :
         {
-            dialogueBox.SetActive(false);
-            initDialogue = true;
-            startCD = true;
+            dialogueBox.SetActive(false); //Dialogue Box UI is disabled.
+            initDialogue = true; //Set initialDialogue boolean to true.
+            startCD = true; //Start counting-down.
         }
     }
 
-    public void WinSceneDialogue() // Call this function at win scene
+    public void WinSceneDialogue() // Call this function at win scene, may not be nessecary if we transition to win scene.
     {                              // DialogueManager.Instance.WinSceneDialogue();
         dialogueBox.SetActive(true);
         dialogue.text = "Proceed to the delivery mission";
     }
 
-    public void LoseSceneDialogue() // Call this function when player loses the game either by dying or by failing to reach end point in time.
+    public void LoseSceneDialogue() // Call this function when player loses the game either by dying or by failing to reach end point in time, may not be nessecary if we transition to lose scene.
     {                               // DialogueManager.Instance.LoseSceneDialogue();
-        dialogueBox.SetActive(true);
+        dialogueBox.SetActive(true); 
         dialogue.text = "Another failure";
     }
 
     public void FirstEncounterDialogue() // Displays a brief run-down of the objects during player's first encounter with it.
     {
-        if(FirstEncounterScript.Instance.seenObj[0] == true && objectSeen[0] == false) //seenObj = Player is currently see-ing an object.
-        {                                                                              //objectSeen = Have player already seen this object before?
-            dialogueBox.SetActive(true);
-            dialogue.text = firstEncounter[feIndex];
-            initTimer = true;
 
-            objectSeen[0] = true;
-            ttcText.SetActive(false);
-        }
-
-        else if(FirstEncounterScript.Instance.seenObj[1] == true && objectSeen[1] == false)
+        for(int i = 0; i < objectSeen.Length; i++)
         {
-            dialogueBox.SetActive(true);
-            dialogue.text = firstEncounter[feIndex + 1];
-            initTimer = true;
+            if(FirstEncounterScript.Instance.seenObj[i] == true && objectSeen[i] == false) //seenObj = Is player currently looking at an object?
+            {                                                                              //objectSeen = Have player already seen this object before?
+                dialogueBox.SetActive(true); // Enable dialogue box.
+                dialogue.text = firstEncounter[feIndex]; //Displays text based on which enemy it is (feIndex);
+                initTimer = true;  
 
-            objectSeen[1] = true;
-            ttcText.SetActive(false);
-        }
-
-        else if(FirstEncounterScript.Instance.seenObj[2] == true && objectSeen[2] == false)
-        {
-            dialogueBox.SetActive(true);
-            dialogue.text = firstEncounter[feIndex + 2];
-            initTimer = true;
-
-            objectSeen[2] = true;
-            ttcText.SetActive(false);
-        }
-
-        else if(FirstEncounterScript.Instance.seenObj[3] == true && objectSeen[3] == false)
-        {
-            dialogueBox.SetActive(true);
-            dialogue.text = firstEncounter[feIndex + 3];
-            initTimer = true;
-
-            objectSeen[3] = true;
-            ttcText.SetActive(false);
-        }
-
-        else if(FirstEncounterScript.Instance.seenObj[4] == true && objectSeen[4] == false)
-        {
-            dialogueBox.SetActive(true);
-            dialogue.text = firstEncounter[feIndex + 4];
-            initTimer = true;
-
-            objectSeen[4] = true;
-            ttcText.SetActive(false);
+                objectSeen[i] = true; // Mark particular object as seen.
+                ttcText.SetActive(false); // Disable touch-to-continue text.
+            }
         }
     }
 
-    void CountDownTimer() //Countdown
+    void CountDownTimer() //Countdown UI
     {
         popUps[2].SetActive(true);
    

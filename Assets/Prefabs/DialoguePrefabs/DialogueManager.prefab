@@ -51,11 +51,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c2b898f779851b64bb8c2d538ae890a0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  bsIndex: 0
+  feIndex: 0
   dialogue: {fileID: 0}
+  countDown: {fileID: 0}
   beginningScene:
   - '"Traceur, your first mission is to retrieve the package located at the nearby
     greenhouse."'
   - "\"Here\u2019s the location.\""
   - '"Keep low and stay alive."'
   - '"01000111 01001100"'
+  firstEncounter: []
   dialogueBox: {fileID: 0}
+  ttcText: {fileID: 0}
+  popUps: []
+  timer: 0
+  showTimer: 0
+  cdTimer: 0
+  setTime: 0
+  objectSeen: 
+  initTimer: 0
+  initDialogue: 0
+  startCD: 0
