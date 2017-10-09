@@ -95,14 +95,6 @@ public class WaypointNodeEditor : Editor
 			EditorGUI.indentLevel--;
 		}
 
-        if (!serializedObject.FindProperty("isSaved").boolValue)
-        {
-            EditorGUILayout.BeginHorizontal();
-            GUILayout.FlexibleSpace();
-            serializedObject.FindProperty("isSaved").boolValue = GUILayout.Button("Save", GUILayout.MaxWidth(50), GUILayout.MaxHeight(20));
-            EditorGUILayout.EndHorizontal();
-        }
-
         EditorGUILayout.HelpBox("To reset this node, click on \"Reset Node\" instead of \"Reset\".", MessageType.Info);
 
 		serializedObject.ApplyModifiedProperties();

@@ -18,6 +18,7 @@ public class WaypointNodeData
 {
     public WaypointNodeScript[] directionalNodes;
 
+
 	public WaypointNodeScript rightNode(Direction fromDir)
 	{
 		return rightNode((int) fromDir);
@@ -26,7 +27,6 @@ public class WaypointNodeData
 	public WaypointNodeScript rightNode(int fromDir)
 	{
 		int right = (fromDir + 1) % (int)Direction.Total;
-//		Debug.Log((Direction)right);
 		return directionalNodes[right];
 	}
 
@@ -38,7 +38,6 @@ public class WaypointNodeData
 	public WaypointNodeScript forwardNode(int fromDir)
 	{
 		int forward = (fromDir) % (int)Direction.Total;
-//		Debug.Log((Direction)right);
 		return directionalNodes[forward];
 	}
 
@@ -50,7 +49,6 @@ public class WaypointNodeData
 	public WaypointNodeScript leftNode(int fromDir)
 	{
 		int left = (fromDir + 3) % (int)Direction.Total;
-//		Debug.Log((Direction)right);
 		return directionalNodes[left];
 	}
 
@@ -68,7 +66,6 @@ public class WaypointNodeScript : MonoBehaviour
 
     public WaypointNodeData data;
 	public WaypointNodeData prevData;
-    public bool isSaved = true;
 
     void OnValidate()
     {
@@ -85,16 +82,6 @@ public class WaypointNodeScript : MonoBehaviour
             ResetNodes(true);
             Debug.LogWarning("Resetting " + gameObject.name + " as it's copied.");
         }
-    }
-
-    void SetNode(WaypointNodeScript newNode, Direction dir)
-    {
-        SetNode(newNode, (int)dir);
-    }
-
-    void SetNode(WaypointNodeScript newNode, int dir)
-    {
-        data.directionalNodes[dir] = newNode;
     }
 
     [ContextMenu("Reset Nodes")]
@@ -164,7 +151,9 @@ public class WaypointNodeScript : MonoBehaviour
                             {
                                 data.directionalNodes[i].data.directionalNodes[GetOppositeDir(i)] = this;
                                 data.directionalNodes[i].BackupPreviousData();
-                                data.directionalNodes[i].isSaved = false;
+
+								// Set the object dirty to make sure it's updated
+								EditorUtility.SetDirty(data.directionalNodes[i]);
                             }
 						}
 					}
@@ -173,8 +162,10 @@ public class WaypointNodeScript : MonoBehaviour
                 if (prevData.directionalNodes[i])
                 {
                     prevData.directionalNodes[i].data.directionalNodes[GetOppositeDir(i)] = null;
-                    prevData.directionalNodes[i].BackupPreviousData();
-                    prevData.directionalNodes[i].isSaved = false;
+					prevData.directionalNodes[i].BackupPreviousData();
+
+					// Set the object dirty to make sure it's updated
+					EditorUtility.SetDirty(prevData.directionalNodes[i]);
                 }
             }
 		}
@@ -201,7 +192,6 @@ public class WaypointNodeScript : MonoBehaviour
 		{
 			if(other.GetComponent<PlayerCoreController>())
 			{
-				Debug.Log("enter");
 				WaypointManagerScript.Instance.RegisterNode(this);;
 			}
 		}
@@ -213,7 +203,6 @@ public class WaypointNodeScript : MonoBehaviour
 		{
 			if(other.GetComponent<PlayerCoreController>())
 			{
-				Debug.Log("exit");
 				WaypointManagerScript.Instance.UnregisterNode(this);
 			}
 		}

@@ -23,6 +23,7 @@ public class WaypointManagerScript : MonoBehaviour
 
 	//The player
 	public PlayerCoreController player;
+	public Direction playerDirection;
 	public WaypointNodeScript pointingNode;
 
 	//Nodes that the player touches
@@ -76,48 +77,37 @@ public class WaypointManagerScript : MonoBehaviour
         else
         {
             hasConfirmedEvent = false;
-            curEvent = EventType.None; //?
+            curEvent = EventType.None;
         }
 
-        if(hasConfirmedEvent)
-        {
-            Direction facingDir = Direction.North;
-            float thresholdAngle = 45.0f;
-            float angle = Quaternion.FromToRotation(Vector3.forward, touchedNodes[0].transform.position - player.transform.position).eulerAngles.y;
-
-            for (int i = 0; i < (int)Direction.Total; i++)
-            {
-                float minAngle = 90.0f * i - thresholdAngle;
-                float maxAngle = 90.0f * i + thresholdAngle;
-
-                if (minAngle < 0.0f) minAngle += 360.0f;
-                if (maxAngle >= 360.0f) minAngle -= 360.0f;
-
-                if (angle >= minAngle && angle <= maxAngle)
-                {
-                    facingDir = (Direction)i;
-                    break;
-                }
-            }
-
+		if(curEvent != EventType.None)
+		{
             switch (curEvent)
             {
                 case EventType.SwipeLeft:
-                    pointingNode = touchedNodes[0].data.leftNode(facingDir);
-                    curEvent = EventType.None;
+					if(hasConfirmedEvent)
+					{
+						pointingNode = touchedNodes[0].data.leftNode((int)playerDirection);
+						playerDirection = (Direction)(((int)playerDirection + 3) % (int)Direction.Total);
+	                    curEvent = EventType.None;
+					}
                     break;
-                case EventType.SwipeRight:
-                    pointingNode = touchedNodes[0].data.rightNode(facingDir);
-                    curEvent = EventType.None;
+				case EventType.SwipeRight:
+					if(hasConfirmedEvent)
+					{
+						pointingNode = touchedNodes[0].data.rightNode((int)playerDirection);
+						playerDirection = (Direction)(((int)playerDirection + 1) % (int)Direction.Total);
+	                    curEvent = EventType.None;
+					}
                     break;
                 case EventType.MoveForward:
-                    pointingNode = touchedNodes[0].data.forwardNode(facingDir);
-                    curEvent = EventType.None;
+					pointingNode = touchedNodes[0].data.forwardNode((int)playerDirection);
                     break;
             }
         }
 
-        player.RotateTowards(pointingNode.transform.position);
+		if(pointingNode)
+        	player.RotateTowards(pointingNode.transform.position);
     }
 
 	public void RegisterNode(WaypointNodeScript node)
