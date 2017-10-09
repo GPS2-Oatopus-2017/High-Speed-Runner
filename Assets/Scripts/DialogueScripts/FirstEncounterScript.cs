@@ -5,16 +5,13 @@ using UnityEngine.UI;
 
 public class FirstEncounterScript : MonoBehaviour 
 {
-    public List<GameObject> objects;//Apply GameObjects in the order of SurveillenceDrone(1) -> MotionDetector(2) -> Switch(3) -> ElectricFence(4) -> Door(5)
+    public List<GameObject> objects;// Apply GameObjects in the order of SurveillenceDrone(1) -> MotionDetector(2) -> Switch(3) -> ElectricFence(4) -> Door(5)
 
     public float distanceFromObject = 10f;
 
     public static FirstEncounterScript Instance;
 
     public bool[] seenObj; 
-
-	private Material defaultMat;
-	public Material highlightMat;
    
     void Awake()
     {
@@ -43,8 +40,6 @@ public class FirstEncounterScript : MonoBehaviour
 			if (Vector3.Distance(transform.position, objects[i].transform.position)  <= distanceFromObject && seenObj[i] == false)
 			{
 				seenObj[i] = true; // Player is currently withing range of an obj.
-				defaultMat= objects[i].GetComponent<MeshRenderer>().material; // Set objects' default material to it's current material.
-				objects[i].GetComponent<MeshRenderer>().material = highlightMat; // Set objects' material to "highlightMat".
 			}
 		}
     }    
