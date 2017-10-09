@@ -132,5 +132,15 @@ public class InteractScript : MonoBehaviour
 				}
 			}
 		}
+
+
+		if (SwipeScript.Instance.GetSwipe() == SwipeDirection.Right || Input.GetKeyDown(KeyCode.D))
+		{
+			if (toOpenDoor)
+			{
+				Debug.Log ("Open Door");
+				currentDoor.SetActive (false);
+			}
+		}
 	}
 }
