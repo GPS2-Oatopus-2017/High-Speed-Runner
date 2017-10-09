@@ -14,7 +14,6 @@ public class FirstEncounterScript : MonoBehaviour
 
     [Header("HighLight Variables")]
     private Material defaultMat; // Game Objects' default material.
-    private Material childDefMat; // Game Objects' children default material.
     public Material highlightMat; // Highlight material.
 
     public float distanceFromObject = 10f;
@@ -52,10 +51,8 @@ public class FirstEncounterScript : MonoBehaviour
                 seenObj[0] = true; // Player is currently withing range of an obj.
 
                 // Highlight that particular object
-                defaultMat= FirstEncounterScript.Instance.surveillanceDrones[i].GetComponent<MeshRenderer>().material; // Set objects' default material to it's current material.
-                FirstEncounterScript.Instance.surveillanceDrones[i].GetComponent<MeshRenderer>().material = highlightMat; // Set objects' material to "highlightMat".
-                //objects[i].GetComponentInChildren<MeshRenderer>().material = highlightMat; // Set objects' children material to "highlightMat".
-                //childDefMat = objects[i].GetComponentInChildren<MeshRenderer>().material; // Set childrens' default material to it's current material.
+                defaultMat= surveillanceDrones[i].GetComponent<MeshRenderer>().material; // Set objects' default material to it's current material.
+                surveillanceDrones[i].GetComponent<MeshRenderer>().material = highlightMat; // Set objects' material to "highlightMat".
 			}
 		}
 
@@ -66,10 +63,8 @@ public class FirstEncounterScript : MonoBehaviour
                 seenObj[1] = true; 
 
                 // Highlight that particular object
-                defaultMat= FirstEncounterScript.Instance.motionDetectors[i].GetComponent<MeshRenderer>().material; // Set objects' default material to it's current material.
-                FirstEncounterScript.Instance.motionDetectors[i].GetComponent<MeshRenderer>().material = highlightMat; // Set objects' material to "highlightMat".
-                //objects[i].GetComponentInChildren<MeshRenderer>().material = highlightMat; // Set objects' children material to "highlightMat".
-                //childDefMat = objects[i].GetComponentInChildren<MeshRenderer>().material; // Set childrens' default material to it's current material.
+                defaultMat= motionDetectors[i].GetComponent<MeshRenderer>().material; // Set objects' default material to it's current material.
+                motionDetectors[i].GetComponent<MeshRenderer>().material = highlightMat; // Set objects' material to "highlightMat".
             }
         }
 
@@ -79,11 +74,14 @@ public class FirstEncounterScript : MonoBehaviour
             {
                 seenObj[2] = true;
 
-                // Highlight that particular object
-                defaultMat= FirstEncounterScript.Instance.switches[i].GetComponent<MeshRenderer>().material; // Set objects' default material to it's current material.
-                FirstEncounterScript.Instance.switches[i].GetComponent<MeshRenderer>().material = highlightMat; // Set objects' material to "highlightMat".
-                //objects[i].GetComponentInChildren<MeshRenderer>().material = highlightMat; // Set objects' children material to "highlightMat".
-                //childDefMat = objects[i].GetComponentInChildren<MeshRenderer>().material; // Set childrens' default material to it's current material.
+                List<MeshRenderer> childRenderer = new List<MeshRenderer>();
+
+                switches[i].GetComponentsInChildren<MeshRenderer>(childRenderer);
+
+                for(int j = 0; j < childRenderer.Count; j++)
+                {
+                    childRenderer[j].material = highlightMat;
+                }
             }
         }
 
@@ -94,10 +92,8 @@ public class FirstEncounterScript : MonoBehaviour
                 seenObj[3] = true;
 
                 // Highlight that particular object
-                defaultMat= FirstEncounterScript.Instance.electricFences[i].GetComponent<MeshRenderer>().material; // Set objects' default material to it's current material.
-                FirstEncounterScript.Instance.electricFences[i].GetComponent<MeshRenderer>().material = highlightMat; // Set objects' material to "highlightMat".
-                //objects[i].GetComponentInChildren<MeshRenderer>().material = highlightMat; // Set objects' children material to "highlightMat".
-                //childDefMat = objects[i].GetComponentInChildren<MeshRenderer>().material; // Set childrens' default material to it's current material.
+                defaultMat= electricFences[i].GetComponent<MeshRenderer>().material; // Set objects' default material to it's current material.
+                electricFences[i].GetComponent<MeshRenderer>().material = highlightMat; // Set objects' material to "highlightMat".
             }
         }
 
@@ -108,10 +104,8 @@ public class FirstEncounterScript : MonoBehaviour
                 seenObj[4] = true;
 
                 // Highlight that particular object
-                defaultMat= FirstEncounterScript.Instance.doors[i].GetComponent<MeshRenderer>().material; // Set objects' default material to it's current material.
-                FirstEncounterScript.Instance.doors[i].GetComponent<MeshRenderer>().material = highlightMat; // Set objects' material to "highlightMat".
-                //objects[i].GetComponentInChildren<MeshRenderer>().material = highlightMat; // Set objects' children material to "highlightMat".
-                //childDefMat = objects[i].GetComponentInChildren<MeshRenderer>().material; // Set childrens' default material to it's current material.
+                defaultMat= doors[i].GetComponent<MeshRenderer>().material; // Set objects' default material to it's current material.
+                doors[i].GetComponent<MeshRenderer>().material = highlightMat; // Set objects' material to "highlightMat".
             }
         }
     }    
