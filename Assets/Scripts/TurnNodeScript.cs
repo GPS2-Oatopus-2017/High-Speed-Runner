@@ -37,18 +37,19 @@ public class TurnNodeScript : MonoBehaviour
 	void OnTriggerEnter (Collider other)
 	{
 		if (other.tag == "Player" && this.tag == "Effector") {
-			other.transform.position = new Vector3 (this.transform.position.x, other.transform.position.y, this.transform.position.z);
-			rb.constraints = RigidbodyConstraints.FreezePosition;
+			//other.transform.position = new Vector3 (this.transform.position.x, other.transform.position.y, this.transform.position.z);
 			canLeft = true;
 			canRight = true;
 			if (nodeDetect.toLeft && canLeft && !nodeDetect.toRight) {
-				rb.constraints = ~RigidbodyConstraints.FreezePosition;
+				rb.constraints = RigidbodyConstraints.FreezePosition;
 				controller.rotAngle -= 90.0f;
+				rb.constraints = ~RigidbodyConstraints.FreezePosition;
 				canLeft = false;
 				canRight = false;
 			} else if (nodeDetect.toRight && canRight && !nodeDetect.toLeft) {
-				rb.constraints = ~RigidbodyConstraints.FreezePosition;
+				rb.constraints = RigidbodyConstraints.FreezePosition;
 				controller.rotAngle += 90.0f;
+				rb.constraints = ~RigidbodyConstraints.FreezePosition;
 				canRight = false;
 				canLeft = false;
 			}
@@ -60,15 +61,17 @@ public class TurnNodeScript : MonoBehaviour
 		if (other.tag == "Player" && this.tag == "Effector") {
 			if (SwipeScript.Instance.GetSwipe () == SwipeDirection.Left || Input.GetKeyDown (KeyCode.A)) {
 				if (canLeft) {
-					rb.constraints = ~RigidbodyConstraints.FreezePosition;
+					rb.constraints = RigidbodyConstraints.FreezePosition;
 					controller.rotAngle -= 90.0f;
+					rb.constraints = ~RigidbodyConstraints.FreezePosition;
 					canLeft = false;
 					canRight = false;
 				}
 			} else if (SwipeScript.Instance.GetSwipe () == SwipeDirection.Right || Input.GetKeyDown (KeyCode.D)) {
 				if (canRight) {
-					rb.constraints = ~RigidbodyConstraints.FreezePosition;
+					rb.constraints = RigidbodyConstraints.FreezePosition;
 					controller.rotAngle += 90.0f;
+					rb.constraints = ~RigidbodyConstraints.FreezePosition;
 					canRight = false;
 					canLeft = false;
 				}
