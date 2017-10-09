@@ -4006,6 +4006,42 @@ Transform:
 Transform:
   m_PrefabParentObject: {fileID: 400002, guid: 1c52272f69a4f82418429563bbd8c660, type: 3}
   m_PrefabInternal: {fileID: 226939586}
+--- !u!1 &921991688 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 100004, guid: 78389e7ac81f6334086641f12b7425b9, type: 3}
+  m_PrefabInternal: {fileID: 224976135}
+--- !u!23 &921991691
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 921991688}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_Materials:
+  - {fileID: 2100000, guid: 19ce37b7b33865d4b9b37f48f6b600d4, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
 --- !u!1001 &928226325
 Prefab:
   m_ObjectHideFlags: 0
@@ -6051,6 +6087,11 @@ Prefab:
       propertyPath: initTimer
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 114786937011414914, guid: 6ab66f474c2fe5a49a9f84cf9006be47,
+        type: 2}
+      propertyPath: highlightMat
+      value: 
+      objectReference: {fileID: 2100000, guid: b86aae0e0b501c740bbb84e65d6730ba, type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 6ab66f474c2fe5a49a9f84cf9006be47, type: 2}
   m_IsPrefabParent: 0
@@ -6625,9 +6666,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   objects:
   - {fileID: 942246727}
-  distanceFromObject: 20
+  distanceFromObject: 30
   seenObj: 0000000000
-  highlightMat: {fileID: 2100000, guid: 935d87af36eaf004e96cb4483bce0799, type: 2}
 --- !u!114 &1640676995
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -30,6 +30,11 @@ public class DialogueManager : MonoBehaviour
     public bool[] objectSeen;
     public bool initTimer, initDialogue, startCD;
 
+    [Header("HighLight Variables")]
+    private Material defaultMat; // Game Objects' default material.
+    private Material childDefMat; // Game Objects' children default material.
+    public Material highlightMat; // Highlight material.
+
     public static DialogueManager Instance;
 
     void Awake()
@@ -129,8 +134,14 @@ public class DialogueManager : MonoBehaviour
             if(FirstEncounterScript.Instance.seenObj[i] == true && objectSeen[i] == false) //seenObj = Is player currently looking at an object?
             {                                                                              //objectSeen = Have player already seen this object before?
                 dialogueBox.SetActive(true); // Enable dialogue box.
-                dialogue.text = firstEncounter[feIndex]; //Displays text based on which enemy it is (feIndex);
+                dialogue.text = firstEncounter[feIndex + i]; //Displays text based on which enemy it is (feIndex);
                 initTimer = true;  
+
+
+                defaultMat= FirstEncounterScript.Instance.objects[i].GetComponent<MeshRenderer>().material; // Set objects' default material to it's current material.
+                //childDefMat = objects[i].GetComponentInChildren<MeshRenderer>().material; // Set childrens' default material to it's current material.
+                FirstEncounterScript.Instance.objects[i].GetComponent<MeshRenderer>().material = highlightMat; // Set objects' material to "highlightMat".
+                //objects[i].GetComponentInChildren<MeshRenderer>().material = highlightMat; // Set objects' children material to "highlightMat".
 
                 objectSeen[i] = true; // Mark particular object as seen.
                 ttcText.SetActive(false); // Disable touch-to-continue text.
