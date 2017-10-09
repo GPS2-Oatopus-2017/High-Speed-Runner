@@ -52,16 +52,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1fd89963697e3f24aad003cbfb8eeb6f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  instanceID: 10970
   data:
-    isJunction: 0
-    node1: {fileID: 0}
-    node2: {fileID: 0}
-    backNodes: []
+    directionalNodes:
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
   prevData:
-    isJunction: 0
-    node1: {fileID: 0}
-    node2: {fileID: 0}
-    backNodes: []
+    directionalNodes:
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
 --- !u!135 &135857863642721564
 SphereCollider:
   m_ObjectHideFlags: 1
@@ -72,5 +75,5 @@ SphereCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 10
+  m_Radius: 5
   m_Center: {x: 0, y: 0, z: 0}

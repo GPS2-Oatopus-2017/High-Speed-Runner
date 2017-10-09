@@ -20,7 +20,6 @@ GameObject:
   m_Component:
   - component: {fileID: 4484575831247344}
   - component: {fileID: 114026288684140790}
-  - component: {fileID: 114897382283522766}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -52,23 +51,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ee14187471769374ca6a4eefd13a2fe4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cubePrefab: {fileID: 1837053431146382, guid: 8203041de05d8c24bbbf676adec6a004, type: 2}
-  positionA: {x: -500, y: 0.5, z: -500}
-  positionB: {x: 500, y: 0.5, z: 500}
-  amount: 5000
-  spawnedCubes: []
---- !u!114 &114897382283522766
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1408378161992512}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9bc1cd61f72d6104a8d763b1761348a2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  curEvent: -1
   player: {fileID: 0}
-  pointingPos: {x: 0, y: 0, z: 70.46}
-  touchedNodes: []

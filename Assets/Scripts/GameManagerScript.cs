@@ -4,29 +4,23 @@ using UnityEngine;
 
 public class GameManagerScript : MonoBehaviour
 {
-	public GameObject cubePrefab;
-	public Vector3 positionA;
-	public Vector3 positionB;
-	public int amount;
-	public List<GameObject> spawnedCubes;
-
-	// Use this for initialization
-	void Start ()
+	//Singleton Setup
+	private static GameManagerScript mInstance;
+	public static GameManagerScript Instance
 	{
-		spawnedCubes = new List<GameObject>();
-		for(int i=0; i<amount;i++)
-		{
-			float x = Random.Range(positionA.x,positionB.x);
-			float y = Random.Range(positionA.y,positionB.y);
-			float z = Random.Range(positionA.z,positionB.z);
-			GameObject obj = Instantiate(cubePrefab, new Vector3(x,y,z), Quaternion.identity);
-			spawnedCubes.Add(obj);
-		}
+		get { return mInstance; }
 	}
-	
-	// Update is called once per frame
-	void Update ()
+
+	public PlayerCoreController player;
+
+	void Awake()
 	{
-		
+		//Singleton Setup
+		if(mInstance == null) mInstance = this;
+		else if(mInstance != this) Destroy(this.gameObject);
+
+		GameObject playerGO = GameObject.FindGameObjectWithTag("Player");
+		if(playerGO) player = playerGO.GetComponent<PlayerCoreController>();
+		else Debug.LogError("GameManager: Unable to find Player!");
 	}
 }

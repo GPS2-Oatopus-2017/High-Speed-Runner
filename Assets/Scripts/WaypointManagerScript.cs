@@ -22,7 +22,6 @@ public class WaypointManagerScript : MonoBehaviour
 	public bool hasConfirmedEvent = true;
 
 	//The player
-	public PlayerCoreController player;
 	public Direction playerDirection;
 	public WaypointNodeScript pointingNode;
 
@@ -107,7 +106,7 @@ public class WaypointManagerScript : MonoBehaviour
         }
 
 		if(pointingNode)
-        	player.RotateTowards(pointingNode.transform.position);
+			GameManagerScript.Instance.player.RotateTowards(pointingNode.transform.position);
     }
 
 	public void RegisterNode(WaypointNodeScript node)

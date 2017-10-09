@@ -9,30 +9,30 @@ Prefab:
     m_Modifications: []
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
-  m_RootGameObject: {fileID: 1763348981063132}
+  m_RootGameObject: {fileID: 1196620254161284}
   m_IsPrefabParent: 1
---- !u!1 &1763348981063132
+--- !u!1 &1196620254161284
 GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   serializedVersion: 5
   m_Component:
-  - component: {fileID: 4739093764542622}
-  - component: {fileID: 114383806854022266}
+  - component: {fileID: 4861517472337334}
+  - component: {fileID: 114274582427638918}
   m_Layer: 0
-  m_Name: GameManager
+  m_Name: WaypointManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &4739093764542622
+--- !u!4 &4861517472337334
 Transform:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1763348981063132}
+  m_GameObject: {fileID: 1196620254161284}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
@@ -40,19 +40,20 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &114383806854022266
+--- !u!114 &114274582427638918
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1763348981063132}
+  m_GameObject: {fileID: 1196620254161284}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ee14187471769374ca6a4eefd13a2fe4, type: 3}
+  m_Script: {fileID: 11500000, guid: 9bc1cd61f72d6104a8d763b1761348a2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cubePrefab: {fileID: 1034493078775730, guid: 1ff22fcb811c06447b80f90f2b9f01d9, type: 2}
-  positionA: {x: -500, y: 0.5, z: -500}
-  positionB: {x: 500, y: 0.5, z: 500}
-  amount: 5000
-  spawnedCubes: []
+  curEvent: -1
+  hasConfirmedEvent: 1
+  playerDirection: 0
+  pointingNode: {fileID: 0}
+  tracePlayerNodes: []
+  touchedNodes: []
