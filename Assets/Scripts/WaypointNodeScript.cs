@@ -1,179 +1,188 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using UnityEditor;
 using UnityEngine;
+
+public enum Direction
+{
+    North = 0,
+    East,
+    South,
+    West,
+
+    Total
+}
 
 [System.Serializable]
 public class WaypointNodeData
 {
-	public bool isJunction;
+    public WaypointNodeScript[] directionalNodes;
 
-	public WaypointNodeScript node1;
-	public WaypointNodeScript node2;
 
-	public List<WaypointNodeScript> backNodes;
-
-	public WaypointNodeScript forwardNode
+	public WaypointNodeScript rightNode(Direction fromDir)
 	{
-		get
-		{
-			if(!isJunction)
-				return node1;
-			else
-				return null;
-		}
-		set
-		{
-			if(!isJunction)
-				node1 = value;
-		}
+		return rightNode((int) fromDir);
 	}
 
-	public WaypointNodeScript leftNode
+	public WaypointNodeScript rightNode(int fromDir)
 	{
-		get
-		{
-			if(isJunction)
-				return node1;
-			else
-				return null;
-		}
-		set
-		{
-			if(isJunction)
-				node1 = value;
-		}
+		int right = (fromDir + 1) % (int)Direction.Total;
+		return directionalNodes[right];
 	}
 
-	public WaypointNodeScript rightNode
+	public WaypointNodeScript forwardNode(Direction fromDir)
 	{
-		get
-		{
-			if(isJunction)
-				return node2;
-			else
-				return null;
-		}
-		set
-		{
-			if(isJunction)
-				node2 = value;
-		}
+		return forwardNode((int) fromDir);
+	}
+
+	public WaypointNodeScript forwardNode(int fromDir)
+	{
+		int forward = (fromDir) % (int)Direction.Total;
+		return directionalNodes[forward];
+	}
+
+	public WaypointNodeScript leftNode(Direction fromDir)
+	{
+		return leftNode((int) fromDir);
+	}
+
+	public WaypointNodeScript leftNode(int fromDir)
+	{
+		int left = (fromDir + 3) % (int)Direction.Total;
+		return directionalNodes[left];
 	}
 
 	public WaypointNodeData()
 	{
-		backNodes = new List<WaypointNodeScript>();
+        directionalNodes = new WaypointNodeScript[(int)(Direction.Total)];
 	}
 }
 
 [System.Serializable]
-[ExecuteInEditMode]
 public class WaypointNodeScript : MonoBehaviour
 {
-	public WaypointNodeData data;
+    [SerializeField]
+    int instanceID = 0;
+
+    public WaypointNodeData data;
 	public WaypointNodeData prevData;
 
-	void OnValidate()
-	{
-		UpdateJunctionMode();
-		UpdateBackNodes();
+    void OnValidate()
+    {
+        UpdateNodes();
+
+        // If the object is copied, soft-reset the node
+        if (instanceID == 0)
+        {
+            instanceID = GetInstanceID();
+        }
+        else if (instanceID != GetInstanceID() && GetInstanceID() < 0)
+        {
+            instanceID = GetInstanceID();
+            ResetNodes(true);
+            Debug.LogWarning("Resetting " + gameObject.name + " as it's copied.");
+        }
+    }
+
+    [ContextMenu("Reset Nodes")]
+    void ResetNodes()
+    {
+        ResetNodes(false);
+        Debug.LogWarning("Resetting " + gameObject.name + " with context menu.");
+    }
+
+    void ResetNodes(bool softReset)
+    {
+        Debug.LogWarning("Resetting " + gameObject.name + ".");
+        for (int i = 0; i < (int)Direction.Total; i++)
+		{
+			if(!softReset)
+			{
+				if(data.directionalNodes[i])
+				{
+					data.directionalNodes[i].data.directionalNodes[GetOppositeDir(i)] = null;
+					data.directionalNodes[i].BackupPreviousData();
+				}
+			}
+
+			data.directionalNodes[i] = null;
+		}
 		BackupPreviousData();
 	}
 
-	void OnDestroy()
+	void UpdateNodes()
 	{
-		ResetNodes();
-	}
-
-	[ContextMenu("Reset Nodes")]
-	void ResetNodes()
-	{
-		if(data.node1)
+		for(int i = 0; i < (int)Direction.Total; i++)
 		{
-			if(data.node1.data.backNodes.Contains(this))
-				data.node1.data.backNodes.Remove(this);
+			if(data.directionalNodes[i] != prevData.directionalNodes[i])
+			{
+				if(data.directionalNodes[i])
+				{
+					// Deny node assignment when assigning this node to itself
+					if(data.directionalNodes[i] == this)
+                    {
+                        Debug.LogError("Unable to assign " + gameObject.name + " to itself.");
+                        data.directionalNodes[i] = prevData.directionalNodes[i];
+                    }
+					else
+					{
+						bool isDuplicated = false;
+						for(int j = 0; j < (int)Direction.Total; j++)
+						{
+							// Deny node assignment when it is used in other directions of this node
+							if(i != j && data.directionalNodes[i] == data.directionalNodes[j])
+                            {
+                                Debug.LogError(gameObject.name + " has already existed in " + ((Direction)j).ToString() + " node.");
+                                data.directionalNodes[i] = prevData.directionalNodes[i];
+								isDuplicated = true;
+								break;
+							}
+						}
 
-			data.node1 = null;
-		}
-		if(data.node2)
-		{
-			if(data.node2.data.backNodes.Contains(this))
-				data.node2.data.backNodes.Remove(this);
+						if(!isDuplicated)
+						{
+							// Deny node assignment when the slot is occupied
+							if(data.directionalNodes[i].data.directionalNodes[GetOppositeDir(i)])
+                            {
+                                Debug.LogError(data.directionalNodes[i].gameObject.name + "'s " + ((Direction)GetOppositeDir(i)).ToString() + " node has been occupied.");
+                                data.directionalNodes[i] = prevData.directionalNodes[i];
+							}
+							else
+                            {
+                                data.directionalNodes[i].data.directionalNodes[GetOppositeDir(i)] = this;
+                                data.directionalNodes[i].BackupPreviousData();
 
-			data.node2 = null;
+								// Set the object dirty to make sure it's updated
+								EditorUtility.SetDirty(data.directionalNodes[i]);
+                            }
+						}
+					}
+				}
+                
+                if (prevData.directionalNodes[i])
+                {
+                    prevData.directionalNodes[i].data.directionalNodes[GetOppositeDir(i)] = null;
+					prevData.directionalNodes[i].BackupPreviousData();
+
+					// Set the object dirty to make sure it's updated
+					EditorUtility.SetDirty(prevData.directionalNodes[i]);
+                }
+            }
 		}
 		BackupPreviousData();
 	}
 
-	void UpdateJunctionMode()
+	int GetOppositeDir(int i)
 	{
-		if(data.isJunction != prevData.isJunction)
-		{
-			if(data.node1)
-			{
-				if(data.node1.data.backNodes.Contains(this))
-					data.node1.data.backNodes.Remove(this);
-				
-				data.node1 = null;
-			}
-			if(data.node2)
-			{
-				if(data.node2.data.backNodes.Contains(this))
-					data.node2.data.backNodes.Remove(this);
-				
-				data.node2 = null;
-			}
-
-			prevData.isJunction = data.isJunction;
-		}
+		return (i + 2) % (int)Direction.Total;
 	}
 
-	void UpdateBackNodes()
+	public void BackupPreviousData()
 	{
-		if(!data.isJunction)
+		for(int i = 0; i < (int)Direction.Total; i++)
 		{
-			if(data.forwardNode)
-			{
-				if(!data.forwardNode.data.backNodes.Contains(this))
-					data.forwardNode.data.backNodes.Add(this);
-			}
-			else if(prevData.forwardNode)
-			{
-				if(prevData.forwardNode.data.backNodes.Contains(this))
-					prevData.forwardNode.data.backNodes.Remove(this);
-			}
+			prevData.directionalNodes[i] = data.directionalNodes[i];
 		}
-		else
-		{
-			if(data.leftNode)
-			{
-				if(!data.leftNode.data.backNodes.Contains(this))
-					data.leftNode.data.backNodes.Add(this);
-			}
-			else if(prevData.leftNode)
-			{
-				if(prevData.leftNode.data.backNodes.Contains(this))
-					prevData.leftNode.data.backNodes.Remove(this);
-			}
-
-			if(data.rightNode)
-			{
-				if(!data.rightNode.data.backNodes.Contains(this))
-					data.rightNode.data.backNodes.Add(this);
-			}
-			else if(prevData.rightNode)
-			{
-				if(prevData.rightNode.data.backNodes.Contains(this))
-					prevData.rightNode.data.backNodes.Remove(this);
-			}
-		}
-	}
-
-	void BackupPreviousData()
-	{
-		prevData.forwardNode = data.forwardNode;
-		prevData.leftNode = data.leftNode;
-		prevData.rightNode = data.rightNode;
 	}
 
 	// Only In Play Mode
@@ -183,8 +192,7 @@ public class WaypointNodeScript : MonoBehaviour
 		{
 			if(other.GetComponent<PlayerCoreController>())
 			{
-				Debug.Log("enter");
-				WayPointManagerScript.Instance.RegisterNode(this);;
+				WaypointManagerScript.Instance.RegisterNode(this);;
 			}
 		}
 	}
@@ -195,8 +203,7 @@ public class WaypointNodeScript : MonoBehaviour
 		{
 			if(other.GetComponent<PlayerCoreController>())
 			{
-				Debug.Log("exit");
-				WayPointManagerScript.Instance.UnregisterNode(this);
+				WaypointManagerScript.Instance.UnregisterNode(this);
 			}
 		}
 	}
