@@ -86,16 +86,26 @@ public class InteractScript : MonoBehaviour
 				}
 				if (hit.transform.tag == "TrapSwitch") {
 					
-					Transform trapThing = hit.transform.GetChild (0);
+					Transform trapThing = hit.transform.GetChild (1);
 
-					Renderer trapRender = hit.transform.gameObject.GetComponent<Renderer> ();
+					Renderer trapRender0 = hit.transform.GetChild (0).gameObject.GetComponent<Renderer> ();
+					Renderer trapRender1 = hit.transform.GetChild (1).gameObject.GetComponent<Renderer> ();
+					Transform trapObject1 = hit.transform.GetChild (1).gameObject.GetComponent<Transform> ();
 
-					if (trapRender.material.color == Color.red) {
-						trapRender.material.color = Color.green;
-						trapThing.gameObject.SetActive (false);
+					if (trapRender0.material.color == Color.red || trapRender1.material.color == Color.red) {
+						
+						trapRender0.material.color = Color.green;
+						trapRender1.material.color = Color.green;
+						trapObject1.transform.eulerAngles = new Vector3 (120.0f, trapObject1.transform.rotation.y, trapObject1.transform.rotation.z);
+						//trapThing.gameObject.SetActive (false);
+
 					} else {
-						trapRender.material.color = Color.red;
-						trapThing.gameObject.SetActive (true);
+						
+						trapRender0.material.color = Color.red;
+						trapRender1.material.color = Color.red;
+						trapObject1.transform.eulerAngles = new Vector3 (-140.0f, trapObject1.transform.rotation.y, trapObject1.transform.rotation.z);
+						//trapThing.gameObject.SetActive (true);
+
 					}
 				}
 			}
