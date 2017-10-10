@@ -1,22 +1,22 @@
 fileFormatVersion: 2
-guid: 660bc7a7886553341bf0f8ec8425ddb7
-timeCreated: 1507386858
+guid: 7ff1808022e3c874f998182b4bb34dc1
+timeCreated: 1507386857
 licenseType: Free
 ModelImporter:
   serializedVersion: 21
   fileIDToRecycleName:
     100000: //RootNode
-    100002: Building 2
-    100004: Door_2
+    100002: Plane004
+    100004: Plane005
     400000: //RootNode
-    400002: Building 2
-    400004: Door_2
-    2300000: Building 2
-    2300002: Door_2
-    3300000: Building 2
-    3300002: Door_2
-    4300000: Building 2
-    4300002: Door_2
+    400002: Plane004
+    400004: Plane005
+    2300000: Plane004
+    2300002: Plane005
+    3300000: Plane004
+    3300002: Plane005
+    4300000: Plane004
+    4300002: Plane005
     9500000: //RootNode
   materials:
     importMaterials: 1

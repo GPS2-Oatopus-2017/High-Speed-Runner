@@ -1,22 +1,27 @@
 fileFormatVersion: 2
-guid: 660bc7a7886553341bf0f8ec8425ddb7
-timeCreated: 1507386858
+guid: 141697683698eaa4492c17a049d2c8e2
+timeCreated: 1507386857
 licenseType: Free
 ModelImporter:
   serializedVersion: 21
   fileIDToRecycleName:
     100000: //RootNode
-    100002: Building 2
-    100004: Door_2
+    100002: Building 3
+    100004: Door_3(A)
+    100006: Door_3(B)
     400000: //RootNode
-    400002: Building 2
-    400004: Door_2
-    2300000: Building 2
-    2300002: Door_2
-    3300000: Building 2
-    3300002: Door_2
-    4300000: Building 2
-    4300002: Door_2
+    400002: Building 3
+    400004: Door_3(A)
+    400006: Door_3(B)
+    2300000: Building 3
+    2300002: Door_3(A)
+    2300004: Door_3(B)
+    3300000: Building 3
+    3300002: Door_3(A)
+    3300004: Door_3(B)
+    4300000: Door_3(B)
+    4300002: Building 3
+    4300004: Door_3(A)
     9500000: //RootNode
   materials:
     importMaterials: 1
