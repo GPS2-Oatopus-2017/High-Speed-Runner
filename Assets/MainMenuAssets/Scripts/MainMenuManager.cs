@@ -10,6 +10,18 @@ public class MainMenuManager : MonoBehaviour
     public GameObject[] menuWindows;
     public string startingLevel;
 
+//	void Start()
+//	{
+//		MenuSettings.Instance.bgmVolume = 0.5f;
+//		MenuSettings.Instance.sfxVolume = 0.5f;
+//		MenuSettings.Instance.brightness = 0.75f;
+//		Debug.Log("hi");
+//	}
+
+	void Update()
+	{
+		MenuSettings.Instance.SetBrightness(MenuSettings.Instance.brightness);
+	}
     public void StartGame()
     {
         SceneManager.LoadScene(startingLevel); //Start Game
