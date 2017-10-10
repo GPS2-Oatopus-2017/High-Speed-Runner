@@ -7,20 +7,22 @@ public enum AudioClipID
 {
 	// Main Menu
 	BGM_MAIN_MENU = 0,
+	SFX_MAIN_MENU = 1,
 
 	// Lose & Win
-	BGM_LOSE = 1,
-	BGM_WIN = 2,
+	BGM_LOSE = 2,
+	BGM_WIN = 3,
 
 	// Levels
-	BGM_LEVEL1 = 3,
+	BGM_LEVEL1 = 4,
 
 	// UI
-	SFX_UI_BUTTON = 100,
+	SFX_UI_BUTTON = 5,
 
-	// Saferoom Door
-	SFX_SR_OPENDOOR = 101,
-	SFX_SR_CLOSEDOOR = 102
+	//SFXs
+	SFX_RUNNING = 6,
+	SFX_SR_OPENDOOR = 7,
+	SFX_SR_CLOSEDOOR = 8
 }
 
 [System.Serializable]
