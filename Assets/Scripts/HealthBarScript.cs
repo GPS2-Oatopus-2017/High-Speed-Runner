@@ -8,7 +8,6 @@ public class HealthBarScript : MonoBehaviour {
 	public static HealthBarScript Instance;
 
 	public Sprite barFilled;
-	public Sprite barEmpty;
 	public Image[] healthBars;
 
 	private Image[] tempHealthBars;
@@ -45,6 +44,6 @@ public class HealthBarScript : MonoBehaviour {
 
 	public void ResetHealthBar(int playerHealth)
 	{
-		healthBars[playerHealth].sprite = barEmpty;
+		healthBars[playerHealth].enabled = false;
 	}
 }

@@ -22,14 +22,13 @@ public class ReputationManagerScript : MonoBehaviour {
 	public int lastRep;
 	public int value;
 	public Sprite lightUp;
-	public Sprite lightDown;
 	public List<Image> starList = new List<Image>();
+	public List<Image> statusList = new List<Image>();
 
 	public Text enemyAmountText;
 	public Text playerStatus;
 	string displayECount;
 	string status;
-	public string[] statusList;
 
 	public float resetCounter;
 	public float resetTime;
@@ -90,7 +89,7 @@ public class ReputationManagerScript : MonoBehaviour {
 			}
 			else
 			{
-				starList[i].sprite = lightDown;
+				starList[i].enabled = false;
 			}
 		}
 	}
@@ -107,10 +106,14 @@ public class ReputationManagerScript : MonoBehaviour {
 		{
 			if(currentRep == i)
 			{
-				status = "Status : " + statusList[i];
+				statusList[i].enabled = true;
+			}
+			else
+			{
+				statusList[i].enabled = false;
 			}
 		}
-		playerStatus.text = status;
+		//playerStatus.text = status;
 	}
 
 	void LateUpdate()
