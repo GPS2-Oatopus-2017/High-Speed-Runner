@@ -3592,9 +3592,9 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 114606691324123848, guid: 2eec1bf49352f7e499119ba2fac11c14,
+    - target: {fileID: 114567070026643342, guid: 2eec1bf49352f7e499119ba2fac11c14,
         type: 2}
-      propertyPath: sounds.Array.size
+      propertyPath: audioClipInfoList.Array.size
       value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 4986141098329564, guid: 2eec1bf49352f7e499119ba2fac11c14, type: 2}
@@ -3629,64 +3629,14 @@ Prefab:
       propertyPath: m_RootOrder
       value: 6
       objectReference: {fileID: 0}
-    - target: {fileID: 114606691324123848, guid: 2eec1bf49352f7e499119ba2fac11c14,
+    - target: {fileID: 114567070026643342, guid: 2eec1bf49352f7e499119ba2fac11c14,
         type: 2}
-      propertyPath: sounds.Array.data[2].name
-      value: Test BGM
+      propertyPath: audioClipInfoList.Array.data[2].audioClipID
+      value: 100
       objectReference: {fileID: 0}
-    - target: {fileID: 114606691324123848, guid: 2eec1bf49352f7e499119ba2fac11c14,
+    - target: {fileID: 114567070026643342, guid: 2eec1bf49352f7e499119ba2fac11c14,
         type: 2}
-      propertyPath: sounds.Array.data[2].clip
-      value: 
-      objectReference: {fileID: 8300000, guid: 0acc12534b6cb594683571fb158e8279, type: 3}
-    - target: {fileID: 114606691324123848, guid: 2eec1bf49352f7e499119ba2fac11c14,
-        type: 2}
-      propertyPath: sounds.Array.data[2].volume
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 114606691324123848, guid: 2eec1bf49352f7e499119ba2fac11c14,
-        type: 2}
-      propertyPath: sounds.Array.data[2].pitch
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 114606691324123848, guid: 2eec1bf49352f7e499119ba2fac11c14,
-        type: 2}
-      propertyPath: sounds.Array.data[2].loop
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 114606691324123848, guid: 2eec1bf49352f7e499119ba2fac11c14,
-        type: 2}
-      propertyPath: sounds.Array.data[1].name
-      value: Main Menu BGM
-      objectReference: {fileID: 0}
-    - target: {fileID: 114606691324123848, guid: 2eec1bf49352f7e499119ba2fac11c14,
-        type: 2}
-      propertyPath: sounds.Array.data[1].clip
-      value: 
-      objectReference: {fileID: 8300000, guid: 87b168b23aa36d6449cec593bee350f4, type: 3}
-    - target: {fileID: 114606691324123848, guid: 2eec1bf49352f7e499119ba2fac11c14,
-        type: 2}
-      propertyPath: sounds.Array.data[1].volume
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 114606691324123848, guid: 2eec1bf49352f7e499119ba2fac11c14,
-        type: 2}
-      propertyPath: sounds.Array.data[1].pitch
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 114606691324123848, guid: 2eec1bf49352f7e499119ba2fac11c14,
-        type: 2}
-      propertyPath: sounds.Array.data[1].loop
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 114606691324123848, guid: 2eec1bf49352f7e499119ba2fac11c14,
-        type: 2}
-      propertyPath: sounds.Array.data[0].name
-      value: Button Press
-      objectReference: {fileID: 0}
-    - target: {fileID: 114606691324123848, guid: 2eec1bf49352f7e499119ba2fac11c14,
-        type: 2}
-      propertyPath: sounds.Array.data[0].clip
+      propertyPath: audioClipInfoList.Array.data[2].audioClip
       value: 
       objectReference: {fileID: 8300000, guid: dfbf31b1f7219da48b81c79b7f88e24b, type: 3}
     - target: {fileID: 114606691324123848, guid: 2eec1bf49352f7e499119ba2fac11c14,

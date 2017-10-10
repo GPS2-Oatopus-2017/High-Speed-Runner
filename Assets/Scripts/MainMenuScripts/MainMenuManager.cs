@@ -34,32 +34,32 @@ public class MainMenuManager : MonoBehaviour
     }
 
     public void SetupBGM(GameObject slider)  // Will work on this with Syabil soon
-    {
-        MenuSettings.Instance.bgmVolume  = slider.GetComponent<Slider>().value;
+	{
+		slider.GetComponent<Slider>().value = SoundManagerScript.Instance.bgmVolume;
         ChangeBGM(slider);
     }
 
     public void SetupSFX(GameObject slider)
     {
-        MenuSettings.Instance.sfxVolume = slider.GetComponent<Slider>().value;
+		slider.GetComponent<Slider>().value = SoundManagerScript.Instance.sfxVolume;
         ChangeSFX(slider);
     }
 
     public void ChangeBGM(GameObject slider)
     {
-        MenuSettings.Instance.SetBGMVolume(slider.GetComponent<Slider>().value);
+		SoundManagerScript.Instance.SetBGMVolume(slider.GetComponent<Slider>().value);
         Debug.Log("Current BGM value is : " + slider.GetComponent<Slider>().value);
     }
 
     public void ChangeSFX(GameObject slider)
     {
-        MenuSettings.Instance.SetSFXVolume(slider.GetComponent<Slider>().value);
+		SoundManagerScript.Instance.SetSFXVolume(slider.GetComponent<Slider>().value);
         Debug.Log("Current SFX value is : " + slider.GetComponent<Slider>().value);
     }
 
     public void SetupBrightness(GameObject slider) //Set initial screen brightness
     {
-        MenuSettings.Instance.brightness = slider.GetComponent<Slider>().value;
+		slider.GetComponent<Slider>().value = MenuSettings.Instance.brightness;
         ChangeBrightness(slider);
     }
 
@@ -70,6 +70,6 @@ public class MainMenuManager : MonoBehaviour
 
 	public void onClick()
 	{
-		SoundManager.instance.Play("Button Press");
+		SoundManagerScript.Instance.PlaySFX2D(AudioClipID.SFX_UI_BUTTON);
 	}
 }

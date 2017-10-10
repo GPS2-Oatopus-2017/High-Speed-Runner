@@ -15,6 +15,7 @@ TagManager:
   - TrapSwitch
   - Waypoint
   - DialogueManager
+  - SoundManager
   layers:
   - Default
   - TransparentFX
