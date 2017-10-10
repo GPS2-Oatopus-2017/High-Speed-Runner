@@ -23,12 +23,6 @@ public class MainMenuManager : MonoBehaviour
         SceneManager.LoadScene(startingLevel); //Start Game
     }
 
-    public void ExitGame()
-    {
-        Application.Quit(); // Exit the game
-        Debug.Log("Exit Game");
-    }
-
     public void OpenMenu(int menu)
     {
         menuWindows[menu].SetActive(true); //Activate Menu
