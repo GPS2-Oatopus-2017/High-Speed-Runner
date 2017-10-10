@@ -5,6 +5,7 @@ using UnityEngine;
 public class SurveillanceDroneScript : MonoBehaviour {
 
 	public GameObject player; // Public for now
+	public Vector3 chasingPosition; // Public for now
 
 	public float movementSpeed = 11.0f;
 	public float turnSpeed = 8.0f;
@@ -18,27 +19,35 @@ public class SurveillanceDroneScript : MonoBehaviour {
 	private Rigidbody surveillanceDroneRigidbody;
 
 	public bool hasBeenDetected;
+	public bool isSpawned;
+
+	public int currentPoint = 0; 
 
 	void Awake()
 	{
+		player = GameObject.FindWithTag("Player");
 		surveillanceDroneRigidbody = GetComponent<Rigidbody>();
 	}
 
 
 	void Start()
 	{
-		player = GameObject.FindWithTag("Player");
+		//player = GameObject.FindWithTag("Player");
 
 		float randNum = Random.Range(3,6);
 		hoverHeight = randNum;
-
+		currentPoint = SpawnManagerScript.Instance.currentSpawnIndex;
 		hasBeenDetected = false;
 	}
 
 
 	void Update()
 	{
-		playerDetection();
+		if(!isSpawned)
+		{
+			playerDetection();
+		}
+		surveillanceDroneChaseFunctions();
 		surveillanceDroneMainFunctions();
 	}
 
@@ -51,16 +60,37 @@ public class SurveillanceDroneScript : MonoBehaviour {
 
 	void playerDetection()
 	{
-		if(Vector3.Distance(transform.position, player.transform.position) <= alertDistance)
+		if(Vector3.Distance(transform.position, player.transform.position) <= alertDistance && !hasBeenDetected)
 		{
 			hasBeenDetected = true;
+			//SpawnFunction
+			SpawnManagerScript.Instance.CalculateSpawnPoint();
+			Debug.Log(SpawnManagerScript.Instance.spawnPoint);
+			currentPoint = SpawnManagerScript.Instance.currentSpawnIndex;
+			PoolManagerScript.Instance.Spawn("Hunting_Droid",SpawnManagerScript.Instance.spawnPoint,Quaternion.identity);
 		}
 	}
 
+	void surveillanceDroneChaseFunctions()
+	{
+		if(Vector3.Distance(chasingPosition, transform.position) <= 0.1f)
+		{
+			currentPoint++;
+		}
+
+		Transform chasingTrans = player.transform;
+
+		if(currentPoint < WaypointManagerScript.Instance.tracePlayerNodes.Count)
+		{
+			chasingTrans = WaypointManagerScript.Instance.tracePlayerNodes[currentPoint].transform;
+		}
+
+		chasingPosition = chasingTrans.position;
+	}
 
 	void surveillanceDroneMainFunctions()
 	{
-		transform.LookAt(player.transform.position);
+		transform.LookAt(chasingPosition);
 
 		if(hasBeenDetected == true)
 		{
@@ -80,7 +110,6 @@ public class SurveillanceDroneScript : MonoBehaviour {
 			surveillanceDroneRigidbody.velocity = surveillanceDroneRigidbody.velocity * 0.9f;
 		}
 	}
-
 
 	void droneHoveringFunction()
 	{

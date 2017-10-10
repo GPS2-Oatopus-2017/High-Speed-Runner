@@ -41,13 +41,16 @@ public class PoolManagerScript : MonoBehaviour {
 		}
 	}
 
-	public void Spawn(string objectName,Vector3 newPosition, Quaternion newRotation){
-		if(pool[objectName].Count > 0){
+	public GameObject Spawn(string objectName,Vector3 newPosition, Quaternion newRotation){
+		if(pool[objectName].Count > 0)
+		{
 			GameObject go = pool[objectName].Pop();
 			go.transform.position = newPosition;
 			go.transform.rotation = newRotation;
 			go.SetActive(true);
+			return go;
 		}
+		return null;
 	}
 		
 	public void SpawnMuliple(string objectName,Vector3 newPosition, Quaternion newRotation,int amount,float offsetY, float offset,bool isHorizontal)
@@ -55,6 +58,7 @@ public class PoolManagerScript : MonoBehaviour {
 		if(!isHorizontal)
 		{
 			newPosition.x -= offset;
+			//newPosition.z -= offset;
 		}
 		else
 		{
@@ -62,14 +66,16 @@ public class PoolManagerScript : MonoBehaviour {
 		}
 		for(int i=0; i<amount ; i++)
 		{
-			if(pool[objectName].Count > 0){
-				GameObject go = pool[objectName].Pop();
-				go.transform.position = newPosition;
-				go.transform.rotation = newRotation;
-				go.transform.Translate(new Vector3(0.0f, offsetY, 0.0f), Space.Self);
-				go.SetActive(true);
-			}
-			if(isHorizontal)
+			GameObject newObject = Spawn(objectName, newPosition + new Vector3(0.0f, offsetY, 0.0f), newRotation);
+//			if(pool[objectName].Count > 0){
+//				GameObject go = pool[objectName].Pop();
+//				go.transform.position = newPosition;
+//				go.transform.rotation = newRotation;
+//				go.transform.Translate(new Vector3(0.0f, offsetY, 0.0f), Space.Self);
+//				go.SetActive(true);
+//			}
+
+			if(!isHorizontal)
 			{
 				newPosition.x += offset;
 			}

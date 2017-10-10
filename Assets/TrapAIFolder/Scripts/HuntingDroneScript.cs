@@ -6,6 +6,7 @@ public class HuntingDroneScript : MonoBehaviour {
 
 	public GameObject player; // Public for now
 	public GameObject enemyAttackIndicator;
+	public Vector3 chasingPosition; // Public for now
 
 	private Vector3 target;
 	public float targetOffset;
@@ -30,6 +31,8 @@ public class HuntingDroneScript : MonoBehaviour {
 
 	public bool isWithinRange;
 
+	public int currentPoint = 0;
+
 	void Awake()
 	{
 		huntingDroneRigidbody = GetComponent<Rigidbody>();
@@ -51,6 +54,7 @@ public class HuntingDroneScript : MonoBehaviour {
 
 	void Update()
 	{
+		huntngDroneChaseFunctions();
 		huntingDroneMainFunctions();
 	}
 
@@ -60,6 +64,22 @@ public class HuntingDroneScript : MonoBehaviour {
 		droneHoveringFunction();
 	}
 
+	void huntngDroneChaseFunctions()
+	{
+		if(Vector3.Distance(chasingPosition, transform.position) <= 0.1f)
+		{
+			currentPoint++;
+		}
+
+		Transform chasingTrans = player.transform;
+
+		if(currentPoint < WaypointManagerScript.Instance.tracePlayerNodes.Count)
+		{
+			chasingTrans = WaypointManagerScript.Instance.tracePlayerNodes[currentPoint].transform;
+		}
+
+		chasingPosition = chasingTrans.position;
+	}
 
 	void huntingDroneMainFunctions()
 	{
