@@ -1,9 +1,12 @@
 ﻿using UnityEngine.Audio;
 using System;
 using UnityEngine;
+using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class SoundManager : MonoBehaviour {
 
+	//public Slider volume;
 	//Pyramind's
 //	public GameObject audiosourcePrefab;
 
@@ -37,7 +40,7 @@ public class SoundManager : MonoBehaviour {
 			audio.source.spatialBlend = audio.spatialBlend;
 		}
 	}
-		
+
 	//Brackeys
 	public void Play(string name)
 	{
@@ -48,6 +51,17 @@ public class SoundManager : MonoBehaviour {
 			return;
 		}
 		audio.source.Play(); //AudioManager.instance.Play("*insert audioclip's name*");
+	}
+
+	public void Stop(string name)
+	{
+		Sound audio = Array.Find(sounds, sound => sound.name == name);
+		if(audio == null)
+		{
+			Debug.LogWarning("Sound: " + name + " not found!");
+			return;
+		}
+		audio.source.Stop(); //AudioManager.instance.Play("*insert audioclip's name*");
 	}
 
 	//Pyramind's
@@ -68,11 +82,11 @@ public class SoundManager : MonoBehaviour {
 //		Destroy(myaudioSource.gameObject, myaudioSource.clip.length);
 //	}
 
-	public void StopAudio(string soundtostopName)
-	{
-		GameObject soundtostopObject = GameObject.Find(soundtostopName);
-		soundtostopObject.GetComponent<AudioSource>().Stop();
-
-		Destroy(soundtostopObject); //AudioManager.instance.StopAudio("object name".name + gameObject.name);
-	}
+//	public void StopAudio(string soundtostopName)
+//	{
+//		GameObject soundtostopObject = GameObject.Find(soundtostopName);
+//		soundtostopObject.GetComponent<AudioSource>().Stop();
+//
+//		Destroy(soundtostopObject); //AudioManager.instance.StopAudio("object name".name + gameObject.name);
+//	}
 }

@@ -62,4 +62,9 @@ public class MainMenuManager : MonoBehaviour
     {
         MenuSettings.Instance.SetBrightness(slider.GetComponent<Slider>().value);
     }
+
+	public void onClick()
+	{
+		SoundManager.instance.Play("Button Press");
+	}
 }
