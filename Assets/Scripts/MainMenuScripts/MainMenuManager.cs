@@ -66,6 +66,7 @@ public class MainMenuManager : MonoBehaviour
     public void ChangeBrightness(GameObject slider) //Alter screen brightness value
     {
         MenuSettings.Instance.SetBrightness(slider.GetComponent<Slider>().value);
+        Debug.Log("Current Brightness value is : " + slider.GetComponent<Slider>().value);
     }
 
 	public void onClick()
