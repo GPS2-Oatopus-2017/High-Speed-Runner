@@ -73,4 +73,9 @@ public class MainMenuManager : MonoBehaviour
 	{
 		SoundManagerScript.Instance.PlaySFX2D(AudioClipID.SFX_UI_BUTTON);
 	}
+
+	public void sliderchangeSFX()
+	{
+		SoundManagerScript.Instance.PlaySFX2D(AudioClipID.SFX_MAIN_MENU);
+	}
 }
