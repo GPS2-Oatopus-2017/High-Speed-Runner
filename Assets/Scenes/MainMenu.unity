@@ -209,6 +209,10 @@ MonoBehaviour:
   - {fileID: 1194214658}
   - {fileID: 1627980389}
   startingLevel: Level 1
+  sliders:
+  - {fileID: 1762409582}
+  - {fileID: 702417732}
+  - {fileID: 1477635466}
 --- !u!4 &13667708
 Transform:
   m_ObjectHideFlags: 0
@@ -1835,7 +1839,7 @@ GameObject:
   - component: {fileID: 702417733}
   - component: {fileID: 702417734}
   m_Layer: 0
-  m_Name: Slider
+  m_Name: BGMSlider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3437,7 +3441,7 @@ GameObject:
   - component: {fileID: 1477635467}
   - component: {fileID: 1477635468}
   m_Layer: 0
-  m_Name: Slider
+  m_Name: SFXSlider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4114,7 +4118,7 @@ MonoBehaviour:
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
-          m_BoolArgument: 1
+          m_BoolArgument: 0
         m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
@@ -4161,7 +4165,7 @@ GameObject:
   - component: {fileID: 1762409583}
   - component: {fileID: 1762409584}
   m_Layer: 0
-  m_Name: Slider
+  m_Name: BrightnessSlider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4835,12 +4839,12 @@ MonoBehaviour:
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 64
+    m_FontSize: 50
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 4
     m_MaxSize: 80
-    m_Alignment: 1
+    m_Alignment: 4
     m_AlignByGeometry: 0
     m_RichText: 1
     m_HorizontalOverflow: 0
