@@ -28,26 +28,13 @@ public class PlayerScript : MonoBehaviour {
 			temp = health;
 		}
 
-//		if(Input.touchCount > 0)
-//		{
-//			Ray ray = Camera.main.ScreenPointToRay(Input.touches[0].position);
-//			RaycastHit hit;
-//			if(Physics.Raycast(ray, out hit, 10000f))
-//			{
-//				Debug.Log("Hit");
-//				if(hit.collider.tag == "TrapTag")
-//				{
-//					GetComponent<MotionSensorScript>().isActive = false;
-//				}
-//			}
-//		}
-
-		if(Input.GetMouseButtonDown(0))
+		if(Input.touchCount > 0)
 		{
-			Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+			Ray ray = Camera.main.ScreenPointToRay(Input.touches[0].position);
 			RaycastHit hit;
 			if(Physics.Raycast(ray, out hit, 10000f))
 			{
+				Debug.Log("Hit");
 				if(hit.collider.tag == "TrapTag")
 				{
 					hit.collider.GetComponent<MotionSensorScript>().isActive = false;
