@@ -43,9 +43,16 @@ public class SurveillanceDroneScript : MonoBehaviour {
 
 	void Update()
 	{
-		if(!isSpawned)
+		if(!isSpawned && !hasBeenDetected)
 		{
 			playerDetection();
+		}
+		else if(isSpawned)
+		{
+			if(ReputationManagerScript.Instance.currentRep == 0)
+			{
+				PoolManagerScript.Instance.Despawn(this.gameObject);
+			}
 		}
 		surveillanceDroneChaseFunctions();
 		surveillanceDroneMainFunctions();
@@ -60,22 +67,27 @@ public class SurveillanceDroneScript : MonoBehaviour {
 
 	void playerDetection()
 	{
-		if(Vector3.Distance(transform.position, player.transform.position) <= alertDistance && !hasBeenDetected)
+		if(Vector3.Distance(transform.position, player.transform.position) <= alertDistance)
 		{
 			hasBeenDetected = true;
 			//SpawnFunction
 			SpawnManagerScript.Instance.CalculateSpawnPoint();
 			Debug.Log(SpawnManagerScript.Instance.spawnPoint);
-			currentPoint = SpawnManagerScript.Instance.currentSpawnIndex;
+			currentPoint = SpawnManagerScript.Instance.currentSpawnIndex + 1;
 			PoolManagerScript.Instance.Spawn("Hunting_Droid",SpawnManagerScript.Instance.spawnPoint,Quaternion.identity);
+			if(ReputationManagerScript.Instance.currentRep == 0)
+			{
+				ReputationManagerScript.Instance.currentRep += 1;
+			}
 		}
 	}
 
 	void surveillanceDroneChaseFunctions()
 	{
-		if(Vector3.Distance(chasingPosition, transform.position) <= 0.1f)
+		if(Vector2.Distance(new Vector2(chasingPosition.x, chasingPosition.z), new Vector2(transform.position.x, transform.position.z)) <= 0.1f)
 		{
-			currentPoint++;
+			if(currentPoint < WaypointManagerScript.Instance.tracePlayerNodes.Count)
+				currentPoint++;
 		}
 
 		Transform chasingTrans = player.transform;
@@ -86,6 +98,7 @@ public class SurveillanceDroneScript : MonoBehaviour {
 		}
 
 		chasingPosition = chasingTrans.position;
+		chasingPosition.y = transform.position.y;
 	}
 
 	void surveillanceDroneMainFunctions()

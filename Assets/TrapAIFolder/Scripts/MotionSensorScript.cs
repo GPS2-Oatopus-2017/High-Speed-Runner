@@ -8,7 +8,7 @@ public class MotionSensorScript : MonoBehaviour {
 	//public GameObject electricWall;
 
 	public bool isActive;
-	
+	public Material mat;
 	public float alertDistance = 6; // To be adjusted
 
 	void Start() 
@@ -25,10 +25,16 @@ public class MotionSensorScript : MonoBehaviour {
 		{
 			//electricWall.SetActive(true);
 			isActive = false;
+			if(ReputationManagerScript.Instance.currentRep == 0)
+			{
+				ReputationManagerScript.Instance.currentRep += 1;
+			}
 			SpawnManagerScript.Instance.CalculateSpawnPoint();
 			PoolManagerScript.Instance.SpawnMuliple("Hunting_Droid",SpawnManagerScript.Instance.spawnPoint,Quaternion.identity,2,0,3.5f,SpawnManagerScript.Instance.isHorizontal);
-			Debug.Log(SpawnManagerScript.Instance.isHorizontal);
-			Debug.Log("Touche");
+		}
+		if(!isActive)
+		{
+			GetComponent<MeshRenderer>().material = mat;
 		}
 	}
 }

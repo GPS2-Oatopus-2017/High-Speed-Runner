@@ -22,6 +22,7 @@ GameObject:
   - component: {fileID: 95811784452532258}
   - component: {fileID: 54341429689748382}
   - component: {fileID: 114509515362353110}
+  - component: {fileID: 65863440657175264}
   m_Layer: 0
   m_Name: Surveillance_Drone
   m_TagString: Untagged
@@ -127,6 +128,18 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!65 &65863440657175264
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1917701051219704}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!95 &95811784452532258
 Animator:
   serializedVersion: 3
@@ -157,12 +170,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 0}
   chasingPosition: {x: 0, y: 0, z: 0}
-  movementSpeed: 18
+  movementSpeed: 10
   turnSpeed: 8
   alertDistance: 12
   safeDistance: 100
   hoverForce: 90
   hoverHeight: 3.5
   hasBeenDetected: 0
-  isSpawned: 0
+  isSpawned: 1
   currentPoint: 0

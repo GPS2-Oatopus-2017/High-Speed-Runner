@@ -42,7 +42,8 @@ public class HuntingDroneScript : MonoBehaviour {
 	void Start()
 	{
 		player = GameObject.FindWithTag("Player");
-
+		SpawnManagerScript.Instance.CalculateSpawnPoint();
+		currentPoint = SpawnManagerScript.Instance.currentSpawnIndex + 1;
 		target = player.transform.position + player.transform.forward * targetOffset;
 
 		float randNum = Random.Range(3,6);
@@ -56,6 +57,10 @@ public class HuntingDroneScript : MonoBehaviour {
 	{
 		huntngDroneChaseFunctions();
 		huntingDroneMainFunctions();
+		if(ReputationManagerScript.Instance.currentRep == 0)
+		{
+			PoolManagerScript.Instance.Despawn(this.gameObject);
+		}
 	}
 
 
@@ -66,9 +71,10 @@ public class HuntingDroneScript : MonoBehaviour {
 
 	void huntngDroneChaseFunctions()
 	{
-		if(Vector3.Distance(chasingPosition, transform.position) <= 0.1f)
+		if(Vector2.Distance(new Vector2(chasingPosition.x, chasingPosition.z), new Vector2(transform.position.x, transform.position.z)) <= 0.1f)
 		{
-			currentPoint++;
+			if(currentPoint < WaypointManagerScript.Instance.tracePlayerNodes.Count)
+				currentPoint++;
 		}
 
 		Transform chasingTrans = player.transform;
@@ -79,11 +85,12 @@ public class HuntingDroneScript : MonoBehaviour {
 		}
 
 		chasingPosition = chasingTrans.position;
+		chasingPosition.y = transform.position.y;
 	}
 
 	void huntingDroneMainFunctions()
 	{
-		transform.LookAt(player.transform.position);
+		transform.LookAt(chasingPosition);
 
 		if(Vector3.Distance(transform.position, player.transform.position) >= safeDistance)
 		{

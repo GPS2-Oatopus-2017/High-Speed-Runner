@@ -56,7 +56,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 2100000, guid: dc3b1c6f74568794085e6c4459f04013, type: 2}
+  - {fileID: 2100000, guid: 11ae7f8c61c1fc449a4c72591fa7f555, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -112,4 +112,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 0}
   isActive: 0
-  alertDistance: 10
+  mat: {fileID: 2100000, guid: 53ea2be2502e8114baf9d0177e2323a1, type: 2}
+  alertDistance: 6

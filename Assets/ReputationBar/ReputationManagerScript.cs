@@ -46,10 +46,6 @@ public class ReputationManagerScript : MonoBehaviour {
 			DecreaseReputation();
 			resetCounter = 0;
 		}
-		if(Input.GetKeyDown(KeyCode.S))
-		{
-			DecreaseReputation();
-		}
 		UpdateBar();
 		UpdateCount();
 		UpdateStatus();
@@ -85,7 +81,7 @@ public class ReputationManagerScript : MonoBehaviour {
 		{
 			if(i < currentRep)
 			{
-				starList[i].sprite = lightUp;
+				starList[i].enabled = true;
 			}
 			else
 			{
@@ -113,7 +109,6 @@ public class ReputationManagerScript : MonoBehaviour {
 				statusList[i].enabled = false;
 			}
 		}
-		//playerStatus.text = status;
 	}
 
 	void LateUpdate()

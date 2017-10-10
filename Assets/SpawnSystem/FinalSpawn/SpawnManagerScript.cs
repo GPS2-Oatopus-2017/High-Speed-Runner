@@ -46,82 +46,75 @@ public class SpawnManagerScript : MonoBehaviour {
 			isHorizontal = true;
 		}
 		//currentSpawnIndex 
-//		reputation = ReputationManagerScript.Instance.lastRep;
-//		if(reputation >= 1 && reputation == ReputationManagerScript.Instance.currentRep)
-//		{
-//			countDownTimer += Time.deltaTime;
-//		}
-//		else
-//		{
-//			countDownTimer = 0;
-//		}
-//
-//		if(countDownTimer >= spawnTime)
-//		{
-//			countDownTimer = 0;
-//			CalculateSpawnPoint();
-//			if(reputation == 1)
-//			{
-//				sdCount+=1;
-//				hdCount+=1;
-//				PoolManagerScript.Instance.Spawn("Surveillance_Drone",spawnPoint,Quaternion.identity);
-//				ApplyOffsetVertically();
-//				PoolManagerScript.Instance.Spawn("Hunting drone",spawnPoint,Quaternion.identity);
-//				TimelineScript.Instance.CreateEnemyIcon("Surveillance_Drone", 1);
-//				TimelineScript.Instance.CreateEnemyIcon("Hunting drone", 1);
-//			}
-//			else if(reputation == 2)
-//			{
-//				hdCount+=2;
-//				for(int i=0; i<2; i++)
-//				{
-//					PoolManagerScript.Instance.Spawn("Hunting drone",spawnPoint,Quaternion.identity);
-//				}
-//				TimelineScript.Instance.CreateEnemyIcon("Hunting drone", 2);
-//			}
-//			else if(reputation == 3)
-//			{
-//				sdCount+=1;
-//				hdCount+=2;
-//				PoolManagerScript.Instance.Spawn("Surveillance_Drone",spawnPoint,Quaternion.identity);
-//				ApplyOffsetVertically();
-//				for(int i=0; i<2; i++)
-//				{
-//					PoolManagerScript.Instance.Spawn("Hunting drone",spawnPoint,Quaternion.identity);
-//				}
-//				TimelineScript.Instance.CreateEnemyIcon("Surveillance_Drone", 1);
-//				TimelineScript.Instance.CreateEnemyIcon("Hunting drone", 2);
-//			}
-//			else if(reputation == 4)
-//			{
-//				sdCount+=1;
-//				hdCount+=3;
-//				PoolManagerScript.Instance.Spawn("Surveillance_Drone",spawnPoint,Quaternion.identity);
-//				ApplyOffsetVertically();
-//				for(int i=0; i<3; i++)
-//				{
-//					PoolManagerScript.Instance.Spawn("Hunting drone",spawnPoint,Quaternion.identity);
-//				}
-//				TimelineScript.Instance.CreateEnemyIcon("Surveillance_Drone", 1);
-//				TimelineScript.Instance.CreateEnemyIcon("Hunting drone", 3);
-//			}
-//			else if(reputation == 5)
-//			{
-//				sdCount+=3;
-//				hdCount+=3;
-//				for(int i=0; i<3; i++)
-//				{
-//					PoolManagerScript.Instance.Spawn("Surveillance_Drone",spawnPoint,Quaternion.identity);
-//				}
-//				ApplyOffsetVertically();
-//				for(int i=0; i<3; i++)
-//				{
-//					PoolManagerScript.Instance.Spawn("Hunting drone",spawnPoint,Quaternion.identity);
-//				}
-//				TimelineScript.Instance.CreateEnemyIcon("Surveillance_Drone", 3);
-//				TimelineScript.Instance.CreateEnemyIcon("Hunting drone", 3);
-//			}
-//		}
+		reputation = ReputationManagerScript.Instance.lastRep;
+		if(reputation >= 1 && reputation == ReputationManagerScript.Instance.currentRep)
+		{
+			countDownTimer += Time.deltaTime;
+		}
+		else
+		{
+			countDownTimer = 0;
+		}
+
+		if(countDownTimer >= spawnTime)
+		{
+			countDownTimer = 0;
+			CalculateSpawnPoint();
+			if(reputation == 1)
+			{
+				sdCount+=1;
+				hdCount+=1;
+				PoolManagerScript.Instance.Spawn("Surveillance_Drone",spawnPoint,Quaternion.identity);
+				PoolManagerScript.Instance.Spawn("Hunting_Droid",spawnPoint,Quaternion.identity);
+				TimelineScript.Instance.CreateEnemyIcon("Surveillance_Drone", 1);
+				TimelineScript.Instance.CreateEnemyIcon("Hunting_Droid", 1);
+			}
+			else if(reputation == 2)
+			{
+				hdCount+=2;
+				PoolManagerScript.Instance.SpawnMuliple("Hunting_Droid",spawnPoint,Quaternion.identity,2,offsetY,offset,isHorizontal);
+				TimelineScript.Instance.CreateEnemyIcon("Hunting_Droid", 2);
+			}
+			else if(reputation == 3)
+			{
+				sdCount+=1;
+				hdCount+=2;
+				PoolManagerScript.Instance.Spawn("Surveillance_Drone",spawnPoint,Quaternion.identity);
+				ApplyOffsetVertically();
+				PoolManagerScript.Instance.SpawnMuliple("Hunting_Droid",spawnPoint,Quaternion.identity,2,offsetY,offset,isHorizontal);
+				TimelineScript.Instance.CreateEnemyIcon("Surveillance_Drone", 1);
+				TimelineScript.Instance.CreateEnemyIcon("Hunting_Droid", 2);
+			}
+			else if(reputation == 4)
+			{
+				sdCount+=1;
+				hdCount+=3;
+				PoolManagerScript.Instance.Spawn("Surveillance_Drone",spawnPoint,Quaternion.identity);
+				ApplyOffsetVertically();
+				for(int i=0; i<3; i++)
+				{
+					PoolManagerScript.Instance.Spawn("Hunting_Droid",spawnPoint,Quaternion.identity);
+				}
+				TimelineScript.Instance.CreateEnemyIcon("Surveillance_Drone", 1);
+				TimelineScript.Instance.CreateEnemyIcon("Hunting_Droid", 3);
+			}
+			else if(reputation == 5)
+			{
+				sdCount+=3;
+				hdCount+=3;
+				for(int i=0; i<3; i++)
+				{
+					PoolManagerScript.Instance.Spawn("Surveillance_Drone",spawnPoint,Quaternion.identity);
+				}
+				ApplyOffsetVertically();
+				for(int i=0; i<3; i++)
+				{
+					PoolManagerScript.Instance.Spawn("Hunting_Droid",spawnPoint,Quaternion.identity);
+				}
+				TimelineScript.Instance.CreateEnemyIcon("Surveillance_Drone", 3);
+				TimelineScript.Instance.CreateEnemyIcon("Hunting_Droid", 3);
+			}
+		}
 	}
 
 	void ApplyOffsetVertically()
