@@ -12,6 +12,7 @@ public class GameManagerScript : MonoBehaviour
 	}
 
 	public PlayerCoreController player;
+	public float totalTimeLevel1 = 90f;
 
 	void Awake()
 	{
