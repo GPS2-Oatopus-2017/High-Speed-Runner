@@ -51,8 +51,8 @@ public class FirstEncounterScript : MonoBehaviour
                 seenObj[0] = true; // Player is currently withing range of an obj.
 
                 // Highlight that particular object
-                defaultMat= surveillanceDrones[i].GetComponent<MeshRenderer>().material; // Set objects' default material to it's current material.
-                surveillanceDrones[i].GetComponent<MeshRenderer>().material = highlightMat; // Set objects' material to "highlightMat".
+				defaultMat= surveillanceDrones[i].transform.GetComponentInChildren<MeshRenderer>().material; // Set objects' default material to it's current material.
+				surveillanceDrones[i].transform.GetComponentInChildren<MeshRenderer>().material = highlightMat; // Set objects' material to "highlightMat".
 			}
 		}
 
