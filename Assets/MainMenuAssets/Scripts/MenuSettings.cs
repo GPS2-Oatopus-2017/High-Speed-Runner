@@ -5,9 +5,9 @@ using UnityEngine.UI;
 
 public class MenuSettings : MonoBehaviour 
 {
-    public float bgmVolume = 1.0f;
-    public float sfxVolume = 1.0f;
-    public float brightness = 1.0f;
+    public float bgmVolume = 0.5f;
+    public float sfxVolume = 0.5f;
+    public float brightness = 0.75f;
 
     public AudioSource bgmAudioSource;
     public AudioSource sfxAudioSource;

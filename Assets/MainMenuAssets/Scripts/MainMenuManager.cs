@@ -9,6 +9,14 @@ public class MainMenuManager : MonoBehaviour
     [Header("Menu Settings")]
     public GameObject[] menuWindows;
     public string startingLevel;
+    public GameObject[] sliders;
+
+    void Start()
+    {
+        SetupBrightness(sliders[0]);
+        SetupBGM(sliders[1]);
+        SetupSFX(sliders[2]);
+    }
 
     public void StartGame()
     {
@@ -33,12 +41,14 @@ public class MainMenuManager : MonoBehaviour
 
     public void SetupBGM(GameObject slider)  // Will work on this with Syabil soon
     {
-        slider.GetComponent<Slider>().value = MenuSettings.Instance.bgmVolume;
+        MenuSettings.Instance.bgmVolume  = slider.GetComponent<Slider>().value;
+        ChangeBGM(slider);
     }
 
     public void SetupSFX(GameObject slider)
     {
-        slider.GetComponent<Slider>().value = MenuSettings.Instance.sfxVolume;
+        MenuSettings.Instance.sfxVolume = slider.GetComponent<Slider>().value;
+        ChangeSFX(slider);
     }
 
     public void ChangeBGM(GameObject slider)
@@ -55,7 +65,8 @@ public class MainMenuManager : MonoBehaviour
 
     public void SetupBrightness(GameObject slider) //Set initial screen brightness
     {
-        slider.GetComponent<Slider>().value = MenuSettings.Instance.brightness;
+        MenuSettings.Instance.brightness = slider.GetComponent<Slider>().value;
+        ChangeBrightness(slider);
     }
 
     public void ChangeBrightness(GameObject slider) //Alter screen brightness value
