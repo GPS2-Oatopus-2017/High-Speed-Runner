@@ -220,6 +220,8 @@ MonoBehaviour:
     audioClip: {fileID: 8300000, guid: 87b168b23aa36d6449cec593bee350f4, type: 3}
   - audioClipID: 3
     audioClip: {fileID: 8300000, guid: 0acc12534b6cb594683571fb158e8279, type: 3}
+  - audioClipID: 100
+    audioClip: {fileID: 8300000, guid: dfbf31b1f7219da48b81c79b7f88e24b, type: 3}
   bgmAudioSource: {fileID: 82067185432837428}
   sfxAudioSource2D: {fileID: 82373236289609088}
   sfxAudioSourceList2D: []
