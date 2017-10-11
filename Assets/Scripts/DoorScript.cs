@@ -45,9 +45,14 @@ public class DoorScript : MonoBehaviour
 
 		if(!isTappedByPlayer)
 		{
-			if(Input.GetMouseButtonDown(0))
+			if((Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Began) || Input.GetMouseButtonDown(0))
 			{
-				Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+				#if UNITY_ANDROID
+					Ray ray = Camera.main.ScreenPointToRay(Input.GetTouch(0).position);
+				#elif UNITY_STANDALONE
+					Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+				#endif
+
 				RaycastHit hit;
 				if(Physics.Raycast(ray, out hit, tapMaxDistance))
 				{

@@ -88,7 +88,7 @@ public class DialogueManager : MonoBehaviour
         ttcText.SetActive(true);
         dialogue.text = beginningScene[bsIndex];
 
-        if(Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Began && bsIndex <= beginningScene.Count|| Input.GetKeyDown(KeyCode.Space))
+		if(((Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Began) || Input.GetMouseButtonDown(0)) && bsIndex <= beginningScene.Count )
         {
             bsIndex++;
         }

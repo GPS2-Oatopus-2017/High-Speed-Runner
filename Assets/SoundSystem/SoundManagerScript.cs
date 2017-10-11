@@ -305,9 +305,14 @@ public class SoundManagerScript : MonoBehaviour
 	public void SetSFXVolume(float value)
 	{
 		sfxVolume = value;
+		sfxAudioSource2D.volume = sfxVolume;
 		for(int i = 0; i < sfxAudioSourceList2D.Count; i++)
 		{
 			sfxAudioSourceList2D[i].volume = sfxVolume;
+		}
+		for(int i = 0; i < sfxAudioSourceList3D.Count; i++)
+		{
+			sfxAudioSourceList3D[i].volume = sfxVolume;
 		}
 	}
 }
