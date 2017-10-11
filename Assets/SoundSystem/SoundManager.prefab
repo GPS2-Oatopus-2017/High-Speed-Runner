@@ -226,6 +226,12 @@ MonoBehaviour:
     audioClip: {fileID: 8300000, guid: 3caa6fed8efd8a54e895f2a04215e8fc, type: 3}
   - audioClipID: 6
     audioClip: {fileID: 8300000, guid: 3caa6fed8efd8a54e895f2a04215e8fc, type: 3}
+  - audioClipID: 7
+    audioClip: {fileID: 8300000, guid: dea7d7ebe6acab8449895006e682d863, type: 3}
+  - audioClipID: 3
+    audioClip: {fileID: 8300000, guid: e9edcd752962a0c48ac268b0876927fa, type: 3}
+  - audioClipID: 2
+    audioClip: {fileID: 8300000, guid: 661fcbc16ccbfee4b9da32d7ceecbf07, type: 3}
   bgmAudioSource: {fileID: 82067185432837428}
   sfxAudioSource2D: {fileID: 82373236289609088}
   sfxAudioSourceList2D: []

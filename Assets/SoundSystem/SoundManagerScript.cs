@@ -21,8 +21,9 @@ public enum AudioClipID
 
 	//SFXs
 	SFX_RUNNING = 6,
-	SFX_SR_OPENDOOR = 7,
-	SFX_SR_CLOSEDOOR = 8
+	SFX_DRONE_HOVER = 7,
+	SFX_SR_OPENDOOR = 8,
+	SFX_SR_CLOSEDOOR = 9
 }
 
 [System.Serializable]

@@ -8,6 +8,6 @@ public class BGMLoader : MonoBehaviour
 	public AudioClipID bgm;
 	void Start()
 	{
-		SoundManagerScript.Instance.PlayBGM(bgm);
+		SoundManagerScript.Instance.PlaySFX2D(bgm);
 	}
 }
