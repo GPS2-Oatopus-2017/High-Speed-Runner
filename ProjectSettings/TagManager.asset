@@ -16,6 +16,7 @@ TagManager:
   - Waypoint
   - DialogueManager
   - SoundManager
+  - Enemy
   layers:
   - Default
   - TransparentFX

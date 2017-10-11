@@ -50,6 +50,8 @@ public class DialogueManager : MonoBehaviour
         initTimer = false;      //Initiate timer is set to false.
         initDialogue = false;   //Initial dialogue once scene is loaded is only played once.
         startCD = false;        //Timer for CountDownTimer is set to false.
+
+		GameManagerScript.Instance.player.StopRunning();
     }
 
     void Update()
@@ -155,6 +157,8 @@ public class DialogueManager : MonoBehaviour
             popUps[2].SetActive(false);
             startCD = false;
             cdTimer = 0;
+
+			GameManagerScript.Instance.player.StartRunning();
         }
     }
 }

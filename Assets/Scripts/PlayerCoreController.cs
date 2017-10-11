@@ -50,5 +50,15 @@ public class PlayerCoreController : MonoBehaviour
     public void ToggleRunning(bool isRunning)
     {
         rigidController.movementSettings.m_Running = isRunning;
-    }
+	}
+
+	public void StartRunning()
+	{
+		rigidController.movementSettings.isAutoRun = true;
+	}
+
+	public void StopRunning()
+	{
+		rigidController.movementSettings.isAutoRun = false;
+	}
 }

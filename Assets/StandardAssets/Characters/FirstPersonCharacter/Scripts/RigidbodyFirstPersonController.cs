@@ -34,6 +34,7 @@ namespace UnityStandardAssets.Characters.FirstPerson
 			//#if !MOBILE_INPUT
 			public bool m_Running;
 			//#endif
+			public bool isAutoRun = false;
 
 			public void UpdateDesiredTargetSpeed (Vector2 input)
 			{
@@ -224,13 +225,22 @@ namespace UnityStandardAssets.Characters.FirstPerson
 
 		private Vector2 GetInput ()
 		{
+			Vector2 input;
+
 			// Sabotaged to make auto-run
-			Vector2 input = Vector2.up;
-			//		Vector2 input = new Vector2
-			//		{
-			//			x = CrossPlatformInputManager.GetAxis ("Horizontal"),
-			//			y = CrossPlatformInputManager.GetAxis ("Vertical")
-			//		};
+			if(movementSettings.isAutoRun)
+			{
+				input = Vector2.up;
+			}
+			else
+			{
+				input = Vector2.zero;
+//				input = new Vector2
+//				{
+//					x = CrossPlatformInputManager.GetAxis ("Horizontal"),
+//					y = CrossPlatformInputManager.GetAxis ("Vertical")
+//				};
+			}
 			movementSettings.UpdateDesiredTargetSpeed (input);
 			return input;
 		}

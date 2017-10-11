@@ -45,7 +45,7 @@ public class ElectricWallScript : MonoBehaviour
 		}
 		if(other.gameObject.tag == "Enemy")
 		{
-			PoolManagerScript.Instance.Despawn(gameObject);
+			PoolManagerScript.Instance.Despawn(other.gameObject);
 
 			if(other.gameObject.GetComponent<SurveillanceDroneScript>())
 				ReputationManagerScript.Instance.deadSD++;

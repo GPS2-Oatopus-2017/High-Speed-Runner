@@ -40,6 +40,7 @@ public class DoorScript : MonoBehaviour
 		else
 		{
 			doorHinge.useMotor = false;
+			if(isOpened) CloseDoor(); //Auto Close
 		}
 
 		if(!isTappedByPlayer)
@@ -50,7 +51,6 @@ public class DoorScript : MonoBehaviour
 				RaycastHit hit;
 				if(Physics.Raycast(ray, out hit, tapMaxDistance))
 				{
-					Debug.Log(hit.collider.name);
 					if(hit.collider.gameObject == this.gameObject)
 					{
 						Debug.Log("Tapped Door");
@@ -121,5 +121,20 @@ public class DoorScript : MonoBehaviour
 		JointMotor newMotor = doorHinge.motor;
 		newMotor.targetVelocity = speed;
 		doorHinge.motor = newMotor;
+	}
+
+	void OnCollisionEnter(Collision col) //Apply knockback and speed reduction upon collision
+	{
+		if(col.collider.gameObject.tag == "Enemy")
+		{
+			PoolManagerScript.Instance.Despawn(col.collider.gameObject);
+
+			if(col.collider.gameObject.GetComponent<SurveillanceDroneScript>())
+				ReputationManagerScript.Instance.deadSD++;
+			else if(col.collider.gameObject.GetComponent<HuntingDroneScript>())
+				ReputationManagerScript.Instance.deadHD++;
+
+			Debug.Log("enemy despwan");
+		}
 	}
 }

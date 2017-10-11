@@ -59,7 +59,7 @@ public class InteractScript : MonoBehaviour
 			if (Physics.Raycast (ray, out hit, rayDistance)) {
 				
 				Debug.DrawRay (transform.position, hit.transform.position, Color.red);
-				Debug.Log (hit.transform.name);
+				//Debug.Log (hit.transform.name);
 
 				if (hit.transform.tag == "MountainDew") {
 					//lightObject.transform.rotation = Quaternion.Euler (20f, -90f, lightObject.transform.rotation.z);
@@ -118,7 +118,7 @@ public class InteractScript : MonoBehaviour
 			if (Physics.Raycast (ray, out hit, rayDistance)) {
 
 				Debug.DrawRay (transform.position, hit.transform.position, Color.red);
-				Debug.Log (hit.transform.name);
+				//Debug.Log (hit.transform.name);
 
 				if (hit.transform.tag == "Interactable") {
 					
