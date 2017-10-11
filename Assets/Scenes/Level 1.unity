@@ -15644,11 +15644,11 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4250014435484594, guid: 495493adb7fbe7d4398e53a03b992955, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 10.52
+      value: 3.66
       objectReference: {fileID: 0}
     - target: {fileID: 4250014435484594, guid: 495493adb7fbe7d4398e53a03b992955, type: 2}
       propertyPath: m_LocalPosition.z
-      value: -183.97
+      value: -182.4
       objectReference: {fileID: 0}
     - target: {fileID: 4250014435484594, guid: 495493adb7fbe7d4398e53a03b992955, type: 2}
       propertyPath: m_LocalRotation.x
@@ -18528,7 +18528,12 @@ MonoBehaviour:
   electricFences: []
   doors: []
   highlightMat: {fileID: 2100000, guid: b86aae0e0b501c740bbb84e65d6730ba, type: 2}
-  distanceFromObject: 30
+  distanceFromObject:
+  - 12
+  - 30
+  - 30
+  - 30
+  - 30
   seenObj: 0000000000
 --- !u!114 &1640676995
 MonoBehaviour:

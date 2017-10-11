@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;
 public class BGMLoader : MonoBehaviour
 {
 	public AudioClipID bgm;
+
 	void Start()
 	{
 		SoundManagerScript.Instance.PlayBGM(bgm);
