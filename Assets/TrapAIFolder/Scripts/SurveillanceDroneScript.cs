@@ -33,7 +33,6 @@ public class SurveillanceDroneScript : MonoBehaviour {
 	void Start()
 	{
 		//player = GameObject.FindWithTag("Player");
-
 		float randNum = Random.Range(3,6);
 		hoverHeight = randNum;
 		currentPoint = SpawnManagerScript.Instance.currentSpawnIndex;
@@ -43,7 +42,7 @@ public class SurveillanceDroneScript : MonoBehaviour {
 
 	void Update()
 	{
-		if(!isSpawned && !hasBeenDetected)
+		if(!hasBeenDetected)
 		{
 			playerDetection();
 		}
@@ -74,7 +73,8 @@ public class SurveillanceDroneScript : MonoBehaviour {
 			//SpawnFunction
 			SpawnManagerScript.Instance.CalculateSpawnPoint();
 			currentPoint = SpawnManagerScript.Instance.currentSpawnIndex + 1;
-			PoolManagerScript.Instance.Spawn("Hunting_Droid",SpawnManagerScript.Instance.spawnPoint,Quaternion.identity);
+			if(!isSpawned)
+				PoolManagerScript.Instance.Spawn("Hunting_Droid",SpawnManagerScript.Instance.spawnPoint,Quaternion.identity);
 			if(ReputationManagerScript.Instance.currentRep == 0)
 			{
 				Debug.Log("Hi");

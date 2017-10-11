@@ -7,6 +7,7 @@ public class TimerScript : MonoBehaviour {
 
 	private float totalTimeLevel1;
 	public Image timerBar;
+	public bool hasStarted = false;
 
 	// Use this for initialization
 	void Start () 
@@ -18,7 +19,10 @@ public class TimerScript : MonoBehaviour {
 	// Update is called once per frame
 	void Update () 
 	{
-		totalTimeLevel1 -= Time.deltaTime;
+		if(hasStarted)
+		{
+			totalTimeLevel1 -= Time.deltaTime;
+		}
 		timerBar.fillAmount = totalTimeLevel1 / GameManagerScript.Instance.totalTimeLevel1 * 1;
 	}
 }

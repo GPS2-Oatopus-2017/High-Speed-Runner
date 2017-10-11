@@ -60,7 +60,7 @@ public class ReputationManagerScript : MonoBehaviour {
 		{
 			resetCounter += Time.deltaTime;
 		}
-		if(currentRep != lastRep)
+		if(lastRep!= currentRep)
 		{
 			resetCounter = 0;
 		}

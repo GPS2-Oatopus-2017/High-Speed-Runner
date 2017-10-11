@@ -82,14 +82,14 @@ public class TimelineScript : MonoBehaviour {
 	void Update () 
 	{
 		//temporary character running simulation
-		if(characterDistanceTraveled >= calculatedDistanceAwayFromEnd)
-		{
-			characterDistanceTraveled = calculatedDistanceAwayFromEnd;
-		}
-		else
-		{
-			characterDistanceTraveled += Time.deltaTime * speed;
-		}
+//		if(characterDistanceTraveled >= calculatedDistanceAwayFromEnd)
+//		{
+//			characterDistanceTraveled = calculatedDistanceAwayFromEnd;
+//		}
+//		else
+//		{
+//			characterDistanceTraveled += Time.deltaTime * speed;
+//		}
 
 		//Calculate character timeline from total distance
 		characterTimeline = (characterDistanceTraveled/ calculatedDistanceAwayFromEnd) * 100;

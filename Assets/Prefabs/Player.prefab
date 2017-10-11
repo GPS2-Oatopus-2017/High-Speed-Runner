@@ -461,7 +461,7 @@ AudioSource:
       tangentMode: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
-    m_RotationOrder: 4
+    m_RotationOrder: 0
   spreadCustomCurve:
     serializedVersion: 2
     m_Curve:
@@ -485,7 +485,7 @@ AudioSource:
       tangentMode: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
-    m_RotationOrder: 4
+    m_RotationOrder: 0
 --- !u!92 &92615893883164106
 Behaviour:
   m_ObjectHideFlags: 1
@@ -602,6 +602,7 @@ MonoBehaviour:
       m_RotationOrder: 4
     CurrentTargetSpeed: 8
     m_Running: 0
+    isAutoRun: 0
   advancedSettings:
     groundCheckDistance: 0.01
     stickToGroundHelperDistance: 0.5

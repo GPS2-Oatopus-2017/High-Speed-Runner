@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 367491234}
-  m_IndirectSpecularColor: {r: 0, g: 0, b: 0, a: 1}
+  m_IndirectSpecularColor: {r: 0.17803514, g: 0.15211931, b: 0.11308732, a: 1}
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
@@ -2576,6 +2576,12 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 172876814}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &175334162 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 114351071265375570, guid: ec5e63abb9f09384887311bef8ca50a0,
+    type: 2}
+  m_PrefabInternal: {fileID: 663993204}
+  m_Script: {fileID: 11500000, guid: c1e73dd4ebe08bd4d9fa9dc12a45a263, type: 3}
 --- !u!1 &180441144
 GameObject:
   m_ObjectHideFlags: 0
@@ -7817,6 +7823,10 @@ Prefab:
     - target: {fileID: 1114307003568154, guid: ec5e63abb9f09384887311bef8ca50a0, type: 2}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1988557946632096, guid: ec5e63abb9f09384887311bef8ca50a0, type: 2}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: ec5e63abb9f09384887311bef8ca50a0, type: 2}
@@ -16500,6 +16510,11 @@ Prefab:
       propertyPath: m_StaticEditorFlags
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 114786937011414914, guid: 6ab66f474c2fe5a49a9f84cf9006be47,
+        type: 2}
+      propertyPath: timerScript
+      value: 
+      objectReference: {fileID: 175334162}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 6ab66f474c2fe5a49a9f84cf9006be47, type: 2}
   m_IsPrefabParent: 0
@@ -17808,6 +17823,15 @@ Prefab:
         type: 2}
       propertyPath: bgm
       value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 114161223200588848, guid: b1808d4fca7607e46a7152e089c33127,
+        type: 2}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1616565143080840, guid: b1808d4fca7607e46a7152e089c33127, type: 2}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: b1808d4fca7607e46a7152e089c33127, type: 2}

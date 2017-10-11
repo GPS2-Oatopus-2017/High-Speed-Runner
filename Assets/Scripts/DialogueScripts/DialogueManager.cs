@@ -30,6 +30,9 @@ public class DialogueManager : MonoBehaviour
     public bool[] objectSeen;
     public bool initTimer, initDialogue, startCD;
 
+	[Header("Last Minute Stuff")]
+	public TimerScript timerScript;
+
     public static DialogueManager Instance;
 
     void Awake()
@@ -52,6 +55,7 @@ public class DialogueManager : MonoBehaviour
         startCD = false;        //Timer for CountDownTimer is set to false.
 
 		GameManagerScript.Instance.player.StopRunning();
+		SoundManagerScript.Instance.StopBGM(AudioClipID.BGM_MAIN_MENU);
     }
 
     void Update()
@@ -159,6 +163,8 @@ public class DialogueManager : MonoBehaviour
             cdTimer = 0;
 
 			GameManagerScript.Instance.player.StartRunning();
+			SoundManagerScript.Instance.PlayBGM(AudioClipID.BGM_LEVEL1);
+			timerScript.hasStarted = true;
         }
     }
 }
