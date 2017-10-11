@@ -156,7 +156,7 @@ public class TimelineScript : MonoBehaviour {
 	{
 		GameObject enemyIcon = null;
 		if(enemy == "Surveillance_Drone") enemyIcon = surveillanceDrone;
-		else if(enemy == "Hunting drone") enemyIcon = huntingDrone;
+		else if(enemy == "Hunting_Droid") enemyIcon = huntingDrone;
 
 		if(!enemyIcon.activeSelf)
 		{
