@@ -30,6 +30,12 @@ public class ReputationManagerScript : MonoBehaviour {
 	string displayECount;
 	string status;
 
+	public int deadSD;
+	public int deadHD;
+
+	public int deadSDMax;
+	public int deadHDMax;
+
 	public float resetCounter;
 	public float resetTime;
 	// Use this for initialization
@@ -49,6 +55,7 @@ public class ReputationManagerScript : MonoBehaviour {
 		UpdateBar();
 		UpdateCount();
 		UpdateStatus();
+		UpdateDeadDrones();
 		if(currentRep == lastRep && currentRep != 0)
 		{
 			resetCounter += Time.deltaTime;
@@ -107,6 +114,51 @@ public class ReputationManagerScript : MonoBehaviour {
 			else
 			{
 				statusList[i].enabled = false;
+			}
+		}
+	}
+
+	void UpdateDeadDrones()
+	{
+		switch(currentRep)
+		{
+			case 1:
+				deadSDMax = 1;
+				deadHDMax = 1;
+				break;
+			case 2:
+				deadSDMax = 2;
+				deadHDMax = 2;
+				break;
+			case 3:
+				deadSDMax = 2;
+				deadHDMax = 2;
+				break;
+			case 4:
+				deadSDMax = 3;
+				deadHDMax = 2;
+				break;
+			default:
+				deadSDMax = -1;
+				deadHDMax = -1;
+				break;
+		}
+
+		if(deadSDMax > 0)
+		{
+			if(deadSD >= deadSDMax)
+			{
+				deadSD = 0;
+				currentRep++;
+			}
+		}
+
+		if(deadHDMax > 0)
+		{
+			if(deadHD >= deadHDMax)
+			{
+				deadHD = 0;
+				currentRep++;
 			}
 		}
 	}

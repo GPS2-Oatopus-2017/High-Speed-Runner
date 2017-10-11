@@ -3271,6 +3271,22 @@ GameObject:
   m_PrefabParentObject: {fileID: 1985219180281790, guid: e80c18a5ced881942bdf880e707d07ec,
     type: 2}
   m_PrefabInternal: {fileID: 297927216}
+--- !u!114 &278247605
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 278247600}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 84c9bc139a269234d9358e1e38a490cd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  slowDuration: 3
+  slowTimer: 0
+  speedReducedValue: 2
+  player: {fileID: 1640676984}
+  playerIsSlowed: 0
 --- !u!1 &294395945
 GameObject:
   m_ObjectHideFlags: 0
@@ -6950,6 +6966,11 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 598880429}
   m_Mesh: {fileID: 4300000, guid: 2821176ec19b1f64c8dbf2ead7b7e206, type: 3}
+--- !u!1 &617552196 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1478661939296812, guid: e25817b833736c04caa7190fff62a363,
+    type: 2}
+  m_PrefabInternal: {fileID: 1773415107}
 --- !u!1 &617674951
 GameObject:
   m_ObjectHideFlags: 0
@@ -9306,7 +9327,7 @@ Prefab:
     - target: {fileID: 114677140464309904, guid: 4ef5f8b54447a1e42805771279bfb24e,
         type: 2}
       propertyPath: movementSettings.ForwardSpeed
-      value: 20
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 114677140464309904, guid: 4ef5f8b54447a1e42805771279bfb24e,
         type: 2}
@@ -9376,6 +9397,11 @@ Prefab:
     - target: {fileID: 114903738382757782, guid: 4ef5f8b54447a1e42805771279bfb24e,
         type: 2}
       propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114677140464309904, guid: 4ef5f8b54447a1e42805771279bfb24e,
+        type: 2}
+      propertyPath: movementSettings.m_Running
       value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -13600,6 +13626,11 @@ Prefab:
       propertyPath: m_StaticEditorFlags
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 114553768215445264, guid: e25817b833736c04caa7190fff62a363,
+        type: 2}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: e25817b833736c04caa7190fff62a363, type: 2}
   m_IsPrefabParent: 0
@@ -14808,6 +14839,11 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 1659954888169454, guid: e25817b833736c04caa7190fff62a363, type: 2}
       propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114553768215445264, guid: e25817b833736c04caa7190fff62a363,
+        type: 2}
+      propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -17727,6 +17763,21 @@ Prefab:
       propertyPath: fence
       value: 
       objectReference: {fileID: 278247600}
+    - target: {fileID: 114553768215445264, guid: e25817b833736c04caa7190fff62a363,
+        type: 2}
+      propertyPath: level
+      value: 
+      objectReference: {fileID: 1970704656}
+    - target: {fileID: 114553768215445264, guid: e25817b833736c04caa7190fff62a363,
+        type: 2}
+      propertyPath: anotherLevel
+      value: 
+      objectReference: {fileID: 617552196}
+    - target: {fileID: 114553768215445264, guid: e25817b833736c04caa7190fff62a363,
+        type: 2}
+      propertyPath: fence
+      value: 
+      objectReference: {fileID: 278247600}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: e25817b833736c04caa7190fff62a363, type: 2}
   m_IsPrefabParent: 0
@@ -19934,6 +19985,21 @@ Prefab:
       propertyPath: m_RootOrder
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 114553768215445264, guid: e25817b833736c04caa7190fff62a363,
+        type: 2}
+      propertyPath: level
+      value: 
+      objectReference: {fileID: 617552196}
+    - target: {fileID: 114553768215445264, guid: e25817b833736c04caa7190fff62a363,
+        type: 2}
+      propertyPath: anotherLevel
+      value: 
+      objectReference: {fileID: 1970704656}
+    - target: {fileID: 114553768215445264, guid: e25817b833736c04caa7190fff62a363,
+        type: 2}
+      propertyPath: fence
+      value: 
+      objectReference: {fileID: 278247600}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: e25817b833736c04caa7190fff62a363, type: 2}
   m_IsPrefabParent: 0

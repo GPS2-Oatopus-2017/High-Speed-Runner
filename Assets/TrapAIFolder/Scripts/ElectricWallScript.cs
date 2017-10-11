@@ -36,12 +36,23 @@ public class ElectricWallScript : MonoBehaviour
 	}
 
     void OnTriggerEnter(Collider other) //Apply knockback and speed reduction upon collision
-    {
-        if(other.gameObject.tag == "Player")
-        {
-            playerIsSlowed = true;
+	{
+		if(other.gameObject.tag == "Player")
+		{
+			playerIsSlowed = true;
 
-            Debug.Log("Player speed is reduced by " + speedReducedValue);
-        }
+			Debug.Log("Player speed is reduced by " + speedReducedValue);
+		}
+		if(other.gameObject.tag == "Enemy")
+		{
+			PoolManagerScript.Instance.Despawn(gameObject);
+
+			if(other.gameObject.GetComponent<SurveillanceDroneScript>())
+				ReputationManagerScript.Instance.deadSD++;
+			else if(other.gameObject.GetComponent<HuntingDroneScript>())
+				ReputationManagerScript.Instance.deadHD++;
+
+			Debug.Log("enemy despwan");
+		}
     }
 }

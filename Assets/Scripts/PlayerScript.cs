@@ -8,6 +8,7 @@ public class PlayerScript : MonoBehaviour {
 	int temp;
 	public static PlayerScript Instance;
 
+
 	void Awake()
 	{
 		Instance = this;

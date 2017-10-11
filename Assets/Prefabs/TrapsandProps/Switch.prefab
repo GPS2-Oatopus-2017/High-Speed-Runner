@@ -55,6 +55,7 @@ GameObject:
   - component: {fileID: 4125200522362072}
   - component: {fileID: 95777587108139690}
   - component: {fileID: 65576994844137376}
+  - component: {fileID: 114553768215445264}
   m_Layer: 0
   m_Name: Switch
   m_TagString: TrapSwitch
@@ -210,3 +211,18 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
+--- !u!114 &114553768215445264
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1659954888169454}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9e3e930106d45b541bb105dafa0e80fd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  anotherLevel: {fileID: 0}
+  level: {fileID: 0}
+  fence: {fileID: 0}
+  isOn: 0
