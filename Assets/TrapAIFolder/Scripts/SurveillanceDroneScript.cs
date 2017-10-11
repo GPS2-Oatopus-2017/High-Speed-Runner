@@ -67,16 +67,17 @@ public class SurveillanceDroneScript : MonoBehaviour {
 
 	void playerDetection()
 	{
-		if(Vector3.Distance(transform.position, player.transform.position) <= alertDistance)
+		if(Vector3.Distance(transform.position, player.transform.position) <= alertDistance && WaypointManagerScript.Instance.tracePlayerNodes.Count > 0)
 		{
 			hasBeenDetected = true;
+			Debug.Log("Touche");
 			//SpawnFunction
 			SpawnManagerScript.Instance.CalculateSpawnPoint();
-			Debug.Log(SpawnManagerScript.Instance.spawnPoint);
 			currentPoint = SpawnManagerScript.Instance.currentSpawnIndex + 1;
 			PoolManagerScript.Instance.Spawn("Hunting_Droid",SpawnManagerScript.Instance.spawnPoint,Quaternion.identity);
 			if(ReputationManagerScript.Instance.currentRep == 0)
 			{
+				Debug.Log("Hi");
 				ReputationManagerScript.Instance.currentRep += 1;
 			}
 		}
