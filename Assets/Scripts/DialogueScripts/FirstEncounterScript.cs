@@ -16,7 +16,7 @@ public class FirstEncounterScript : MonoBehaviour
     private Material defaultMat; // Game Objects' default material.
     public Material highlightMat; // Highlight material.
 
-    public float distanceFromObject = 10f;
+    public float[] distanceFromObject;
 
     public static FirstEncounterScript Instance;
 
@@ -46,7 +46,7 @@ public class FirstEncounterScript : MonoBehaviour
         for(int i = 0; i < surveillanceDrones.Count; i++)
 		{
             // Calculates distance of player and obj and decides if it is in range. 
-            if (Vector3.Distance(transform.position, surveillanceDrones[i].transform.position)  <= distanceFromObject && seenObj[0] == false)
+            if (Vector3.Distance(transform.position, surveillanceDrones[i].transform.position)  <= distanceFromObject[0] && seenObj[0] == false)
 			{
                 seenObj[0] = true; // Player is currently withing range of an obj.
 
@@ -58,7 +58,7 @@ public class FirstEncounterScript : MonoBehaviour
 
         for(int i = 0; i < motionDetectors.Count; i++)
         {
-            if (Vector3.Distance(transform.position, motionDetectors[i].transform.position)  <= distanceFromObject && seenObj[1] == false)
+            if (Vector3.Distance(transform.position, motionDetectors[i].transform.position)  <= distanceFromObject[1] && seenObj[1] == false)
             {
                 seenObj[1] = true; 
 
@@ -70,7 +70,7 @@ public class FirstEncounterScript : MonoBehaviour
 
         for(int i = 0; i < switches.Count; i++)
         {
-            if (Vector3.Distance(transform.position, switches[i].transform.position)  <= distanceFromObject && seenObj[2] == false)
+            if (Vector3.Distance(transform.position, switches[i].transform.position)  <= distanceFromObject[2] && seenObj[2] == false)
             {
                 seenObj[2] = true;
 
@@ -87,7 +87,7 @@ public class FirstEncounterScript : MonoBehaviour
 
         for(int i = 0; i < electricFences.Count; i++)
         {
-            if (Vector3.Distance(transform.position, electricFences[i].transform.position)  <= distanceFromObject && seenObj[3] == false)
+            if (Vector3.Distance(transform.position, electricFences[i].transform.position)  <= distanceFromObject[3] && seenObj[3] == false)
             {
                 seenObj[3] = true;
 
@@ -99,7 +99,7 @@ public class FirstEncounterScript : MonoBehaviour
 
         for(int i = 0; i < doors.Count; i++)
         {
-            if (Vector3.Distance(transform.position, doors[i].transform.position)  <= distanceFromObject && seenObj[4] == false)
+            if (Vector3.Distance(transform.position, doors[i].transform.position)  <= distanceFromObject[4] && seenObj[4] == false)
             {
                 seenObj[4] = true;
 
