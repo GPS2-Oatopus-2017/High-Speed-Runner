@@ -173,7 +173,7 @@ MonoBehaviour:
     type: 2}
   chasingPosition: {x: 0, y: 0, z: 0}
   targetOffset: 0
-  movementSpeed: 14
+  movementSpeed: 10
   turnSpeed: 4
   safeDistance: 100
   hoverForce: 90

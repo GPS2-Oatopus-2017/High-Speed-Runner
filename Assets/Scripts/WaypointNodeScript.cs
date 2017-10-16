@@ -1,6 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+#if UNITY_EDITOR
 using UnityEditor;
+#endif
 using UnityEngine;
 
 public enum Direction
@@ -152,8 +154,10 @@ public class WaypointNodeScript : MonoBehaviour
                                 data.directionalNodes[i].data.directionalNodes[GetOppositeDir(i)] = this;
                                 data.directionalNodes[i].BackupPreviousData();
 
+								#if UNITY_EDITOR
 								// Set the object dirty to make sure it's updated
 								EditorUtility.SetDirty(data.directionalNodes[i]);
+								#endif
                             }
 						}
 					}
@@ -164,8 +168,10 @@ public class WaypointNodeScript : MonoBehaviour
                     prevData.directionalNodes[i].data.directionalNodes[GetOppositeDir(i)] = null;
 					prevData.directionalNodes[i].BackupPreviousData();
 
+					#if UNITY_EDITOR
 					// Set the object dirty to make sure it's updated
 					EditorUtility.SetDirty(prevData.directionalNodes[i]);
+					#endif
                 }
             }
 		}
