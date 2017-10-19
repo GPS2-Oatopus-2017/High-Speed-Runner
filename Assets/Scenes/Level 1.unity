@@ -1030,7 +1030,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 36a844d1d8a15ff4a9ca619e78f004b1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  switchScenes: []
+  switchScenes:
+  - WinScene
+  - LoseScene
+--- !u!114 &74362256
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 74362254}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6cf6d011067c6314dbc83d268dc13278, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  timer: 0
+  setTimer: 10
+  timerScript: {fileID: 175334162}
 --- !u!1001 &75634803
 Prefab:
   m_ObjectHideFlags: 0
@@ -9293,6 +9309,22 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 572cd89f643cdcb41a40848479c1fb06, type: 2}
   m_IsPrefabParent: 0
+--- !u!1 &843064553 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1768135534388154, guid: 572cd89f643cdcb41a40848479c1fb06,
+    type: 2}
+  m_PrefabInternal: {fileID: 843064552}
+--- !u!114 &843064554
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 843064553}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bbd56e8c7c9417242bf9d7143ec24499, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &851026095
 GameObject:
   m_ObjectHideFlags: 0
