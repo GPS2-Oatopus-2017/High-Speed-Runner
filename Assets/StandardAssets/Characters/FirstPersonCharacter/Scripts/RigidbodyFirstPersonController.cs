@@ -54,10 +54,9 @@ namespace UnityStandardAssets.Characters.FirstPerson
 					CurrentTargetSpeed = ForwardSpeed;
 				}
 
-                if(m_Running)
-                {
-                    CurrentTargetSpeed *= RunMultiplier; 
-                }
+				if (m_Running) {
+					CurrentTargetSpeed *= RunMultiplier; 
+				}
 //				CurrentTargetSpeed *= RunMultiplier;
 //				m_Running = true;
 
@@ -138,7 +137,7 @@ namespace UnityStandardAssets.Characters.FirstPerson
 		{
 			m_RigidBody = GetComponent<Rigidbody> ();
 			m_Capsule = GetComponent<CapsuleCollider> ();
-			//		mouseLook.Init (transform, cam.transform);
+			//mouseLook.Init (transform, cam.transform);
 		}
 
 		private void Update ()
@@ -228,12 +227,9 @@ namespace UnityStandardAssets.Characters.FirstPerson
 			Vector2 input;
 
 			// Sabotaged to make auto-run
-			if(movementSettings.isAutoRun)
-			{
+			if (movementSettings.isAutoRun) {
 				input = Vector2.up;
-			}
-			else
-			{
+			} else {
 				input = Vector2.zero;
 //				input = new Vector2
 //				{
@@ -303,32 +299,48 @@ namespace UnityStandardAssets.Characters.FirstPerson
 			// get the rotation before it's changed
 			float oldXRotation = Camera.main.transform.eulerAngles.x;
 			float newXRotation = 0.0f;
+			float rotateTime = Time.deltaTime / 1f;
 
 			slideTimer += Time.deltaTime;
 
 			if (slideTimer >= slideDuration) {
 				isSliding = false;
 				slideTimer = 0.0f;
+
 			} else if (slideTimer >= slideDuration / 2.0f) {
+				
 				//this.transform.Rotate (new Vector3 (transform.rotation.x + 90.0f, transform.rotation.y, transform.rotation.z));
-				newXRotation = Mathf.LerpAngle (oldXRotation, 0.0f, 10 * Time.deltaTime);
+				//newXRotation = Mathf.LerpAngle (oldXRotation, 0.0f, 10 * Time.deltaTime);
+
 				if (!doOnce) {
+					
 					m_Capsule.radius += 0.3f;
 					m_Capsule.height += 1.0f;
 					doOnce = true;
+
 				}
 			} else if (slideTimer >= 0.0f) {
+				
 				//this.transform.Rotate (new Vector3 (transform.rotation.x - 90.0f, transform.rotation.y, transform.rotation.z));
-				newXRotation = Mathf.LerpAngle (oldXRotation, -20.0f, 20 * Time.deltaTime);
+				//newXRotation = Mathf.LerpAngle (oldXRotation, -30.0f, 20 * Time.deltaTime);
+				//transform.eulerAngles = Vector3.Lerp (new Vector3 (0f, 0f, 0f), new Vector3 (360f, 0f, 0f), 20 * Time.deltaTime);
+				//newXRotation = Mathf.LerpUnclamped (oldXRotation, 360.0f, 20 * Time.deltaTime);
+
+				//cam.transform.rotation = Quaternion.Lerp (cam.transform.rotation, Quaternion.Euler (cam.transform.eulerAngles.x + 360f, cam.transform.eulerAngles.y, cam.transform.eulerAngles.z), 20 * Time.deltaTime);
+				//cam.transform.RotateAround (Vector3.zero, Vector3.back, 360f * Time.deltaTime / 1);
+				//cam.transform.Rotate (new Vector3 (360f, 0f, 0f), Space.Self);
+
 				if (doOnce) {
+					
 					m_Capsule.radius -= 0.3f;
 					m_Capsule.height -= 1.0f;
 					doOnce = false;
+
 				}
 			}
 
 			//Apply new angle to the gameobject
-			Camera.main.transform.rotation = Quaternion.Euler (newXRotation, Camera.main.transform.eulerAngles.y, Camera.main.transform.eulerAngles.z);
+			//Camera.main.transform.rotation = Quaternion.Euler (newXRotation, Camera.main.transform.eulerAngles.y, Camera.main.transform.eulerAngles.z);
 
 			//      mouseLook.LookRotation (transform, cam.transform);
 
