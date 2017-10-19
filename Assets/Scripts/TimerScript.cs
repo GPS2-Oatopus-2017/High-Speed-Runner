@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class TimerScript : MonoBehaviour {
 
-	private float totalTimeLevel1;
+	public float totalTimeLevel1;
 	public Image timerBar;
 	public bool hasStarted = false;
 
