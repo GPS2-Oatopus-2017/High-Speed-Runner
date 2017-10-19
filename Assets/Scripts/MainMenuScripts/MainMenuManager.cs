@@ -11,6 +11,13 @@ public class MainMenuManager : MonoBehaviour
     public string startingLevel;
     public GameObject[] sliders;
 
+    public static MainMenuManager Instance;
+
+    void Awake()
+    {
+        Instance = this;
+    }
+
     void Start()
     {
         SetupBrightness(sliders[0]);

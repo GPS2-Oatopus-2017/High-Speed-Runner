@@ -47,6 +47,8 @@ public class MenuSettings : MonoBehaviour
         {
             Destroy(this.gameObject);
         }
+
+        DontDestroyOnLoad(gameObject);
     }
 
     public void SetBGMVolume(float value)
