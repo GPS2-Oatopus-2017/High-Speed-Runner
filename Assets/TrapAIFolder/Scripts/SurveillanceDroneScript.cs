@@ -19,7 +19,7 @@ public class SurveillanceDroneScript : MonoBehaviour {
 	private Rigidbody surveillanceDroneRigidbody;
 
 	public bool hasBeenDetected;
-	public bool isSpawned;
+	public bool isSpawned; //if true, it is a spawned SD, if false, it is a Sd in the map *use for player detection*
 
 	public int currentPoint = 0; 
 
@@ -42,7 +42,7 @@ public class SurveillanceDroneScript : MonoBehaviour {
 
 	void Update()
 	{
-		if(!hasBeenDetected)
+		if(!hasBeenDetected && !isSpawned) //previously is if(!hasBeenDeteced) add in !isSpawned to check it is pregenerated or spawned
 		{
 			playerDetection();
 		}
@@ -69,15 +69,13 @@ public class SurveillanceDroneScript : MonoBehaviour {
 		if(Vector3.Distance(transform.position, player.transform.position) <= alertDistance && WaypointManagerScript.Instance.tracePlayerNodes.Count > 0)
 		{
 			hasBeenDetected = true;
-			Debug.Log("Touche");
 			//SpawnFunction
 			SpawnManagerScript.Instance.CalculateSpawnPoint();
-			currentPoint = SpawnManagerScript.Instance.currentSpawnIndex + 1;
-			if(!isSpawned)
-				PoolManagerScript.Instance.Spawn("Hunting_Droid",SpawnManagerScript.Instance.spawnPoint,Quaternion.identity);
+			//currentPoint = SpawnManagerScript.Instance.currentSpawnIndex + 1;
+			SpawnManagerScript.Instance.Spawn("Hunting_Droid");
+			//PoolManagerScript.Instance.Spawn("Hunting_Droid",SpawnManagerScript.Instance.spawnPoint,Quaternion.identity);
 			if(ReputationManagerScript.Instance.currentRep == 0)
 			{
-				Debug.Log("Hi");
 				ReputationManagerScript.Instance.currentRep += 1;
 			}
 		}

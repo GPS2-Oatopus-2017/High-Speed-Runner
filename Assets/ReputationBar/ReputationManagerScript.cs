@@ -21,14 +21,6 @@ public class ReputationManagerScript : MonoBehaviour {
 	public int currentRep;
 	public int lastRep;
 	public int value;
-	public Sprite lightUp;
-	public List<Image> starList = new List<Image>();
-	public List<Image> statusList = new List<Image>();
-
-	public Text enemyAmountText;
-	public Text playerStatus;
-	string displayECount;
-	string status;
 
 	public int deadSD;
 	public int deadHD;
@@ -38,6 +30,15 @@ public class ReputationManagerScript : MonoBehaviour {
 
 	public float resetCounter;
 	public float resetTime;
+
+	public Text enemyAmountText;
+	public Text playerStatus;
+	string displayECount;
+	string status;
+	public Sprite lightUp;
+	public List<Image> starList = new List<Image>();
+	public List<Image> statusList = new List<Image>();
+
 	// Use this for initialization
 	void Start () {
 		UpdateCount();
@@ -56,14 +57,6 @@ public class ReputationManagerScript : MonoBehaviour {
 		UpdateCount();
 		UpdateStatus();
 		UpdateDeadDrones();
-		if(currentRep == lastRep && currentRep != 0)
-		{
-			resetCounter += Time.deltaTime;
-		}
-		if(lastRep!= currentRep)
-		{
-			resetCounter = 0;
-		}
 	}
 		
 
@@ -169,6 +162,14 @@ public class ReputationManagerScript : MonoBehaviour {
 
 	void LateUpdate()
 	{
+		if(currentRep == lastRep && currentRep != 0)
+		{
+			resetCounter += Time.deltaTime;
+		}
+		if(lastRep!= currentRep)
+		{
+			resetCounter = 0;
+		}
 		lastRep = currentRep;
 	}
 }
