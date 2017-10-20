@@ -210,7 +210,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 7056653}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: AllBuildings
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -775,7 +775,7 @@ GameObject:
   - component: {fileID: 41408884}
   - component: {fileID: 41408883}
   - component: {fileID: 41408885}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Building 2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1227,7 +1227,7 @@ GameObject:
   - component: {fileID: 78094335}
   - component: {fileID: 78094334}
   - component: {fileID: 78094336}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Box001
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1316,7 +1316,8 @@ GameObject:
   - component: {fileID: 78985845}
   - component: {fileID: 78985847}
   - component: {fileID: 78985846}
-  m_Layer: 0
+  - component: {fileID: 78985848}
+  m_Layer: 10
   m_Name: Door_3(B)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1378,6 +1379,20 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 78985844}
   m_Mesh: {fileID: 4300000, guid: 556682b948c848c4caa4890b0b71ffb6, type: 3}
+--- !u!64 &78985848
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 78985844}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Convex: 0
+  m_InflateMesh: 0
+  m_SkinWidth: 0.01
+  m_Mesh: {fileID: 4300000, guid: 556682b948c848c4caa4890b0b71ffb6, type: 3}
 --- !u!1 &81118244
 GameObject:
   m_ObjectHideFlags: 0
@@ -1389,7 +1404,8 @@ GameObject:
   - component: {fileID: 81118245}
   - component: {fileID: 81118247}
   - component: {fileID: 81118246}
-  m_Layer: 0
+  - component: {fileID: 81118248}
+  m_Layer: 10
   m_Name: Door_3(B)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1451,6 +1467,20 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 81118244}
   m_Mesh: {fileID: 4300000, guid: 556682b948c848c4caa4890b0b71ffb6, type: 3}
+--- !u!64 &81118248
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 81118244}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Convex: 0
+  m_InflateMesh: 0
+  m_SkinWidth: 0.01
+  m_Mesh: {fileID: 4300000, guid: 556682b948c848c4caa4890b0b71ffb6, type: 3}
 --- !u!1 &85156580
 GameObject:
   m_ObjectHideFlags: 0
@@ -1463,7 +1493,7 @@ GameObject:
   - component: {fileID: 85156583}
   - component: {fileID: 85156582}
   - component: {fileID: 85156584}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Building_1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1649,7 +1679,7 @@ GameObject:
   m_Component:
   - component: {fileID: 88422158}
   - component: {fileID: 88422159}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Building_3 (10)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1882,7 +1912,7 @@ GameObject:
   - component: {fileID: 93488955}
   - component: {fileID: 93488954}
   - component: {fileID: 93488956}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Building_1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2251,7 +2281,8 @@ GameObject:
   - component: {fileID: 130515147}
   - component: {fileID: 130515149}
   - component: {fileID: 130515148}
-  m_Layer: 0
+  - component: {fileID: 130515150}
+  m_Layer: 10
   m_Name: Plane004
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2312,6 +2343,20 @@ MeshFilter:
     type: 2}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 130515146}
+  m_Mesh: {fileID: 4300000, guid: 2821176ec19b1f64c8dbf2ead7b7e206, type: 3}
+--- !u!64 &130515150
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 130515146}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Convex: 0
+  m_InflateMesh: 0
+  m_SkinWidth: 0.01
   m_Mesh: {fileID: 4300000, guid: 2821176ec19b1f64c8dbf2ead7b7e206, type: 3}
 --- !u!1001 &138613533
 Prefab:
@@ -2424,7 +2469,7 @@ GameObject:
   m_Component:
   - component: {fileID: 146490417}
   - component: {fileID: 146490418}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Building_3 (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2478,7 +2523,7 @@ GameObject:
   - component: {fileID: 161972368}
   - component: {fileID: 161972371}
   - component: {fileID: 161972370}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Box001
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2804,7 +2849,7 @@ GameObject:
   - component: {fileID: 180441147}
   - component: {fileID: 180441146}
   - component: {fileID: 180441148}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Building 3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2895,7 +2940,7 @@ GameObject:
   - component: {fileID: 181190908}
   - component: {fileID: 181190907}
   - component: {fileID: 181190909}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Building 3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3191,7 +3236,7 @@ GameObject:
   m_Component:
   - component: {fileID: 213830329}
   - component: {fileID: 213830330}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Building_3 (11)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3243,7 +3288,8 @@ GameObject:
   - component: {fileID: 223482401}
   - component: {fileID: 223482403}
   - component: {fileID: 223482402}
-  m_Layer: 0
+  - component: {fileID: 223482404}
+  m_Layer: 10
   m_Name: Plane004
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3305,6 +3351,20 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 223482400}
   m_Mesh: {fileID: 4300000, guid: 2821176ec19b1f64c8dbf2ead7b7e206, type: 3}
+--- !u!64 &223482404
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 223482400}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Convex: 0
+  m_InflateMesh: 0
+  m_SkinWidth: 0.01
+  m_Mesh: {fileID: 4300000, guid: 2821176ec19b1f64c8dbf2ead7b7e206, type: 3}
 --- !u!1 &235332766
 GameObject:
   m_ObjectHideFlags: 0
@@ -3316,7 +3376,8 @@ GameObject:
   - component: {fileID: 235332767}
   - component: {fileID: 235332769}
   - component: {fileID: 235332768}
-  m_Layer: 0
+  - component: {fileID: 235332770}
+  m_Layer: 10
   m_Name: Door_3(B)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3377,6 +3438,20 @@ MeshFilter:
     type: 2}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 235332766}
+  m_Mesh: {fileID: 4300000, guid: 556682b948c848c4caa4890b0b71ffb6, type: 3}
+--- !u!64 &235332770
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 235332766}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Convex: 0
+  m_InflateMesh: 0
+  m_SkinWidth: 0.01
   m_Mesh: {fileID: 4300000, guid: 556682b948c848c4caa4890b0b71ffb6, type: 3}
 --- !u!1 &237262374
 GameObject:
@@ -3635,7 +3710,7 @@ GameObject:
   - component: {fileID: 270531842}
   - component: {fileID: 270531841}
   - component: {fileID: 270531843}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Box001
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3969,7 +4044,8 @@ GameObject:
   - component: {fileID: 299890651}
   - component: {fileID: 299890653}
   - component: {fileID: 299890652}
-  m_Layer: 0
+  - component: {fileID: 299890654}
+  m_Layer: 10
   m_Name: Door
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4031,6 +4107,20 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 299890650}
   m_Mesh: {fileID: 4300002, guid: 8de71f2a4c2af82408e677f9a255fde9, type: 3}
+--- !u!64 &299890654
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 299890650}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Convex: 0
+  m_InflateMesh: 0
+  m_SkinWidth: 0.01
+  m_Mesh: {fileID: 4300002, guid: 8de71f2a4c2af82408e677f9a255fde9, type: 3}
 --- !u!1 &301273159
 GameObject:
   m_ObjectHideFlags: 0
@@ -4042,7 +4132,8 @@ GameObject:
   - component: {fileID: 301273160}
   - component: {fileID: 301273162}
   - component: {fileID: 301273161}
-  m_Layer: 0
+  - component: {fileID: 301273163}
+  m_Layer: 10
   m_Name: Door
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4103,6 +4194,20 @@ MeshFilter:
     type: 2}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 301273159}
+  m_Mesh: {fileID: 4300002, guid: 8de71f2a4c2af82408e677f9a255fde9, type: 3}
+--- !u!64 &301273163
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 301273159}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Convex: 0
+  m_InflateMesh: 0
+  m_SkinWidth: 0.01
   m_Mesh: {fileID: 4300002, guid: 8de71f2a4c2af82408e677f9a255fde9, type: 3}
 --- !u!1001 &318394295
 Prefab:
@@ -4183,6 +4288,10 @@ Prefab:
       propertyPath: m_LocalScale.z
       value: 0.04846403
       objectReference: {fileID: 0}
+    - target: {fileID: 1084910041738384, guid: 376d1ca0fd5b33e4c894b77bc929c539, type: 2}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 376d1ca0fd5b33e4c894b77bc929c539, type: 2}
   m_IsPrefabParent: 0
@@ -4203,7 +4312,7 @@ GameObject:
   - component: {fileID: 320350756}
   - component: {fileID: 320350755}
   - component: {fileID: 320350757}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Box001
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4463,7 +4572,7 @@ GameObject:
   m_Component:
   - component: {fileID: 332247442}
   - component: {fileID: 332247443}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Building_3 (16)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4678,7 +4787,7 @@ GameObject:
   - component: {fileID: 337643499}
   - component: {fileID: 337643498}
   - component: {fileID: 337643500}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Building 3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4768,7 +4877,8 @@ GameObject:
   - component: {fileID: 341123871}
   - component: {fileID: 341123873}
   - component: {fileID: 341123872}
-  m_Layer: 0
+  - component: {fileID: 341123874}
+  m_Layer: 10
   m_Name: Door_3(A)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4830,6 +4940,20 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 341123870}
   m_Mesh: {fileID: 4300004, guid: 556682b948c848c4caa4890b0b71ffb6, type: 3}
+--- !u!64 &341123874
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 341123870}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Convex: 0
+  m_InflateMesh: 0
+  m_SkinWidth: 0.01
+  m_Mesh: {fileID: 4300004, guid: 556682b948c848c4caa4890b0b71ffb6, type: 3}
 --- !u!1 &356290031
 GameObject:
   m_ObjectHideFlags: 0
@@ -4840,7 +4964,7 @@ GameObject:
   m_Component:
   - component: {fileID: 356290032}
   - component: {fileID: 356290033}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Building_5 (5)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4967,7 +5091,8 @@ GameObject:
   - component: {fileID: 364655068}
   - component: {fileID: 364655070}
   - component: {fileID: 364655069}
-  m_Layer: 0
+  - component: {fileID: 364655071}
+  m_Layer: 10
   m_Name: Plane004
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5028,6 +5153,20 @@ MeshFilter:
     type: 2}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 364655067}
+  m_Mesh: {fileID: 4300000, guid: 2821176ec19b1f64c8dbf2ead7b7e206, type: 3}
+--- !u!64 &364655071
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 364655067}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Convex: 0
+  m_InflateMesh: 0
+  m_SkinWidth: 0.01
   m_Mesh: {fileID: 4300000, guid: 2821176ec19b1f64c8dbf2ead7b7e206, type: 3}
 --- !u!1 &367491233
 GameObject:
@@ -5105,7 +5244,8 @@ GameObject:
   - component: {fileID: 376658661}
   - component: {fileID: 376658663}
   - component: {fileID: 376658662}
-  m_Layer: 0
+  - component: {fileID: 376658664}
+  m_Layer: 10
   m_Name: Door_3(B)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5167,6 +5307,20 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 376658660}
   m_Mesh: {fileID: 4300000, guid: 556682b948c848c4caa4890b0b71ffb6, type: 3}
+--- !u!64 &376658664
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 376658660}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Convex: 0
+  m_InflateMesh: 0
+  m_SkinWidth: 0.01
+  m_Mesh: {fileID: 4300000, guid: 556682b948c848c4caa4890b0b71ffb6, type: 3}
 --- !u!1 &377262480
 GameObject:
   m_ObjectHideFlags: 0
@@ -5177,7 +5331,7 @@ GameObject:
   m_Component:
   - component: {fileID: 377262481}
   - component: {fileID: 377262482}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Building_4 (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5228,7 +5382,7 @@ GameObject:
   m_Component:
   - component: {fileID: 379599049}
   - component: {fileID: 379599050}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Building_5 (10)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5648,7 +5802,8 @@ GameObject:
   - component: {fileID: 402382849}
   - component: {fileID: 402382851}
   - component: {fileID: 402382850}
-  m_Layer: 0
+  - component: {fileID: 402382852}
+  m_Layer: 10
   m_Name: Door_3(B)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5710,6 +5865,20 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 402382848}
   m_Mesh: {fileID: 4300000, guid: 556682b948c848c4caa4890b0b71ffb6, type: 3}
+--- !u!64 &402382852
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 402382848}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Convex: 0
+  m_InflateMesh: 0
+  m_SkinWidth: 0.01
+  m_Mesh: {fileID: 4300000, guid: 556682b948c848c4caa4890b0b71ffb6, type: 3}
 --- !u!1 &403755847
 GameObject:
   m_ObjectHideFlags: 0
@@ -5722,7 +5891,7 @@ GameObject:
   - component: {fileID: 403755850}
   - component: {fileID: 403755849}
   - component: {fileID: 403755851}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Building_1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5800,23 +5969,6 @@ MeshCollider:
   m_InflateMesh: 0
   m_SkinWidth: 0.01
   m_Mesh: {fileID: 4300002, guid: 2821176ec19b1f64c8dbf2ead7b7e206, type: 3}
---- !u!1 &409865450 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 1335751498434552, guid: 4ef5f8b54447a1e42805771279bfb24e,
-    type: 2}
-  m_PrefabInternal: {fileID: 928226325}
---- !u!114 &409865457
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 409865450}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2158eacc09a038a4fa8af605203d81c7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  rotationSpeed: 360
 --- !u!1 &421028147
 GameObject:
   m_ObjectHideFlags: 0
@@ -5828,7 +5980,8 @@ GameObject:
   - component: {fileID: 421028148}
   - component: {fileID: 421028150}
   - component: {fileID: 421028149}
-  m_Layer: 0
+  - component: {fileID: 421028151}
+  m_Layer: 10
   m_Name: Door_3(A)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5889,6 +6042,20 @@ MeshFilter:
     type: 2}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 421028147}
+  m_Mesh: {fileID: 4300004, guid: 556682b948c848c4caa4890b0b71ffb6, type: 3}
+--- !u!64 &421028151
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 421028147}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Convex: 0
+  m_InflateMesh: 0
+  m_SkinWidth: 0.01
   m_Mesh: {fileID: 4300004, guid: 556682b948c848c4caa4890b0b71ffb6, type: 3}
 --- !u!1 &425394419
 GameObject:
@@ -6081,7 +6248,8 @@ GameObject:
   - component: {fileID: 438612092}
   - component: {fileID: 438612094}
   - component: {fileID: 438612093}
-  m_Layer: 0
+  - component: {fileID: 438612095}
+  m_Layer: 10
   m_Name: Door_2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6142,6 +6310,20 @@ MeshFilter:
     type: 2}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 438612091}
+  m_Mesh: {fileID: 4300002, guid: 214da1420e912474b89391e09fd1aa56, type: 3}
+--- !u!64 &438612095
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 438612091}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Convex: 0
+  m_InflateMesh: 0
+  m_SkinWidth: 0.01
   m_Mesh: {fileID: 4300002, guid: 214da1420e912474b89391e09fd1aa56, type: 3}
 --- !u!1 &443005012
 GameObject:
@@ -6236,7 +6418,8 @@ GameObject:
   - component: {fileID: 456280530}
   - component: {fileID: 456280532}
   - component: {fileID: 456280531}
-  m_Layer: 0
+  - component: {fileID: 456280533}
+  m_Layer: 10
   m_Name: Plane004
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6298,6 +6481,20 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 456280529}
   m_Mesh: {fileID: 4300000, guid: 2821176ec19b1f64c8dbf2ead7b7e206, type: 3}
+--- !u!64 &456280533
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 456280529}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Convex: 0
+  m_InflateMesh: 0
+  m_SkinWidth: 0.01
+  m_Mesh: {fileID: 4300000, guid: 2821176ec19b1f64c8dbf2ead7b7e206, type: 3}
 --- !u!1 &486916616
 GameObject:
   m_ObjectHideFlags: 0
@@ -6309,7 +6506,8 @@ GameObject:
   - component: {fileID: 486916617}
   - component: {fileID: 486916619}
   - component: {fileID: 486916618}
-  m_Layer: 0
+  - component: {fileID: 486916620}
+  m_Layer: 10
   m_Name: Door_2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6370,6 +6568,20 @@ MeshFilter:
     type: 2}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 486916616}
+  m_Mesh: {fileID: 4300002, guid: 214da1420e912474b89391e09fd1aa56, type: 3}
+--- !u!64 &486916620
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 486916616}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Convex: 0
+  m_InflateMesh: 0
+  m_SkinWidth: 0.01
   m_Mesh: {fileID: 4300002, guid: 214da1420e912474b89391e09fd1aa56, type: 3}
 --- !u!1 &489428764 stripped
 GameObject:
@@ -6540,7 +6752,8 @@ GameObject:
   - component: {fileID: 497065403}
   - component: {fileID: 497065405}
   - component: {fileID: 497065404}
-  m_Layer: 0
+  - component: {fileID: 497065406}
+  m_Layer: 10
   m_Name: Door_3(B)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6602,6 +6815,20 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 497065402}
   m_Mesh: {fileID: 4300000, guid: 556682b948c848c4caa4890b0b71ffb6, type: 3}
+--- !u!64 &497065406
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 497065402}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Convex: 0
+  m_InflateMesh: 0
+  m_SkinWidth: 0.01
+  m_Mesh: {fileID: 4300000, guid: 556682b948c848c4caa4890b0b71ffb6, type: 3}
 --- !u!1 &497731681
 GameObject:
   m_ObjectHideFlags: 0
@@ -6612,7 +6839,7 @@ GameObject:
   m_Component:
   - component: {fileID: 497731682}
   - component: {fileID: 497731683}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Building_3 (9)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6742,7 +6969,7 @@ GameObject:
   - component: {fileID: 502799967}
   - component: {fileID: 502799966}
   - component: {fileID: 502799965}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Wall
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7016,7 +7243,8 @@ GameObject:
   - component: {fileID: 529772432}
   - component: {fileID: 529772434}
   - component: {fileID: 529772433}
-  m_Layer: 0
+  - component: {fileID: 529772435}
+  m_Layer: 10
   m_Name: Door
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7078,6 +7306,20 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 529772431}
   m_Mesh: {fileID: 4300002, guid: c775610df4958264da2a96a4340550ec, type: 3}
+--- !u!64 &529772435
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 529772431}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Convex: 0
+  m_InflateMesh: 0
+  m_SkinWidth: 0.01
+  m_Mesh: {fileID: 4300002, guid: c775610df4958264da2a96a4340550ec, type: 3}
 --- !u!1 &533205890
 GameObject:
   m_ObjectHideFlags: 0
@@ -7090,7 +7332,7 @@ GameObject:
   - component: {fileID: 533205893}
   - component: {fileID: 533205892}
   - component: {fileID: 533205894}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Building_1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7271,7 +7513,7 @@ GameObject:
   - component: {fileID: 544049406}
   - component: {fileID: 544049405}
   - component: {fileID: 544049404}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Wall
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7767,7 +8009,7 @@ GameObject:
   m_Component:
   - component: {fileID: 566471624}
   - component: {fileID: 566471625}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Building_4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -8234,7 +8476,7 @@ GameObject:
   - component: {fileID: 593769585}
   - component: {fileID: 593769584}
   - component: {fileID: 593769586}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Building_1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -8323,7 +8565,8 @@ GameObject:
   - component: {fileID: 598880430}
   - component: {fileID: 598880432}
   - component: {fileID: 598880431}
-  m_Layer: 0
+  - component: {fileID: 598880433}
+  m_Layer: 10
   m_Name: Plane004
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -8385,6 +8628,20 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 598880429}
   m_Mesh: {fileID: 4300000, guid: 2821176ec19b1f64c8dbf2ead7b7e206, type: 3}
+--- !u!64 &598880433
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 598880429}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Convex: 0
+  m_InflateMesh: 0
+  m_SkinWidth: 0.01
+  m_Mesh: {fileID: 4300000, guid: 2821176ec19b1f64c8dbf2ead7b7e206, type: 3}
 --- !u!1 &617552196 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 1478661939296812, guid: e25817b833736c04caa7190fff62a363,
@@ -8400,7 +8657,7 @@ GameObject:
   m_Component:
   - component: {fileID: 617674952}
   - component: {fileID: 617674953}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Building_4 (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -8450,7 +8707,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 618923918}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Plane001
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -8482,7 +8739,8 @@ GameObject:
   - component: {fileID: 621394721}
   - component: {fileID: 621394723}
   - component: {fileID: 621394722}
-  m_Layer: 0
+  - component: {fileID: 621394724}
+  m_Layer: 10
   m_Name: Door
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -8543,6 +8801,20 @@ MeshFilter:
     type: 2}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 621394720}
+  m_Mesh: {fileID: 4300002, guid: c775610df4958264da2a96a4340550ec, type: 3}
+--- !u!64 &621394724
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 621394720}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Convex: 0
+  m_InflateMesh: 0
+  m_SkinWidth: 0.01
   m_Mesh: {fileID: 4300002, guid: c775610df4958264da2a96a4340550ec, type: 3}
 --- !u!1 &624075200
 GameObject:
@@ -8656,7 +8928,7 @@ GameObject:
   - component: {fileID: 625666894}
   - component: {fileID: 625666893}
   - component: {fileID: 625666895}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Building_1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -8746,7 +9018,7 @@ GameObject:
   - component: {fileID: 626407213}
   - component: {fileID: 626407212}
   - component: {fileID: 626407214}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Building 3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -8837,7 +9109,7 @@ GameObject:
   - component: {fileID: 629158824}
   - component: {fileID: 629158823}
   - component: {fileID: 629158826}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Wall
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -8931,7 +9203,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 631230294}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Doorway
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9043,7 +9315,8 @@ GameObject:
   - component: {fileID: 651257027}
   - component: {fileID: 651257029}
   - component: {fileID: 651257028}
-  m_Layer: 0
+  - component: {fileID: 651257030}
+  m_Layer: 10
   m_Name: Door_3(B)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9105,6 +9378,20 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 651257026}
   m_Mesh: {fileID: 4300000, guid: 556682b948c848c4caa4890b0b71ffb6, type: 3}
+--- !u!64 &651257030
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 651257026}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Convex: 0
+  m_InflateMesh: 0
+  m_SkinWidth: 0.01
+  m_Mesh: {fileID: 4300000, guid: 556682b948c848c4caa4890b0b71ffb6, type: 3}
 --- !u!1 &698568879 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 1048672645696052, guid: abae2e33037f7d04f8292e8849501ea5,
@@ -9137,7 +9424,7 @@ GameObject:
   m_Component:
   - component: {fileID: 699494005}
   - component: {fileID: 699494006}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Building_5
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9189,7 +9476,7 @@ GameObject:
   m_Component:
   - component: {fileID: 700459936}
   - component: {fileID: 700459937}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Building_3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9505,7 +9792,8 @@ GameObject:
   - component: {fileID: 716378368}
   - component: {fileID: 716378370}
   - component: {fileID: 716378369}
-  m_Layer: 0
+  - component: {fileID: 716378371}
+  m_Layer: 10
   m_Name: Door
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9567,6 +9855,20 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 716378367}
   m_Mesh: {fileID: 4300002, guid: c775610df4958264da2a96a4340550ec, type: 3}
+--- !u!64 &716378371
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 716378367}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Convex: 0
+  m_InflateMesh: 0
+  m_SkinWidth: 0.01
+  m_Mesh: {fileID: 4300002, guid: c775610df4958264da2a96a4340550ec, type: 3}
 --- !u!1 &739964305
 GameObject:
   m_ObjectHideFlags: 0
@@ -9577,7 +9879,7 @@ GameObject:
   m_Component:
   - component: {fileID: 739964306}
   - component: {fileID: 739964307}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Building_4 (8)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9629,7 +9931,7 @@ GameObject:
   - component: {fileID: 758290018}
   - component: {fileID: 758290017}
   - component: {fileID: 758290016}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Wall
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -10205,7 +10507,7 @@ GameObject:
   m_Component:
   - component: {fileID: 800197485}
   - component: {fileID: 800197486}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Building_3 (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -10257,7 +10559,8 @@ GameObject:
   - component: {fileID: 800787607}
   - component: {fileID: 800787609}
   - component: {fileID: 800787608}
-  m_Layer: 0
+  - component: {fileID: 800787610}
+  m_Layer: 10
   m_Name: Plane004
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -10318,6 +10621,20 @@ MeshFilter:
     type: 2}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 800787606}
+  m_Mesh: {fileID: 4300000, guid: 2821176ec19b1f64c8dbf2ead7b7e206, type: 3}
+--- !u!64 &800787610
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 800787606}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Convex: 0
+  m_InflateMesh: 0
+  m_SkinWidth: 0.01
   m_Mesh: {fileID: 4300000, guid: 2821176ec19b1f64c8dbf2ead7b7e206, type: 3}
 --- !u!1001 &805202922
 Prefab:
@@ -10422,7 +10739,7 @@ GameObject:
   - component: {fileID: 824480244}
   - component: {fileID: 824480243}
   - component: {fileID: 824480245}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Building 2 (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -10604,7 +10921,7 @@ GameObject:
   m_Component:
   - component: {fileID: 829181757}
   - component: {fileID: 829181758}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Building_5 (9)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -10771,7 +11088,7 @@ GameObject:
   m_Component:
   - component: {fileID: 835922205}
   - component: {fileID: 835922206}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Building_01 (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -10919,7 +11236,7 @@ GameObject:
   m_Component:
   - component: {fileID: 851026096}
   - component: {fileID: 851026097}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Building_02 (5)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -11171,7 +11488,8 @@ GameObject:
   - component: {fileID: 889489575}
   - component: {fileID: 889489577}
   - component: {fileID: 889489576}
-  m_Layer: 0
+  - component: {fileID: 889489578}
+  m_Layer: 10
   m_Name: Plane004
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -11233,6 +11551,20 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 889489574}
   m_Mesh: {fileID: 4300000, guid: 2821176ec19b1f64c8dbf2ead7b7e206, type: 3}
+--- !u!64 &889489578
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 889489574}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Convex: 0
+  m_InflateMesh: 0
+  m_SkinWidth: 0.01
+  m_Mesh: {fileID: 4300000, guid: 2821176ec19b1f64c8dbf2ead7b7e206, type: 3}
 --- !u!1 &899254529
 GameObject:
   m_ObjectHideFlags: 0
@@ -11244,7 +11576,8 @@ GameObject:
   - component: {fileID: 899254530}
   - component: {fileID: 899254532}
   - component: {fileID: 899254531}
-  m_Layer: 0
+  - component: {fileID: 899254533}
+  m_Layer: 10
   m_Name: Plane004
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -11306,6 +11639,20 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 899254529}
   m_Mesh: {fileID: 4300000, guid: 2821176ec19b1f64c8dbf2ead7b7e206, type: 3}
+--- !u!64 &899254533
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 899254529}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Convex: 0
+  m_InflateMesh: 0
+  m_SkinWidth: 0.01
+  m_Mesh: {fileID: 4300000, guid: 2821176ec19b1f64c8dbf2ead7b7e206, type: 3}
 --- !u!1 &904521079
 GameObject:
   m_ObjectHideFlags: 0
@@ -11315,7 +11662,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 904521080}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Plane001
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -11387,122 +11734,83 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4734511995618848, guid: 4ef5f8b54447a1e42805771279bfb24e, type: 2}
       propertyPath: m_LocalRotation.x
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4734511995618848, guid: 4ef5f8b54447a1e42805771279bfb24e, type: 2}
       propertyPath: m_LocalRotation.y
-      value: 0.7081499
+      value: 0.7071068
       objectReference: {fileID: 0}
     - target: {fileID: 4734511995618848, guid: 4ef5f8b54447a1e42805771279bfb24e, type: 2}
       propertyPath: m_LocalRotation.z
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4734511995618848, guid: 4ef5f8b54447a1e42805771279bfb24e, type: 2}
       propertyPath: m_LocalRotation.w
-      value: 0.70606214
+      value: 0.7071068
       objectReference: {fileID: 0}
     - target: {fileID: 4734511995618848, guid: 4ef5f8b54447a1e42805771279bfb24e, type: 2}
       propertyPath: m_RootOrder
       value: 11
       objectReference: {fileID: 0}
-    - target: {fileID: 4734511995618848, guid: 4ef5f8b54447a1e42805771279bfb24e, type: 2}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 90.16901
-      objectReference: {fileID: 0}
-    - target: {fileID: 114677140464309904, guid: 4ef5f8b54447a1e42805771279bfb24e,
+    - target: {fileID: 114497469779155040, guid: 4ef5f8b54447a1e42805771279bfb24e,
         type: 2}
-      propertyPath: m_Enabled
-      value: 1
+      propertyPath: surveillanceDrones.Array.data[0]
+      value: 
+      objectReference: {fileID: 1047626958}
+    - target: {fileID: 114497469779155040, guid: 4ef5f8b54447a1e42805771279bfb24e,
+        type: 2}
+      propertyPath: surveillanceDrones.Array.data[1]
+      value: 
+      objectReference: {fileID: 1670835}
+    - target: {fileID: 114497469779155040, guid: 4ef5f8b54447a1e42805771279bfb24e,
+        type: 2}
+      propertyPath: motionDetectors.Array.data[0]
+      value: 
+      objectReference: {fileID: 698568879}
+    - target: {fileID: 114497469779155040, guid: 4ef5f8b54447a1e42805771279bfb24e,
+        type: 2}
+      propertyPath: motionDetectors.Array.data[1]
+      value: 
+      objectReference: {fileID: 1719470330}
+    - target: {fileID: 114497469779155040, guid: 4ef5f8b54447a1e42805771279bfb24e,
+        type: 2}
+      propertyPath: motionDetectors.Array.data[2]
+      value: 
+      objectReference: {fileID: 777510337}
+    - target: {fileID: 114497469779155040, guid: 4ef5f8b54447a1e42805771279bfb24e,
+        type: 2}
+      propertyPath: motionDetectors.Array.data[3]
+      value: 
+      objectReference: {fileID: 826011989}
+    - target: {fileID: 114497469779155040, guid: 4ef5f8b54447a1e42805771279bfb24e,
+        type: 2}
+      propertyPath: switches.Array.data[0]
+      value: 
+      objectReference: {fileID: 1566055520}
+    - target: {fileID: 114497469779155040, guid: 4ef5f8b54447a1e42805771279bfb24e,
+        type: 2}
+      propertyPath: switches.Array.data[1]
+      value: 
+      objectReference: {fileID: 1465904216}
+    - target: {fileID: 114497469779155040, guid: 4ef5f8b54447a1e42805771279bfb24e,
+        type: 2}
+      propertyPath: switches.Array.data[2]
+      value: 
+      objectReference: {fileID: 832672270}
+    - target: {fileID: 114497469779155040, guid: 4ef5f8b54447a1e42805771279bfb24e,
+        type: 2}
+      propertyPath: switches.Array.data[3]
+      value: 
+      objectReference: {fileID: 1499537828}
+    - target: {fileID: 114275308034884388, guid: 4ef5f8b54447a1e42805771279bfb24e,
+        type: 2}
+      propertyPath: knockBackForce
+      value: 1000
       objectReference: {fileID: 0}
     - target: {fileID: 114677140464309904, guid: 4ef5f8b54447a1e42805771279bfb24e,
         type: 2}
       propertyPath: rotAngle
       value: 90
-      objectReference: {fileID: 0}
-    - target: {fileID: 114677140464309904, guid: 4ef5f8b54447a1e42805771279bfb24e,
-        type: 2}
-      propertyPath: movementSettings.ForwardSpeed
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 114677140464309904, guid: 4ef5f8b54447a1e42805771279bfb24e,
-        type: 2}
-      propertyPath: movementSettings.BackwardSpeed
-      value: 6
-      objectReference: {fileID: 0}
-    - target: {fileID: 114677140464309904, guid: 4ef5f8b54447a1e42805771279bfb24e,
-        type: 2}
-      propertyPath: movementSettings.StrafeSpeed
-      value: 8
-      objectReference: {fileID: 0}
-    - target: {fileID: 4761456717833042, guid: 4ef5f8b54447a1e42805771279bfb24e, type: 2}
-      propertyPath: m_LocalPosition.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1612693753392540, guid: 4ef5f8b54447a1e42805771279bfb24e, type: 2}
-      propertyPath: m_TagString
-      value: Untagged
-      objectReference: {fileID: 0}
-    - target: {fileID: 114903738382757782, guid: 4ef5f8b54447a1e42805771279bfb24e,
-        type: 2}
-      propertyPath: rayDistance
-      value: 1000000
-      objectReference: {fileID: 0}
-    - target: {fileID: 1696034111256720, guid: 4ef5f8b54447a1e42805771279bfb24e, type: 2}
-      propertyPath: m_StaticEditorFlags
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1612693753392540, guid: 4ef5f8b54447a1e42805771279bfb24e, type: 2}
-      propertyPath: m_StaticEditorFlags
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1774575121038152, guid: 4ef5f8b54447a1e42805771279bfb24e, type: 2}
-      propertyPath: m_StaticEditorFlags
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1335751498434552, guid: 4ef5f8b54447a1e42805771279bfb24e, type: 2}
-      propertyPath: m_StaticEditorFlags
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1164618549687232, guid: 4ef5f8b54447a1e42805771279bfb24e, type: 2}
-      propertyPath: m_StaticEditorFlags
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1615084222219014, guid: 4ef5f8b54447a1e42805771279bfb24e, type: 2}
-      propertyPath: m_StaticEditorFlags
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1917935270421228, guid: 4ef5f8b54447a1e42805771279bfb24e, type: 2}
-      propertyPath: m_StaticEditorFlags
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1374696955929128, guid: 4ef5f8b54447a1e42805771279bfb24e, type: 2}
-      propertyPath: m_StaticEditorFlags
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 82550029589588536, guid: 4ef5f8b54447a1e42805771279bfb24e,
-        type: 2}
-      propertyPath: panLevelCustomCurve.m_RotationOrder
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 82550029589588536, guid: 4ef5f8b54447a1e42805771279bfb24e,
-        type: 2}
-      propertyPath: reverbZoneMixCustomCurve.m_RotationOrder
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 114903738382757782, guid: 4ef5f8b54447a1e42805771279bfb24e,
-        type: 2}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 114677140464309904, guid: 4ef5f8b54447a1e42805771279bfb24e,
-        type: 2}
-      propertyPath: movementSettings.m_Running
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 114677140464309904, guid: 4ef5f8b54447a1e42805771279bfb24e,
-        type: 2}
-      propertyPath: movementSettings.RunMultiplier
-      value: 4
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 4ef5f8b54447a1e42805771279bfb24e, type: 2}
@@ -11516,7 +11824,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 929945377}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Plane001
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -11547,7 +11855,7 @@ GameObject:
   m_Component:
   - component: {fileID: 941631841}
   - component: {fileID: 941631842}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Building_01 (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -11601,7 +11909,7 @@ GameObject:
   - component: {fileID: 943390154}
   - component: {fileID: 943390153}
   - component: {fileID: 943390155}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Building 2 (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -11690,7 +11998,8 @@ GameObject:
   - component: {fileID: 946305225}
   - component: {fileID: 946305227}
   - component: {fileID: 946305226}
-  m_Layer: 0
+  - component: {fileID: 946305228}
+  m_Layer: 10
   m_Name: Door_3(A)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -11752,6 +12061,20 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 946305224}
   m_Mesh: {fileID: 4300004, guid: 556682b948c848c4caa4890b0b71ffb6, type: 3}
+--- !u!64 &946305228
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 946305224}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Convex: 0
+  m_InflateMesh: 0
+  m_SkinWidth: 0.01
+  m_Mesh: {fileID: 4300004, guid: 556682b948c848c4caa4890b0b71ffb6, type: 3}
 --- !u!1 &947352486
 GameObject:
   m_ObjectHideFlags: 0
@@ -11763,7 +12086,8 @@ GameObject:
   - component: {fileID: 947352487}
   - component: {fileID: 947352489}
   - component: {fileID: 947352488}
-  m_Layer: 0
+  - component: {fileID: 947352490}
+  m_Layer: 10
   m_Name: Door_3(B)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -11824,6 +12148,20 @@ MeshFilter:
     type: 2}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 947352486}
+  m_Mesh: {fileID: 4300000, guid: 556682b948c848c4caa4890b0b71ffb6, type: 3}
+--- !u!64 &947352490
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 947352486}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Convex: 0
+  m_InflateMesh: 0
+  m_SkinWidth: 0.01
   m_Mesh: {fileID: 4300000, guid: 556682b948c848c4caa4890b0b71ffb6, type: 3}
 --- !u!1 &955671206
 GameObject:
@@ -12001,7 +12339,7 @@ GameObject:
   - component: {fileID: 966440310}
   - component: {fileID: 966440309}
   - component: {fileID: 966440311}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Building_1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -12089,7 +12427,7 @@ GameObject:
   m_Component:
   - component: {fileID: 981151256}
   - component: {fileID: 981151257}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Building_02 (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -12241,7 +12579,8 @@ GameObject:
   - component: {fileID: 992863730}
   - component: {fileID: 992863732}
   - component: {fileID: 992863731}
-  m_Layer: 0
+  - component: {fileID: 992863733}
+  m_Layer: 10
   m_Name: Door_3(A)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -12303,6 +12642,20 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 992863729}
   m_Mesh: {fileID: 4300004, guid: 556682b948c848c4caa4890b0b71ffb6, type: 3}
+--- !u!64 &992863733
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 992863729}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Convex: 0
+  m_InflateMesh: 0
+  m_SkinWidth: 0.01
+  m_Mesh: {fileID: 4300004, guid: 556682b948c848c4caa4890b0b71ffb6, type: 3}
 --- !u!1 &994677832
 GameObject:
   m_ObjectHideFlags: 0
@@ -12315,7 +12668,7 @@ GameObject:
   - component: {fileID: 994677835}
   - component: {fileID: 994677834}
   - component: {fileID: 994677836}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Building_1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -12403,7 +12756,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1010497392}
   - component: {fileID: 1010497393}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Building_01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -12455,7 +12808,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1024344618}
   - component: {fileID: 1024344619}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Building_02 (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -13084,7 +13437,7 @@ GameObject:
   - component: {fileID: 1069086771}
   - component: {fileID: 1069086770}
   - component: {fileID: 1069086772}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Building 3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -13276,7 +13629,7 @@ GameObject:
   - component: {fileID: 1096204987}
   - component: {fileID: 1096204986}
   - component: {fileID: 1096204988}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Building_1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -13364,7 +13717,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1103812789}
   - component: {fileID: 1103812790}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Building_02 (4)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -13847,7 +14200,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1131888198}
   - component: {fileID: 1131888199}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Building_4 (7)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -14014,7 +14367,7 @@ GameObject:
   - component: {fileID: 1143916794}
   - component: {fileID: 1143916793}
   - component: {fileID: 1143916795}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Box001
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -14288,7 +14641,7 @@ GameObject:
   - component: {fileID: 1153472636}
   - component: {fileID: 1153472635}
   - component: {fileID: 1153472637}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Building 2 (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -14469,7 +14822,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1163474515}
   - component: {fileID: 1163474516}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Building_5 (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -14885,7 +15238,7 @@ GameObject:
   - component: {fileID: 1206976245}
   - component: {fileID: 1206976244}
   - component: {fileID: 1206976246}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Building 2 (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -14975,7 +15328,7 @@ GameObject:
   - component: {fileID: 1214443419}
   - component: {fileID: 1214443418}
   - component: {fileID: 1214443420}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Box001
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -15225,7 +15578,8 @@ GameObject:
   - component: {fileID: 1234759347}
   - component: {fileID: 1234759349}
   - component: {fileID: 1234759348}
-  m_Layer: 0
+  - component: {fileID: 1234759350}
+  m_Layer: 10
   m_Name: Door_3(A)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -15286,6 +15640,20 @@ MeshFilter:
     type: 2}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1234759346}
+  m_Mesh: {fileID: 4300004, guid: 556682b948c848c4caa4890b0b71ffb6, type: 3}
+--- !u!64 &1234759350
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1234759346}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Convex: 0
+  m_InflateMesh: 0
+  m_SkinWidth: 0.01
   m_Mesh: {fileID: 4300004, guid: 556682b948c848c4caa4890b0b71ffb6, type: 3}
 --- !u!114 &1243261734
 MonoBehaviour:
@@ -15465,7 +15833,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1256982844}
   - component: {fileID: 1256982845}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Building_4 (5)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -15614,7 +15982,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1264262090}
   - component: {fileID: 1264262091}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Building_4 (6)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -15666,7 +16034,8 @@ GameObject:
   - component: {fileID: 1266871100}
   - component: {fileID: 1266871102}
   - component: {fileID: 1266871101}
-  m_Layer: 0
+  - component: {fileID: 1266871103}
+  m_Layer: 10
   m_Name: Door_2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -15728,6 +16097,20 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1266871099}
   m_Mesh: {fileID: 4300002, guid: 214da1420e912474b89391e09fd1aa56, type: 3}
+--- !u!64 &1266871103
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1266871099}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Convex: 0
+  m_InflateMesh: 0
+  m_SkinWidth: 0.01
+  m_Mesh: {fileID: 4300002, guid: 214da1420e912474b89391e09fd1aa56, type: 3}
 --- !u!1 &1271792870
 GameObject:
   m_ObjectHideFlags: 0
@@ -15740,7 +16123,7 @@ GameObject:
   - component: {fileID: 1271792873}
   - component: {fileID: 1271792872}
   - component: {fileID: 1271792874}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Building 3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -15830,7 +16213,8 @@ GameObject:
   - component: {fileID: 1273737229}
   - component: {fileID: 1273737231}
   - component: {fileID: 1273737230}
-  m_Layer: 0
+  - component: {fileID: 1273737232}
+  m_Layer: 10
   m_Name: Plane004
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -15892,6 +16276,20 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1273737228}
   m_Mesh: {fileID: 4300000, guid: 2821176ec19b1f64c8dbf2ead7b7e206, type: 3}
+--- !u!64 &1273737232
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1273737228}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Convex: 0
+  m_InflateMesh: 0
+  m_SkinWidth: 0.01
+  m_Mesh: {fileID: 4300000, guid: 2821176ec19b1f64c8dbf2ead7b7e206, type: 3}
 --- !u!1 &1274521773
 GameObject:
   m_ObjectHideFlags: 0
@@ -15904,7 +16302,7 @@ GameObject:
   - component: {fileID: 1274521776}
   - component: {fileID: 1274521775}
   - component: {fileID: 1274521777}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Building_1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -16213,7 +16611,8 @@ GameObject:
   - component: {fileID: 1283256637}
   - component: {fileID: 1283256639}
   - component: {fileID: 1283256638}
-  m_Layer: 0
+  - component: {fileID: 1283256640}
+  m_Layer: 10
   m_Name: Door_3(A)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -16275,6 +16674,20 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1283256636}
   m_Mesh: {fileID: 4300004, guid: 556682b948c848c4caa4890b0b71ffb6, type: 3}
+--- !u!64 &1283256640
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1283256636}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Convex: 0
+  m_InflateMesh: 0
+  m_SkinWidth: 0.01
+  m_Mesh: {fileID: 4300004, guid: 556682b948c848c4caa4890b0b71ffb6, type: 3}
 --- !u!1 &1287941947
 GameObject:
   m_ObjectHideFlags: 0
@@ -16286,7 +16699,8 @@ GameObject:
   - component: {fileID: 1287941948}
   - component: {fileID: 1287941950}
   - component: {fileID: 1287941949}
-  m_Layer: 0
+  - component: {fileID: 1287941951}
+  m_Layer: 10
   m_Name: Door_2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -16347,6 +16761,20 @@ MeshFilter:
     type: 2}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1287941947}
+  m_Mesh: {fileID: 4300002, guid: 214da1420e912474b89391e09fd1aa56, type: 3}
+--- !u!64 &1287941951
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1287941947}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Convex: 0
+  m_InflateMesh: 0
+  m_SkinWidth: 0.01
   m_Mesh: {fileID: 4300002, guid: 214da1420e912474b89391e09fd1aa56, type: 3}
 --- !u!1 &1293990402
 GameObject:
@@ -16454,7 +16882,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 1297399090}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Doorway (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -16488,7 +16916,8 @@ GameObject:
   - component: {fileID: 1302059792}
   - component: {fileID: 1302059794}
   - component: {fileID: 1302059793}
-  m_Layer: 0
+  - component: {fileID: 1302059795}
+  m_Layer: 10
   m_Name: Door_2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -16550,6 +16979,20 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1302059791}
   m_Mesh: {fileID: 4300002, guid: 214da1420e912474b89391e09fd1aa56, type: 3}
+--- !u!64 &1302059795
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1302059791}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Convex: 0
+  m_InflateMesh: 0
+  m_SkinWidth: 0.01
+  m_Mesh: {fileID: 4300002, guid: 214da1420e912474b89391e09fd1aa56, type: 3}
 --- !u!1 &1303955788
 GameObject:
   m_ObjectHideFlags: 0
@@ -16560,7 +17003,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1303955789}
   - component: {fileID: 1303955790}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Building_3 (12)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -16702,7 +17145,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1315323622}
   - component: {fileID: 1315323623}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Building_3 (14)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -16844,7 +17287,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1327271059}
   - component: {fileID: 1327271060}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Building_5 (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -16898,7 +17341,7 @@ GameObject:
   - component: {fileID: 1330851457}
   - component: {fileID: 1330851456}
   - component: {fileID: 1330851458}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Building 3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -17120,7 +17563,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1347539645}
   - component: {fileID: 1347539646}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Building_3 (4)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -17171,7 +17614,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1359381499}
   - component: {fileID: 1359381500}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Building_3 (8)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -17224,7 +17667,7 @@ GameObject:
   - component: {fileID: 1363902749}
   - component: {fileID: 1363902748}
   - component: {fileID: 1363902750}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Building 3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -17314,7 +17757,8 @@ GameObject:
   - component: {fileID: 1368087428}
   - component: {fileID: 1368087430}
   - component: {fileID: 1368087429}
-  m_Layer: 0
+  - component: {fileID: 1368087431}
+  m_Layer: 10
   m_Name: Door_3(A)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -17375,6 +17819,20 @@ MeshFilter:
     type: 2}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1368087427}
+  m_Mesh: {fileID: 4300004, guid: 556682b948c848c4caa4890b0b71ffb6, type: 3}
+--- !u!64 &1368087431
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1368087427}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Convex: 0
+  m_InflateMesh: 0
+  m_SkinWidth: 0.01
   m_Mesh: {fileID: 4300004, guid: 556682b948c848c4caa4890b0b71ffb6, type: 3}
 --- !u!1001 &1382137508
 Prefab:
@@ -17546,7 +18004,7 @@ GameObject:
   - component: {fileID: 1387018368}
   - component: {fileID: 1387018367}
   - component: {fileID: 1387018369}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Building_1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -17718,7 +18176,7 @@ GameObject:
   - component: {fileID: 1394775441}
   - component: {fileID: 1394775440}
   - component: {fileID: 1394775442}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Building_1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -18190,7 +18648,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1430086066}
   - component: {fileID: 1430086067}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Building_3 (6)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -18502,7 +18960,8 @@ GameObject:
   - component: {fileID: 1442315521}
   - component: {fileID: 1442315523}
   - component: {fileID: 1442315522}
-  m_Layer: 0
+  - component: {fileID: 1442315524}
+  m_Layer: 10
   m_Name: Door
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -18563,6 +19022,20 @@ MeshFilter:
     type: 2}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1442315520}
+  m_Mesh: {fileID: 4300002, guid: 8de71f2a4c2af82408e677f9a255fde9, type: 3}
+--- !u!64 &1442315524
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1442315520}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Convex: 0
+  m_InflateMesh: 0
+  m_SkinWidth: 0.01
   m_Mesh: {fileID: 4300002, guid: 8de71f2a4c2af82408e677f9a255fde9, type: 3}
 --- !u!1 &1444901297
 GameObject:
@@ -18817,7 +19290,8 @@ GameObject:
   - component: {fileID: 1462842287}
   - component: {fileID: 1462842289}
   - component: {fileID: 1462842288}
-  m_Layer: 0
+  - component: {fileID: 1462842290}
+  m_Layer: 10
   m_Name: Door_2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -18878,6 +19352,20 @@ MeshFilter:
     type: 2}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1462842286}
+  m_Mesh: {fileID: 4300002, guid: 214da1420e912474b89391e09fd1aa56, type: 3}
+--- !u!64 &1462842290
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1462842286}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Convex: 0
+  m_InflateMesh: 0
+  m_SkinWidth: 0.01
   m_Mesh: {fileID: 4300002, guid: 214da1420e912474b89391e09fd1aa56, type: 3}
 --- !u!1 &1465904216 stripped
 GameObject:
@@ -19011,7 +19499,7 @@ GameObject:
   - component: {fileID: 1483821528}
   - component: {fileID: 1483821527}
   - component: {fileID: 1483821529}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Building_1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -19100,7 +19588,8 @@ GameObject:
   - component: {fileID: 1491197386}
   - component: {fileID: 1491197388}
   - component: {fileID: 1491197387}
-  m_Layer: 0
+  - component: {fileID: 1491197389}
+  m_Layer: 10
   m_Name: Door_3(A)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -19161,6 +19650,20 @@ MeshFilter:
     type: 2}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1491197385}
+  m_Mesh: {fileID: 4300004, guid: 556682b948c848c4caa4890b0b71ffb6, type: 3}
+--- !u!64 &1491197389
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1491197385}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Convex: 0
+  m_InflateMesh: 0
+  m_SkinWidth: 0.01
   m_Mesh: {fileID: 4300004, guid: 556682b948c848c4caa4890b0b71ffb6, type: 3}
 --- !u!1 &1494838188
 GameObject:
@@ -19294,7 +19797,7 @@ GameObject:
   - component: {fileID: 1501218559}
   - component: {fileID: 1501218558}
   - component: {fileID: 1501218560}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Building 2 (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -19452,7 +19955,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 1504117729}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: AllDoors
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -19638,7 +20141,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1524326143}
   - component: {fileID: 1524326144}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Building_5 (7)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -19691,7 +20194,8 @@ GameObject:
   - component: {fileID: 1525998536}
   - component: {fileID: 1525998538}
   - component: {fileID: 1525998537}
-  m_Layer: 0
+  - component: {fileID: 1525998539}
+  m_Layer: 10
   m_Name: Door_3(A)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -19752,6 +20256,20 @@ MeshFilter:
     type: 2}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1525998535}
+  m_Mesh: {fileID: 4300004, guid: 556682b948c848c4caa4890b0b71ffb6, type: 3}
+--- !u!64 &1525998539
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1525998535}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Convex: 0
+  m_InflateMesh: 0
+  m_SkinWidth: 0.01
   m_Mesh: {fileID: 4300004, guid: 556682b948c848c4caa4890b0b71ffb6, type: 3}
 --- !u!1 &1531360595
 GameObject:
@@ -19944,7 +20462,8 @@ GameObject:
   - component: {fileID: 1541846328}
   - component: {fileID: 1541846330}
   - component: {fileID: 1541846329}
-  m_Layer: 0
+  - component: {fileID: 1541846331}
+  m_Layer: 10
   m_Name: Door
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -20005,6 +20524,20 @@ MeshFilter:
     type: 2}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1541846327}
+  m_Mesh: {fileID: 4300002, guid: c775610df4958264da2a96a4340550ec, type: 3}
+--- !u!64 &1541846331
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1541846327}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Convex: 0
+  m_InflateMesh: 0
+  m_SkinWidth: 0.01
   m_Mesh: {fileID: 4300002, guid: c775610df4958264da2a96a4340550ec, type: 3}
 --- !u!1 &1549694985
 GameObject:
@@ -20278,7 +20811,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1584448910}
   - component: {fileID: 1584448911}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Building_3 (13)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -20392,7 +20925,8 @@ GameObject:
   - component: {fileID: 1587513048}
   - component: {fileID: 1587513050}
   - component: {fileID: 1587513049}
-  m_Layer: 0
+  - component: {fileID: 1587513051}
+  m_Layer: 10
   m_Name: Door_2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -20453,6 +20987,20 @@ MeshFilter:
     type: 2}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1587513047}
+  m_Mesh: {fileID: 4300002, guid: 214da1420e912474b89391e09fd1aa56, type: 3}
+--- !u!64 &1587513051
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1587513047}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Convex: 0
+  m_InflateMesh: 0
+  m_SkinWidth: 0.01
   m_Mesh: {fileID: 4300002, guid: 214da1420e912474b89391e09fd1aa56, type: 3}
 --- !u!1 &1590550561
 GameObject:
@@ -20766,7 +21314,8 @@ GameObject:
   - component: {fileID: 1627545763}
   - component: {fileID: 1627545765}
   - component: {fileID: 1627545764}
-  m_Layer: 0
+  - component: {fileID: 1627545766}
+  m_Layer: 10
   m_Name: Plane004
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -20828,6 +21377,20 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1627545762}
   m_Mesh: {fileID: 4300000, guid: 2821176ec19b1f64c8dbf2ead7b7e206, type: 3}
+--- !u!64 &1627545766
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1627545762}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Convex: 0
+  m_InflateMesh: 0
+  m_SkinWidth: 0.01
+  m_Mesh: {fileID: 4300000, guid: 2821176ec19b1f64c8dbf2ead7b7e206, type: 3}
 --- !u!1 &1632206068
 GameObject:
   m_ObjectHideFlags: 0
@@ -20838,7 +21401,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1632206069}
   - component: {fileID: 1632206070}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Building_4 (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -20962,7 +21525,8 @@ GameObject:
   - component: {fileID: 1638397520}
   - component: {fileID: 1638397522}
   - component: {fileID: 1638397521}
-  m_Layer: 0
+  - component: {fileID: 1638397523}
+  m_Layer: 10
   m_Name: Plane004
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -21024,57 +21588,25 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1638397519}
   m_Mesh: {fileID: 4300000, guid: 2821176ec19b1f64c8dbf2ead7b7e206, type: 3}
+--- !u!64 &1638397523
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1638397519}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Convex: 0
+  m_InflateMesh: 0
+  m_SkinWidth: 0.01
+  m_Mesh: {fileID: 4300000, guid: 2821176ec19b1f64c8dbf2ead7b7e206, type: 3}
 --- !u!1 &1640676984 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 1615084222219014, guid: 4ef5f8b54447a1e42805771279bfb24e,
     type: 2}
   m_PrefabInternal: {fileID: 928226325}
---- !u!114 &1640676985
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1640676984}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 96ff17e42733b8149ab5091f62998998, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  surveillanceDrones:
-  - {fileID: 1047626958}
-  - {fileID: 1670835}
-  motionDetectors:
-  - {fileID: 698568879}
-  - {fileID: 1719470330}
-  - {fileID: 777510337}
-  - {fileID: 826011989}
-  switches:
-  - {fileID: 1566055520}
-  - {fileID: 1465904216}
-  - {fileID: 832672270}
-  - {fileID: 1499537828}
-  electricFences: []
-  doors: []
-  highlightMat: {fileID: 2100000, guid: b86aae0e0b501c740bbb84e65d6730ba, type: 2}
-  distanceFromObject:
-  - 12
-  - 30
-  - 30
-  - 30
-  - 30
-  seenObj: 0000000000
---- !u!114 &1640676995
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1640676984}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c86bf32448c893748bec081fad86dbf5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  health: 3
 --- !u!4 &1640676996 stripped
 Transform:
   m_PrefabParentObject: {fileID: 4734511995618848, guid: 4ef5f8b54447a1e42805771279bfb24e,
@@ -21274,7 +21806,8 @@ GameObject:
   - component: {fileID: 1657145032}
   - component: {fileID: 1657145034}
   - component: {fileID: 1657145033}
-  m_Layer: 0
+  - component: {fileID: 1657145035}
+  m_Layer: 10
   m_Name: Door_3(B)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -21335,6 +21868,20 @@ MeshFilter:
     type: 2}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1657145031}
+  m_Mesh: {fileID: 4300000, guid: 556682b948c848c4caa4890b0b71ffb6, type: 3}
+--- !u!64 &1657145035
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1657145031}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Convex: 0
+  m_InflateMesh: 0
+  m_SkinWidth: 0.01
   m_Mesh: {fileID: 4300000, guid: 556682b948c848c4caa4890b0b71ffb6, type: 3}
 --- !u!1 &1658764086
 GameObject:
@@ -21430,7 +21977,7 @@ GameObject:
   - component: {fileID: 1661789122}
   - component: {fileID: 1661789121}
   - component: {fileID: 1661789123}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Building 2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -21518,7 +22065,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1668014133}
   - component: {fileID: 1668014134}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Building_5 (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -21633,7 +22180,8 @@ GameObject:
   - component: {fileID: 1669898735}
   - component: {fileID: 1669898737}
   - component: {fileID: 1669898736}
-  m_Layer: 0
+  - component: {fileID: 1669898738}
+  m_Layer: 10
   m_Name: Door_3(A)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -21694,6 +22242,20 @@ MeshFilter:
     type: 2}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1669898734}
+  m_Mesh: {fileID: 4300004, guid: 556682b948c848c4caa4890b0b71ffb6, type: 3}
+--- !u!64 &1669898738
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1669898734}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Convex: 0
+  m_InflateMesh: 0
+  m_SkinWidth: 0.01
   m_Mesh: {fileID: 4300004, guid: 556682b948c848c4caa4890b0b71ffb6, type: 3}
 --- !u!1 &1692334755
 GameObject:
@@ -21803,7 +22365,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1693562876}
   - component: {fileID: 1693562877}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Building_3 (7)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -21856,7 +22418,7 @@ GameObject:
   - component: {fileID: 1698161442}
   - component: {fileID: 1698161441}
   - component: {fileID: 1698161443}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Building 2 (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -21944,7 +22506,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1703060343}
   - component: {fileID: 1703060344}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Building_5 (4)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -22070,7 +22632,8 @@ GameObject:
   - component: {fileID: 1712654651}
   - component: {fileID: 1712654653}
   - component: {fileID: 1712654652}
-  m_Layer: 0
+  - component: {fileID: 1712654654}
+  m_Layer: 10
   m_Name: Plane004
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -22131,6 +22694,20 @@ MeshFilter:
     type: 2}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1712654650}
+  m_Mesh: {fileID: 4300000, guid: 2821176ec19b1f64c8dbf2ead7b7e206, type: 3}
+--- !u!64 &1712654654
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1712654650}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Convex: 0
+  m_InflateMesh: 0
+  m_SkinWidth: 0.01
   m_Mesh: {fileID: 4300000, guid: 2821176ec19b1f64c8dbf2ead7b7e206, type: 3}
 --- !u!1 &1719470330 stripped
 GameObject:
@@ -22263,7 +22840,8 @@ GameObject:
   - component: {fileID: 1726682660}
   - component: {fileID: 1726682662}
   - component: {fileID: 1726682661}
-  m_Layer: 0
+  - component: {fileID: 1726682663}
+  m_Layer: 10
   m_Name: Door_2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -22324,6 +22902,20 @@ MeshFilter:
     type: 2}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1726682659}
+  m_Mesh: {fileID: 4300002, guid: 214da1420e912474b89391e09fd1aa56, type: 3}
+--- !u!64 &1726682663
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1726682659}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Convex: 0
+  m_InflateMesh: 0
+  m_SkinWidth: 0.01
   m_Mesh: {fileID: 4300002, guid: 214da1420e912474b89391e09fd1aa56, type: 3}
 --- !u!1 &1744040462
 GameObject:
@@ -22500,7 +23092,8 @@ GameObject:
   - component: {fileID: 1758771253}
   - component: {fileID: 1758771255}
   - component: {fileID: 1758771254}
-  m_Layer: 0
+  - component: {fileID: 1758771256}
+  m_Layer: 10
   m_Name: Door_3(B)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -22561,6 +23154,20 @@ MeshFilter:
     type: 2}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1758771252}
+  m_Mesh: {fileID: 4300000, guid: 556682b948c848c4caa4890b0b71ffb6, type: 3}
+--- !u!64 &1758771256
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1758771252}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Convex: 0
+  m_InflateMesh: 0
+  m_SkinWidth: 0.01
   m_Mesh: {fileID: 4300000, guid: 556682b948c848c4caa4890b0b71ffb6, type: 3}
 --- !u!1 &1762075155
 GameObject:
@@ -22734,7 +23341,7 @@ GameObject:
   - component: {fileID: 1765572626}
   - component: {fileID: 1765572625}
   - component: {fileID: 1765572627}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Building_1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -22933,7 +23540,8 @@ GameObject:
   - component: {fileID: 1777029475}
   - component: {fileID: 1777029477}
   - component: {fileID: 1777029476}
-  m_Layer: 0
+  - component: {fileID: 1777029478}
+  m_Layer: 10
   m_Name: Plane004
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -22995,6 +23603,20 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1777029474}
   m_Mesh: {fileID: 4300000, guid: 2821176ec19b1f64c8dbf2ead7b7e206, type: 3}
+--- !u!64 &1777029478
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1777029474}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Convex: 0
+  m_InflateMesh: 0
+  m_SkinWidth: 0.01
+  m_Mesh: {fileID: 4300000, guid: 2821176ec19b1f64c8dbf2ead7b7e206, type: 3}
 --- !u!1 &1778319354
 GameObject:
   m_ObjectHideFlags: 0
@@ -23005,7 +23627,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1778319355}
   - component: {fileID: 1778319356}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Building_3 (15)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -23156,7 +23778,7 @@ GameObject:
   - component: {fileID: 1796838804}
   - component: {fileID: 1796838803}
   - component: {fileID: 1796838805}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Building 3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -23328,7 +23950,8 @@ GameObject:
   - component: {fileID: 1822497589}
   - component: {fileID: 1822497591}
   - component: {fileID: 1822497590}
-  m_Layer: 0
+  - component: {fileID: 1822497592}
+  m_Layer: 10
   m_Name: Door_3(A)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -23390,6 +24013,20 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1822497588}
   m_Mesh: {fileID: 4300004, guid: 556682b948c848c4caa4890b0b71ffb6, type: 3}
+--- !u!64 &1822497592
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1822497588}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Convex: 0
+  m_InflateMesh: 0
+  m_SkinWidth: 0.01
+  m_Mesh: {fileID: 4300004, guid: 556682b948c848c4caa4890b0b71ffb6, type: 3}
 --- !u!1 &1827722978
 GameObject:
   m_ObjectHideFlags: 0
@@ -23401,7 +24038,8 @@ GameObject:
   - component: {fileID: 1827722979}
   - component: {fileID: 1827722981}
   - component: {fileID: 1827722980}
-  m_Layer: 0
+  - component: {fileID: 1827722982}
+  m_Layer: 10
   m_Name: Plane004
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -23463,6 +24101,20 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1827722978}
   m_Mesh: {fileID: 4300000, guid: 2821176ec19b1f64c8dbf2ead7b7e206, type: 3}
+--- !u!64 &1827722982
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1827722978}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Convex: 0
+  m_InflateMesh: 0
+  m_SkinWidth: 0.01
+  m_Mesh: {fileID: 4300000, guid: 2821176ec19b1f64c8dbf2ead7b7e206, type: 3}
 --- !u!1 &1828440273
 GameObject:
   m_ObjectHideFlags: 0
@@ -23474,7 +24126,8 @@ GameObject:
   - component: {fileID: 1828440274}
   - component: {fileID: 1828440276}
   - component: {fileID: 1828440275}
-  m_Layer: 0
+  - component: {fileID: 1828440277}
+  m_Layer: 10
   m_Name: Door_3(B)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -23535,6 +24188,20 @@ MeshFilter:
     type: 2}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1828440273}
+  m_Mesh: {fileID: 4300000, guid: 556682b948c848c4caa4890b0b71ffb6, type: 3}
+--- !u!64 &1828440277
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1828440273}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Convex: 0
+  m_InflateMesh: 0
+  m_SkinWidth: 0.01
   m_Mesh: {fileID: 4300000, guid: 556682b948c848c4caa4890b0b71ffb6, type: 3}
 --- !u!1 &1831736383
 GameObject:
@@ -23728,7 +24395,7 @@ GameObject:
   - component: {fileID: 1850130391}
   - component: {fileID: 1850130390}
   - component: {fileID: 1850130392}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Building 3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -23817,7 +24484,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1852448845}
   - component: {fileID: 1852448846}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Building_5 (6)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -23871,7 +24538,7 @@ GameObject:
   - component: {fileID: 1854562064}
   - component: {fileID: 1854562063}
   - component: {fileID: 1854562065}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Building 3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -23960,7 +24627,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1859117387}
   - component: {fileID: 1859117388}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Building_4 (4)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -24013,7 +24680,7 @@ GameObject:
   - component: {fileID: 1861399624}
   - component: {fileID: 1861399623}
   - component: {fileID: 1861399625}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Box001
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -24102,7 +24769,8 @@ GameObject:
   - component: {fileID: 1866670792}
   - component: {fileID: 1866670794}
   - component: {fileID: 1866670793}
-  m_Layer: 0
+  - component: {fileID: 1866670795}
+  m_Layer: 10
   m_Name: Plane004
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -24164,6 +24832,20 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1866670791}
   m_Mesh: {fileID: 4300000, guid: 2821176ec19b1f64c8dbf2ead7b7e206, type: 3}
+--- !u!64 &1866670795
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1866670791}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Convex: 0
+  m_InflateMesh: 0
+  m_SkinWidth: 0.01
+  m_Mesh: {fileID: 4300000, guid: 2821176ec19b1f64c8dbf2ead7b7e206, type: 3}
 --- !u!1 &1877436473
 GameObject:
   m_ObjectHideFlags: 0
@@ -24175,7 +24857,8 @@ GameObject:
   - component: {fileID: 1877436474}
   - component: {fileID: 1877436476}
   - component: {fileID: 1877436475}
-  m_Layer: 0
+  - component: {fileID: 1877436477}
+  m_Layer: 10
   m_Name: Plane004
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -24237,6 +24920,20 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1877436473}
   m_Mesh: {fileID: 4300000, guid: 2821176ec19b1f64c8dbf2ead7b7e206, type: 3}
+--- !u!64 &1877436477
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1877436473}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Convex: 0
+  m_InflateMesh: 0
+  m_SkinWidth: 0.01
+  m_Mesh: {fileID: 4300000, guid: 2821176ec19b1f64c8dbf2ead7b7e206, type: 3}
 --- !u!1 &1887715462
 GameObject:
   m_ObjectHideFlags: 0
@@ -24249,7 +24946,7 @@ GameObject:
   - component: {fileID: 1887715465}
   - component: {fileID: 1887715464}
   - component: {fileID: 1887715466}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Box001
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -24727,7 +25424,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1900388034}
   - component: {fileID: 1900388035}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Building_3 (17)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -24780,7 +25477,7 @@ GameObject:
   - component: {fileID: 1907405428}
   - component: {fileID: 1907405427}
   - component: {fileID: 1907405429}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Box001
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -25069,7 +25766,7 @@ GameObject:
   - component: {fileID: 1929468675}
   - component: {fileID: 1929468674}
   - component: {fileID: 1929468676}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Building_1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -25157,7 +25854,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1939147814}
   - component: {fileID: 1939147815}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Building_3 (5)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -25208,7 +25905,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1945592702}
   - component: {fileID: 1945592703}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Building_01 (4)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -25339,7 +26036,7 @@ GameObject:
   - component: {fileID: 1970947856}
   - component: {fileID: 1970947855}
   - component: {fileID: 1970947857}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Building_1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -25509,7 +26206,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1974453908}
   - component: {fileID: 1974453909}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Building_5 (8)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -25563,7 +26260,7 @@ GameObject:
   - component: {fileID: 1976032562}
   - component: {fileID: 1976032561}
   - component: {fileID: 1976032563}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Building_1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -26372,7 +27069,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 2007747298}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Plane001
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -26410,7 +27107,8 @@ GameObject:
   - component: {fileID: 2023264965}
   - component: {fileID: 2023264967}
   - component: {fileID: 2023264966}
-  m_Layer: 0
+  - component: {fileID: 2023264968}
+  m_Layer: 10
   m_Name: Plane004
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -26472,6 +27170,20 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 2023264964}
   m_Mesh: {fileID: 4300000, guid: 2821176ec19b1f64c8dbf2ead7b7e206, type: 3}
+--- !u!64 &2023264968
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2023264964}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Convex: 0
+  m_InflateMesh: 0
+  m_SkinWidth: 0.01
+  m_Mesh: {fileID: 4300000, guid: 2821176ec19b1f64c8dbf2ead7b7e206, type: 3}
 --- !u!1 &2026610005
 GameObject:
   m_ObjectHideFlags: 0
@@ -26482,7 +27194,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2026610006}
   - component: {fileID: 2026610007}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Building_3 (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -26534,7 +27246,8 @@ GameObject:
   - component: {fileID: 2029880157}
   - component: {fileID: 2029880159}
   - component: {fileID: 2029880158}
-  m_Layer: 0
+  - component: {fileID: 2029880160}
+  m_Layer: 10
   m_Name: Door_2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -26596,6 +27309,20 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 2029880156}
   m_Mesh: {fileID: 4300002, guid: 214da1420e912474b89391e09fd1aa56, type: 3}
+--- !u!64 &2029880160
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2029880156}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Convex: 0
+  m_InflateMesh: 0
+  m_SkinWidth: 0.01
+  m_Mesh: {fileID: 4300002, guid: 214da1420e912474b89391e09fd1aa56, type: 3}
 --- !u!1 &2050621203
 GameObject:
   m_ObjectHideFlags: 0
@@ -26606,7 +27333,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2050621204}
   - component: {fileID: 2050621205}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Building_02 (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -26756,7 +27483,8 @@ GameObject:
   - component: {fileID: 2062319615}
   - component: {fileID: 2062319617}
   - component: {fileID: 2062319616}
-  m_Layer: 0
+  - component: {fileID: 2062319618}
+  m_Layer: 10
   m_Name: Plane004
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -26817,6 +27545,20 @@ MeshFilter:
     type: 2}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 2062319614}
+  m_Mesh: {fileID: 4300000, guid: 2821176ec19b1f64c8dbf2ead7b7e206, type: 3}
+--- !u!64 &2062319618
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2062319614}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Convex: 0
+  m_InflateMesh: 0
+  m_SkinWidth: 0.01
   m_Mesh: {fileID: 4300000, guid: 2821176ec19b1f64c8dbf2ead7b7e206, type: 3}
 --- !u!1 &2066157898
 GameObject:
@@ -27273,7 +28015,8 @@ GameObject:
   - component: {fileID: 2123361398}
   - component: {fileID: 2123361400}
   - component: {fileID: 2123361399}
-  m_Layer: 0
+  - component: {fileID: 2123361401}
+  m_Layer: 10
   m_Name: Door
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -27335,6 +28078,20 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 2123361397}
   m_Mesh: {fileID: 4300002, guid: 8de71f2a4c2af82408e677f9a255fde9, type: 3}
+--- !u!64 &2123361401
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2123361397}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Convex: 0
+  m_InflateMesh: 0
+  m_SkinWidth: 0.01
+  m_Mesh: {fileID: 4300002, guid: 8de71f2a4c2af82408e677f9a255fde9, type: 3}
 --- !u!1 &2127098783
 GameObject:
   m_ObjectHideFlags: 0
@@ -27347,7 +28104,7 @@ GameObject:
   - component: {fileID: 2127098786}
   - component: {fileID: 2127098785}
   - component: {fileID: 2127098787}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Building 2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -27708,6 +28465,10 @@ Prefab:
       propertyPath: m_Limits.max
       value: -15
       objectReference: {fileID: 0}
+    - target: {fileID: 1084910041738384, guid: 376d1ca0fd5b33e4c894b77bc929c539, type: 2}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 376d1ca0fd5b33e4c894b77bc929c539, type: 2}
   m_IsPrefabParent: 0
@@ -27728,7 +28489,7 @@ GameObject:
   - component: {fileID: 2141680731}
   - component: {fileID: 2141680730}
   - component: {fileID: 2141680732}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Building_1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -27908,7 +28669,8 @@ GameObject:
   - component: {fileID: 2144654872}
   - component: {fileID: 2144654874}
   - component: {fileID: 2144654873}
-  m_Layer: 0
+  - component: {fileID: 2144654875}
+  m_Layer: 10
   m_Name: Door
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -27969,6 +28731,20 @@ MeshFilter:
     type: 2}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 2144654871}
+  m_Mesh: {fileID: 4300002, guid: 8de71f2a4c2af82408e677f9a255fde9, type: 3}
+--- !u!64 &2144654875
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2144654871}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Convex: 0
+  m_InflateMesh: 0
+  m_SkinWidth: 0.01
   m_Mesh: {fileID: 4300002, guid: 8de71f2a4c2af82408e677f9a255fde9, type: 3}
 --- !u!1 &2145057142
 GameObject:

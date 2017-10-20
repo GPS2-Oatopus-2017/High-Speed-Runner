@@ -298,7 +298,7 @@ namespace UnityStandardAssets.Characters.FirstPerson
 
 			// get the rotation before it's changed
 			float oldXRotation = Camera.main.transform.eulerAngles.x;
-			float newXRotation = 0.0f;
+			//float newXRotation = 0.0f;
 			float rotateTime = Time.deltaTime / 1f;
 
 			slideTimer += Time.deltaTime;

@@ -39,6 +39,7 @@ GameObject:
   - component: {fileID: 124580129867538278}
   - component: {fileID: 81191965907833656}
   - component: {fileID: 114903065098811766}
+  - component: {fileID: 114043706768302908}
   m_Layer: 0
   m_Name: MainCamera
   m_TagString: MainCamera
@@ -61,6 +62,23 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!1 &1454558705084866
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4078900665523428}
+  - component: {fileID: 114275308034884388}
+  - component: {fileID: 65996970811147036}
+  m_Layer: 11
+  m_Name: WallCheck
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!1 &1612693753392540
 GameObject:
   m_ObjectHideFlags: 0
@@ -72,7 +90,7 @@ GameObject:
   - component: {fileID: 135044402427850356}
   m_Layer: 9
   m_Name: SphereCheck
-  m_TagString: SphereCheck
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -94,6 +112,8 @@ GameObject:
   - component: {fileID: 95518996627870748}
   - component: {fileID: 114903738382757782}
   - component: {fileID: 82550029589588536}
+  - component: {fileID: 114497469779155040}
+  - component: {fileID: 114512219708029566}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -165,6 +185,19 @@ Transform:
   m_Father: {fileID: 4734511995618848}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &4078900665523428
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1454558705084866}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0, y: 0.703, z: 0.762}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4734511995618848}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4200666986356314
 Transform:
   m_ObjectHideFlags: 1
@@ -226,15 +259,16 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1615084222219014}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.75, z: -3.22}
+  m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
+  m_LocalPosition: {x: -225.42, y: 0.69, z: -194.7}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4761456717833042}
   - {fileID: 4026873568303378}
+  - {fileID: 4078900665523428}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
 --- !u!4 &4761456717833042
 Transform:
   m_ObjectHideFlags: 1
@@ -242,7 +276,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1335751498434552}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.5, z: 0}
+  m_LocalPosition: {x: 0, y: 1, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4605433310937838}
@@ -398,7 +432,19 @@ Rigidbody:
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 0
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
+--- !u!65 &65996970811147036
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1454558705084866}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 0.3, z: 0.3}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!81 &81191965907833656
 AudioListener:
   m_ObjectHideFlags: 1
@@ -544,6 +590,34 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
+--- !u!114 &114043706768302908
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1335751498434552}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2158eacc09a038a4fa8af605203d81c7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rotationAmount: 360
+  rotationSpeed: 360
+  rotationCounter: 0
+  isRolling: 0
+--- !u!114 &114275308034884388
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1454558705084866}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: be2658baa24bb0944bb9a56043c7ede0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerRb: {fileID: 54979846990232922}
+  knockBackForce: 1000
 --- !u!114 &114486851600351874
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -557,6 +631,52 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rigidController: {fileID: 0}
   animController: {fileID: 0}
+--- !u!114 &114497469779155040
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1615084222219014}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 96ff17e42733b8149ab5091f62998998, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  surveillanceDrones:
+  - {fileID: 0}
+  - {fileID: 0}
+  motionDetectors:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  switches:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  electricFences: []
+  doors: []
+  highlightMat: {fileID: 2100000, guid: b86aae0e0b501c740bbb84e65d6730ba, type: 2}
+  distanceFromObject:
+  - 12
+  - 30
+  - 30
+  - 30
+  - 30
+  seenObj: 0000000000
+--- !u!114 &114512219708029566
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1615084222219014}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c86bf32448c893748bec081fad86dbf5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 3
 --- !u!114 &114677140464309904
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -570,10 +690,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cam: {fileID: 20381359996814306}
   movementSettings:
-    ForwardSpeed: 4
-    BackwardSpeed: 4
-    StrafeSpeed: 4
-    RunMultiplier: 2
+    ForwardSpeed: 5
+    BackwardSpeed: 6
+    StrafeSpeed: 8
+    RunMultiplier: 4
     RunKey: 304
     JumpForce: 50
     SlopeCurveModifier:
@@ -601,7 +721,7 @@ MonoBehaviour:
       m_PostInfinity: 2
       m_RotationOrder: 4
     CurrentTargetSpeed: 8
-    m_Running: 0
+    m_Running: 1
     isAutoRun: 0
   advancedSettings:
     groundCheckDistance: 0.01
@@ -693,7 +813,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b3423c198cf73e34fb17a9853c52549a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rayDistance: 10
+  rayDistance: 1000000
   toOpenDoor: 0
   currentDoor: {fileID: 0}
 --- !u!124 &124580129867538278
