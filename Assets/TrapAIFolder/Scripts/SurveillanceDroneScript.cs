@@ -70,7 +70,7 @@ public class SurveillanceDroneScript : MonoBehaviour {
 		{
 			hasBeenDetected = true;
 			//SpawnFunction
-			SpawnManagerScript.Instance.CalculateSpawnPoint();
+			//SpawnManagerScript.Instance.CalculateSpawnPoint();
 			//currentPoint = SpawnManagerScript.Instance.currentSpawnIndex + 1;
 			SpawnManagerScript.Instance.Spawn("Hunting_Droid");
 			//PoolManagerScript.Instance.Spawn("Hunting_Droid",SpawnManagerScript.Instance.spawnPoint,Quaternion.identity);
