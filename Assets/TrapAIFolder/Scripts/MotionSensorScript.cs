@@ -30,7 +30,8 @@ public class MotionSensorScript : MonoBehaviour {
 				ReputationManagerScript.Instance.currentRep += 1;
 			}
 			SpawnManagerScript.Instance.CalculateSpawnPoint();
-			PoolManagerScript.Instance.SpawnMuliple("Hunting_Droid",SpawnManagerScript.Instance.spawnPoint,Quaternion.identity,2,0,3.5f,SpawnManagerScript.Instance.isHorizontal);
+			SpawnManagerScript.Instance.SpawnMultiple("Hunting_Droid",2);
+			//PoolManagerScript.Instance.SpawnMuliple("Hunting_Droid",SpawnManagerScript.Instance.spawnPoint,Quaternion.identity,2,0,3.5f,SpawnManagerScript.Instance.isHorizontal);
 		}
 		if(!isActive)
 		{

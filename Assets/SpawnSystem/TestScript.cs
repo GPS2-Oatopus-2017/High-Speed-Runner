@@ -71,8 +71,9 @@ public class TestScript : MonoBehaviour {
 			bool horizontal = false;
 			SpawnManagerScript.Instance.CalculateSpawnPoint();
 			//PoolManagerScript.Instance.Spawn("Surveillance_Drone",SpawnManagerScript.Instance.spawnPoint,Quaternion.identity);
-			PoolManagerScript.Instance.SpawnMuliple("Surveillance_Drone",SpawnManagerScript.Instance.spawnPoint,Quaternion.identity,3,0.5f,1.5f,horizontal);
-			PoolManagerScript.Instance.SpawnMuliple("Surveillance_Drone",SpawnManagerScript.Instance.spawnPoint,Quaternion.identity,3,0.5f,1.5f,horizontal);
+
+		//	PoolManagerScript.Instance.SpawnMuliple("Surveillance_Drone",SpawnManagerScript.Instance.spawnPoint,Quaternion.identity,3,0.5f,1.5f,horizontal);
+			//PoolManagerScript.Instance.SpawnMuliple("Surveillance_Drone",SpawnManagerScript.Instance.spawnPoint,Quaternion.identity,3,0.5f,1.5f,horizontal);
 		}
 		//transform.Translate(Vector3.left * Time.deltaTime * 1.5f);
 	}

@@ -45,7 +45,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!1 &1053989135173018
 GameObject:
   m_ObjectHideFlags: 1
@@ -129,7 +129,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!1 &1264652192707774
 GameObject:
   m_ObjectHideFlags: 1
@@ -215,7 +215,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!1 &1539244791053872
 GameObject:
   m_ObjectHideFlags: 1
@@ -352,7 +352,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!1 &1895076820189310
 GameObject:
   m_ObjectHideFlags: 1
@@ -420,7 +420,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!1 &1980993512506688
 GameObject:
   m_ObjectHideFlags: 1
@@ -666,6 +666,14 @@ MonoBehaviour:
   currentRep: 0
   lastRep: 0
   value: 1
+  deadSD: 0
+  deadHD: 0
+  deadSDMax: 0
+  deadHDMax: 0
+  resetCounter: 0
+  resetTime: 20
+  enemyAmountText: {fileID: 114286630171229370}
+  playerStatus: {fileID: 114577729797933792}
   lightUp: {fileID: 21300000, guid: cf559bdeb355b224fa5349e532667725, type: 3}
   starList:
   - {fileID: 114206245450880234}
@@ -680,10 +688,6 @@ MonoBehaviour:
   - {fileID: 114212203278453468}
   - {fileID: 114154108009655312}
   - {fileID: 114224831371298130}
-  enemyAmountText: {fileID: 114286630171229370}
-  playerStatus: {fileID: 114577729797933792}
-  resetCounter: 0
-  resetTime: 20
 --- !u!114 &114206245450880234
 MonoBehaviour:
   m_ObjectHideFlags: 1

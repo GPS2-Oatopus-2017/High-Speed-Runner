@@ -38,7 +38,6 @@ public class HuntingDroneScript : MonoBehaviour {
 		huntingDroneRigidbody = GetComponent<Rigidbody>();
 	}
 
-
 	void Start()
 	{
 		player = GameObject.FindWithTag("Player");

@@ -47,41 +47,38 @@ public class SpawnManagerScript : MonoBehaviour {
 		}
 		//currentSpawnIndex 
 		reputation = ReputationManagerScript.Instance.lastRep;
-		if(reputation >= 1 && reputation == ReputationManagerScript.Instance.currentRep)
-		{
-			countDownTimer += Time.deltaTime;
-		}
-		else
-		{
-			countDownTimer = 0;
-		}
 
 		if(countDownTimer >= spawnTime)
 		{
 			countDownTimer = 0;
-			CalculateSpawnPoint();
+			//CalculateSpawnPoint();
 			if(reputation == 1)
 			{
 				sdCount+=1;
 				hdCount+=1;
-				PoolManagerScript.Instance.Spawn("Surveillance_Drone",spawnPoint,Quaternion.identity);
-				PoolManagerScript.Instance.Spawn("Hunting_Droid",spawnPoint,Quaternion.identity);
+				Spawn("Hunting_Droid");
+				Spawn("Surveillance_Drone");
+				//PoolManagerScript.Instance.Spawn("Surveillance_Drone",spawnPoint,Quaternion.identity);
+				//PoolManagerScript.Instance.Spawn("Hunting_Droid",spawnPoint,Quaternion.identity);
 				TimelineScript.Instance.CreateEnemyIcon("Surveillance_Drone", 1);
 				TimelineScript.Instance.CreateEnemyIcon("Hunting_Droid", 1);
 			}
 			else if(reputation == 2)
 			{
 				hdCount+=2;
-				PoolManagerScript.Instance.SpawnMuliple("Hunting_Droid",spawnPoint,Quaternion.identity,2,offsetY,offset,isHorizontal);
+				SpawnMultiple("Hunting_Droid",2);
+				//PoolManagerScript.Instance.SpawnMuliple("Hunting_Droid",spawnPoint,Quaternion.identity,2,offsetY,offset,isHorizontal);
 				TimelineScript.Instance.CreateEnemyIcon("Hunting_Droid", 2);
 			}
 			else if(reputation == 3)
 			{
 				sdCount+=1;
 				hdCount+=2;
-				PoolManagerScript.Instance.Spawn("Surveillance_Drone",spawnPoint,Quaternion.identity);
+				Spawn("Surveillance_Drone");
+				//PoolManagerScript.Instance.Spawn("Surveillance_Drone",spawnPoint,Quaternion.identity);
 				ApplyOffsetVertically();
-				PoolManagerScript.Instance.SpawnMuliple("Hunting_Droid",spawnPoint,Quaternion.identity,2,offsetY,offset,isHorizontal);
+				SpawnMultiple("Hunting_Droid",2);
+				//PoolManagerScript.Instance.SpawnMuliple("Hunting_Droid",spawnPoint,Quaternion.identity,2,offsetY,offset,isHorizontal);
 				TimelineScript.Instance.CreateEnemyIcon("Surveillance_Drone", 1);
 				TimelineScript.Instance.CreateEnemyIcon("Hunting_Droid", 2);
 			}
@@ -89,12 +86,14 @@ public class SpawnManagerScript : MonoBehaviour {
 			{
 				sdCount+=1;
 				hdCount+=3;
-				PoolManagerScript.Instance.Spawn("Surveillance_Drone",spawnPoint,Quaternion.identity);
+				Spawn("Surveillance_Drone");
+				//PoolManagerScript.Instance.Spawn("Surveillance_Drone",spawnPoint,Quaternion.identity);
 				ApplyOffsetVertically();
-				for(int i=0; i<3; i++)
+				SpawnMultiple("Hunting_Droid",3);
+				/*for(int i=0; i<3; i++)
 				{
 					PoolManagerScript.Instance.Spawn("Hunting_Droid",spawnPoint,Quaternion.identity);
-				}
+				}*/
 				TimelineScript.Instance.CreateEnemyIcon("Surveillance_Drone", 1);
 				TimelineScript.Instance.CreateEnemyIcon("Hunting_Droid", 3);
 			}
@@ -102,18 +101,32 @@ public class SpawnManagerScript : MonoBehaviour {
 			{
 				sdCount+=3;
 				hdCount+=3;
-				for(int i=0; i<3; i++)
-				{
-					PoolManagerScript.Instance.Spawn("Surveillance_Drone",spawnPoint,Quaternion.identity);
-				}
+				SpawnMultiple("Surveillance_Drone",3);
+//				for(int i=0; i<3; i++)
+//				{
+//					PoolManagerScript.Instance.Spawn("Surveillance_Drone",spawnPoint,Quaternion.identity);
+//				}
 				ApplyOffsetVertically();
-				for(int i=0; i<3; i++)
-				{
-					PoolManagerScript.Instance.Spawn("Hunting_Droid",spawnPoint,Quaternion.identity);
-				}
+				SpawnMultiple("Hunting_Droid",3);
+//				for(int i=0; i<3; i++)
+//				{
+//					PoolManagerScript.Instance.Spawn("Hunting_Droid",spawnPoint,Quaternion.identity);
+//				}
 				TimelineScript.Instance.CreateEnemyIcon("Surveillance_Drone", 3);
 				TimelineScript.Instance.CreateEnemyIcon("Hunting_Droid", 3);
 			}
+		}
+	}
+
+	void LateUpdate()
+	{
+		if(reputation >= 1 && reputation == ReputationManagerScript.Instance.currentRep)
+		{
+			countDownTimer += Time.deltaTime;
+		}
+		else
+		{
+			countDownTimer = 0;
 		}
 	}
 
@@ -130,6 +143,7 @@ public class SpawnManagerScript : MonoBehaviour {
 
 	public void CalculateSpawnPoint()
 	{
+		spawnPoint = Vector3.zero;
 		target = WaypointManagerScript.Instance.tracePlayerNodes[WaypointManagerScript.Instance.tracePlayerNodes.Count-1].transform;
 		distance = Vector3.Distance(player.position,target.transform.position);
 		if(distance == spawnDistance)
@@ -172,4 +186,57 @@ public class SpawnManagerScript : MonoBehaviour {
 
 		}
 	}
+
+	public void Spawn(string name)
+	{
+		CalculateSpawnPoint();
+		GameObject obj = PoolManagerScript.Instance.GetObject(name);
+		if(obj != null)
+		{
+			obj.transform.position = spawnPoint;
+			obj.SetActive(true);
+		}
+	}
+
+
+	public void SpawnMultiple(string name, int amount)
+	{
+		CalculateSpawnPoint();
+		if(!isHorizontal)
+		{
+			spawnPoint.x -= offset;
+		}
+		else
+		{
+			spawnPoint.z -= offset;
+		}
+		for(int i=0; i<amount ; i++)
+		{
+			GameObject obj = PoolManagerScript.Instance.GetObject(name);
+			if(obj != null)
+			{
+				obj.transform.position = spawnPoint;
+				obj.SetActive(true);
+			}
+			if(!isHorizontal)
+			{
+				spawnPoint.x += offset;
+			}
+			else
+			{
+				spawnPoint.z += offset;
+			}
+		}
+	}
+//	public GameObject Spawn(string objectName,Vector3 newPosition, Quaternion newRotation){
+//		if(pool[objectName].Count > 0)
+//		{
+//			GameObject go = pool[objectName].Pop();
+//			go.transform.position = newPosition;
+//			go.transform.rotation = newRotation;
+//			go.SetActive(true);
+//			return go;
+//		}
+//		return null;
+//	}
 }
