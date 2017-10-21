@@ -58,7 +58,7 @@ public class InteractScript : MonoBehaviour
 
 			if (Physics.Raycast (ray, out hit, rayDistance)) {
 				
-				Debug.DrawRay (transform.position, hit.transform.position, Color.red);
+				//Debug.DrawRay (transform.position, hit.transform.position, Color.red);
 				//Debug.Log (hit.transform.name);
 
 				if (hit.transform.tag == "MountainDew") {
@@ -117,7 +117,7 @@ public class InteractScript : MonoBehaviour
 
 			if (Physics.Raycast (ray, out hit, rayDistance)) {
 
-				Debug.DrawRay (transform.position, hit.transform.position, Color.red);
+				//Debug.DrawRay (transform.position, hit.transform.position, Color.red);
 				//Debug.Log (hit.transform.name);
 
 				if (hit.transform.tag == "Interactable") {
@@ -134,10 +134,8 @@ public class InteractScript : MonoBehaviour
 		}
 
 
-		if (SwipeScript.Instance.GetSwipe() == SwipeDirection.Right || Input.GetKeyDown(KeyCode.D))
-		{
-			if (toOpenDoor)
-			{
+		if (SwipeScript.Instance.GetSwipe () == SwipeDirection.Right || Input.GetKeyDown (KeyCode.D)) {
+			if (toOpenDoor) {
 				Debug.Log ("Open Door");
 				currentDoor.SetActive (false);
 			}
