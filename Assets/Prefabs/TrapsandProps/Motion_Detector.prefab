@@ -113,4 +113,5 @@ MonoBehaviour:
   player: {fileID: 0}
   isActive: 0
   mat: {fileID: 2100000, guid: 53ea2be2502e8114baf9d0177e2323a1, type: 2}
-  alertDistance: 6
+  alertDistance: 12
+  distanceOfPlayer: 0

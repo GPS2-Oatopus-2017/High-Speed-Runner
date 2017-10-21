@@ -21,7 +21,7 @@ GameObject:
   - component: {fileID: 4144098086755326}
   - component: {fileID: 95318659548759932}
   m_Layer: 0
-  m_Name: ElectricFence
+  m_Name: ElectricFence (RED)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -117,7 +117,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 2100000, guid: dc3b1c6f74568794085e6c4459f04013, type: 2}
+  - {fileID: 2100000, guid: 3671ffda8153b4c41a6e34cdd75237eb, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

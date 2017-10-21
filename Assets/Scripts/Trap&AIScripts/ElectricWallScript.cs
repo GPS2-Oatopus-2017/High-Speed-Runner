@@ -13,10 +13,11 @@ public class ElectricWallScript : MonoBehaviour
 
 	void Start() 
 	{
+		player = GameObject.FindWithTag("Player");
         slowTimer = slowDuration; // Set Countdown timer to the duration player is slowed
         playerIsSlowed = false; // Boolean indicating if player is slowed
-		this.gameObject.SetActive(false); 
 	}
+
 
 	void Update() 
 	{
@@ -35,6 +36,7 @@ public class ElectricWallScript : MonoBehaviour
         }
 	}
 
+
     void OnTriggerEnter(Collider other) //Apply knockback and speed reduction upon collision
 	{
 		if(other.gameObject.tag == "Player")
@@ -43,14 +45,19 @@ public class ElectricWallScript : MonoBehaviour
 
 			Debug.Log("Player speed is reduced by " + speedReducedValue);
 		}
+
 		if(other.gameObject.tag == "Enemy")
 		{
 			PoolManagerScript.Instance.Despawn(other.gameObject);
 
 			if(other.gameObject.GetComponent<SurveillanceDroneScript>())
+			{
 				ReputationManagerScript.Instance.deadSD++;
+			}
 			else if(other.gameObject.GetComponent<HuntingDroneScript>())
+			{
 				ReputationManagerScript.Instance.deadHD++;
+			}
 
 			Debug.Log("enemy despwan");
 		}

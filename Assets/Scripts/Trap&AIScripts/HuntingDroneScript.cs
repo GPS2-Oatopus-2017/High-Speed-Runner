@@ -4,27 +4,26 @@ using UnityEngine;
 
 public class HuntingDroneScript : MonoBehaviour {
 
-	public GameObject player; // Public for now
+	public GameObject player;
 	public GameObject enemyAttackIndicator;
-	public Vector3 chasingPosition; // Public for now
+	public Vector3 chasingPosition;
 
 	private Vector3 target;
 	public float targetOffset;
 
-	public float movementSpeed = 9.0f;
+	public float movementSpeed = 12.5f;
 	public float turnSpeed = 4.0f;
 
-	public float safeDistance = 26.0f; // To be adjusted
+	public float safeDistance = 50.0f;
 
-	public float hoverForce = 90.0f; // To be adjusted
-	public float hoverHeight = 3.5f; // To be adjusted
+	public float hoverForce = 90.0f;
+	public float hoverHeight = 3.5f;
 
 	private Rigidbody huntingDroneRigidbody;
 
 	public GameObject bullet;
-	public Transform droneGunHardPoint1;
-	public Transform droneGunHardPoint2;
-	public float fireRate = 3.0f;
+	public Transform droneGunHardPoint;
+	public float fireRate = 4.0f;
 	public float fireIndication = 1.5f;
 	private float nextFire;
 	private bool lastGunHardPoint;
@@ -33,10 +32,13 @@ public class HuntingDroneScript : MonoBehaviour {
 
 	public int currentPoint = 0;
 
+	public float distanceOfPlayer;
+
 	void Awake()
 	{
 		huntingDroneRigidbody = GetComponent<Rigidbody>();
 	}
+
 
 	void Start()
 	{
@@ -56,10 +58,13 @@ public class HuntingDroneScript : MonoBehaviour {
 	{
 		huntngDroneChaseFunctions();
 		huntingDroneMainFunctions();
+
 		if(ReputationManagerScript.Instance.currentRep == 0)
 		{
 			PoolManagerScript.Instance.Despawn(this.gameObject);
 		}
+
+		distanceOfPlayer = Vector3.Distance(transform.position, player.transform.position);
 	}
 
 
@@ -67,6 +72,7 @@ public class HuntingDroneScript : MonoBehaviour {
 	{
 		droneHoveringFunction();
 	}
+
 
 	void huntngDroneChaseFunctions()
 	{
@@ -86,6 +92,7 @@ public class HuntingDroneScript : MonoBehaviour {
 		chasingPosition = chasingTrans.position;
 		chasingPosition.y = transform.position.y;
 	}
+
 
 	void huntingDroneMainFunctions()
 	{
@@ -119,20 +126,13 @@ public class HuntingDroneScript : MonoBehaviour {
 			if(Time.time > nextFire)
 			{
 				nextFire = Time.time + fireRate;
+				Instantiate(bullet, droneGunHardPoint.position, droneGunHardPoint.rotation);
 
-				if(lastGunHardPoint == true)
-				{
-					Instantiate(bullet, droneGunHardPoint1.position, droneGunHardPoint1.rotation);
-					lastGunHardPoint = false;
-				}
-				else
-				{
-					Instantiate(bullet, droneGunHardPoint2.position, droneGunHardPoint2.rotation);
-					lastGunHardPoint = true;
-				}
 			}
 		}
 	}
+
+
 	void droneHoveringFunction()
 	{
 		Ray hoverRay = new Ray (transform.position, -transform.up);

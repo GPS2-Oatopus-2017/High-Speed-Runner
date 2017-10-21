@@ -4,24 +4,26 @@ using UnityEngine;
 
 public class SurveillanceDroneScript : MonoBehaviour {
 
-	public GameObject player; // Public for now
-	public Vector3 chasingPosition; // Public for now
+	public GameObject player;
+	public Vector3 chasingPosition;
 
-	public float movementSpeed = 11.0f;
+	public float movementSpeed = 14.0f;
 	public float turnSpeed = 8.0f;
 
-	public float alertDistance = 12.0f; // To be adjusted
-	public float safeDistance = 26.0f; // To be adjusted
+	public float alertDistance = 18.0f;
+	public float safeDistance = 50.0f;
 
-	public float hoverForce = 90.0f; // To be adjusted
-	public float hoverHeight = 3.5f; // To be adjusted
+	public float hoverForce = 90.0f;
+	public float hoverHeight = 3.5f;
 
 	private Rigidbody surveillanceDroneRigidbody;
 
 	public bool hasBeenDetected;
-	public bool isSpawned; //if true, it is a spawned SD, if false, it is a Sd in the map *use for player detection*
+	public bool isSpawned; // If TRUE, it is a spawned SD, if FALSE, it is a SD in the map *use for player detection*
 
 	public int currentPoint = 0; 
+
+	public float distanceOfPlayer;
 
 	void Awake()
 	{
@@ -32,7 +34,6 @@ public class SurveillanceDroneScript : MonoBehaviour {
 
 	void Start()
 	{
-		//player = GameObject.FindWithTag("Player");
 		float randNum = Random.Range(3,6);
 		hoverHeight = randNum;
 		currentPoint = SpawnManagerScript.Instance.currentSpawnIndex;
@@ -42,19 +43,11 @@ public class SurveillanceDroneScript : MonoBehaviour {
 
 	void Update()
 	{
-		if(!hasBeenDetected && !isSpawned) //previously is if(!hasBeenDeteced) add in !isSpawned to check it is pregenerated or spawned
-		{
-			playerDetection();
-		}
-		else if(isSpawned)
-		{
-			if(ReputationManagerScript.Instance.currentRep == 0)
-			{
-				PoolManagerScript.Instance.Despawn(this.gameObject);
-			}
-		}
+		droneStartType();
 		surveillanceDroneChaseFunctions();
 		surveillanceDroneMainFunctions();
+
+		distanceOfPlayer = Vector3.Distance(transform.position, player.transform.position);
 	}
 
 
@@ -64,22 +57,47 @@ public class SurveillanceDroneScript : MonoBehaviour {
 	}
 
 
+	void droneStartType()
+	{
+		if(hasBeenDetected == false && isSpawned == false) // Previously is if(!hasBeenDeteced) -> Added in !isSpawned to check if it is pregenerated or spawned
+		{
+			playerDetection();
+		}
+
+		if(isSpawned == true)
+		{
+			if(Vector3.Distance(transform.position, player.transform.position) <= alertDistance && WaypointManagerScript.Instance.tracePlayerNodes.Count > 0)
+			{
+				hasBeenDetected = true;
+			}
+
+			if(ReputationManagerScript.Instance.currentRep == 0 && Vector3.Distance(transform.position, player.transform.position) >= safeDistance) // Can possibly be changed to be despawned when out of Player's sight
+			{
+				PoolManagerScript.Instance.Despawn(this.gameObject);
+			}
+		}
+	}
+
+
 	void playerDetection()
 	{
 		if(Vector3.Distance(transform.position, player.transform.position) <= alertDistance && WaypointManagerScript.Instance.tracePlayerNodes.Count > 0)
 		{
 			hasBeenDetected = true;
-			//SpawnFunction
+
+			// SpawnFunction
 			//SpawnManagerScript.Instance.CalculateSpawnPoint();
 			//currentPoint = SpawnManagerScript.Instance.currentSpawnIndex + 1;
 			SpawnManagerScript.Instance.Spawn("Hunting_Droid");
 			//PoolManagerScript.Instance.Spawn("Hunting_Droid",SpawnManagerScript.Instance.spawnPoint,Quaternion.identity);
+
 			if(ReputationManagerScript.Instance.currentRep == 0)
 			{
 				ReputationManagerScript.Instance.currentRep += 1;
 			}
 		}
 	}
+
 
 	void surveillanceDroneChaseFunctions()
 	{
@@ -99,6 +117,7 @@ public class SurveillanceDroneScript : MonoBehaviour {
 		chasingPosition = chasingTrans.position;
 		chasingPosition.y = transform.position.y;
 	}
+
 
 	void surveillanceDroneMainFunctions()
 	{
@@ -122,6 +141,7 @@ public class SurveillanceDroneScript : MonoBehaviour {
 			surveillanceDroneRigidbody.velocity = surveillanceDroneRigidbody.velocity * 0.9f;
 		}
 	}
+
 
 	void droneHoveringFunction()
 	{
