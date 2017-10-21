@@ -170,12 +170,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 0}
   chasingPosition: {x: 0, y: 0, z: 0}
-  movementSpeed: 10
+  movementSpeed: 14
   turnSpeed: 8
-  alertDistance: 100
-  safeDistance: 100
+  alertDistance: 18
+  safeDistance: 50
   hoverForce: 90
   hoverHeight: 3.5
   hasBeenDetected: 0
   isSpawned: 1
   currentPoint: 0
+  distanceOfDroneAndPlayer: 0
