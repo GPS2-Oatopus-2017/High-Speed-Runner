@@ -172,11 +172,11 @@ MonoBehaviour:
   chasingPosition: {x: 0, y: 0, z: 0}
   movementSpeed: 14
   turnSpeed: 8
-  alertDistance: 18
-  safeDistance: 50
+  alertDistance: 25
+  safeDistance: 75
   hoverForce: 90
   hoverHeight: 3.5
   hasBeenDetected: 0
   isSpawned: 1
   currentPoint: 0
-  distanceOfDroneAndPlayer: 0
+  distanceOfPlayer: 0

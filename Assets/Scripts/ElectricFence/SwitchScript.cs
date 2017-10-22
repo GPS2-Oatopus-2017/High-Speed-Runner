@@ -57,7 +57,7 @@ public class SwitchScript : MonoBehaviour {
 			}
 		}
 
-		// For Testing Only -- Mouse Input
+		//* For Testing Only -- Mouse Input
 		if(Input.GetMouseButtonDown(0))
 		{
 			Ray raycast = Camera.main.ScreenPointToRay(Input.mousePosition);
@@ -71,5 +71,6 @@ public class SwitchScript : MonoBehaviour {
 				}
 			}
 		}
+		//* To Be Deleted When Testing Is Completed
 	}
 }

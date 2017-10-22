@@ -20,6 +20,7 @@ public class SurveillanceDroneScript : MonoBehaviour {
 
 	public bool hasBeenDetected;
 	public bool isSpawned; // If TRUE, it is a spawned SD, if FALSE, it is a SD in the map *use for player detection*
+	private bool hasCalculatedPlayerPosition;
 
 	public int currentPoint = 0; 
 
@@ -38,6 +39,7 @@ public class SurveillanceDroneScript : MonoBehaviour {
 		hoverHeight = randNum;
 		currentPoint = SpawnManagerScript.Instance.currentSpawnIndex;
 		hasBeenDetected = false;
+		hasCalculatedPlayerPosition = false;
 	}
 
 
@@ -85,6 +87,14 @@ public class SurveillanceDroneScript : MonoBehaviour {
 		{
 			hasBeenDetected = true;
 
+			if(hasCalculatedPlayerPosition == false) // For SDs That Are Already In the Map 
+			{
+				SpawnManagerScript.Instance.CalculateSpawnPoint();
+				currentPoint = SpawnManagerScript.Instance.currentSpawnIndex + 1;
+
+				hasCalculatedPlayerPosition = true;
+			}
+
 			// SpawnFunction
 			//SpawnManagerScript.Instance.CalculateSpawnPoint();
 			//currentPoint = SpawnManagerScript.Instance.currentSpawnIndex + 1;
@@ -104,7 +114,9 @@ public class SurveillanceDroneScript : MonoBehaviour {
 		if(Vector2.Distance(new Vector2(chasingPosition.x, chasingPosition.z), new Vector2(transform.position.x, transform.position.z)) <= 0.1f)
 		{
 			if(currentPoint < WaypointManagerScript.Instance.tracePlayerNodes.Count)
+			{
 				currentPoint++;
+			}
 		}
 
 		Transform chasingTrans = player.transform;
@@ -129,7 +141,7 @@ public class SurveillanceDroneScript : MonoBehaviour {
 			{
 				hasBeenDetected = false;
 
-				Debug.Log("Surveillance Drone No Longer Following Player (More Than safeDistance)");
+				//Debug.Log("Surveillance Drone No Longer Following Player (More Than safeDistance)");
 			}
 			else
 			{

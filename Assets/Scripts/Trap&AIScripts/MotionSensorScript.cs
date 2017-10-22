@@ -10,9 +10,14 @@ public class MotionSensorScript : MonoBehaviour {
 	public float alertDistance = 12;
 	public float distanceOfPlayer;
 
-	void Start() 
+	void Awake()
 	{
 		player = GameObject.FindWithTag("Player");
+	}
+
+
+	void Start() 
+	{
 		isActive = true;
 	}
 
@@ -44,7 +49,7 @@ public class MotionSensorScript : MonoBehaviour {
 				}
 			}
 
-			// For Testing Only -- Mouse Input
+			//* For Testing Only -- Mouse Input
 			if(Input.GetMouseButtonDown(0))
 			{
 				Ray raycast = Camera.main.ScreenPointToRay(Input.mousePosition);
@@ -58,6 +63,7 @@ public class MotionSensorScript : MonoBehaviour {
 					}
 				}
 			}
+			//* To Be Deleted When Testing Is Completed
 		}
 	}
 

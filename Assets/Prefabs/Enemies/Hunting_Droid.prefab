@@ -172,10 +172,10 @@ MonoBehaviour:
   enemyAttackIndicator: {fileID: 1697361152441738, guid: 9502dd6241a42eb419e0fa70099cb5d0,
     type: 2}
   chasingPosition: {x: 0, y: 0, z: 0}
-  targetOffset: 0
+  targetOffset: 20
   movementSpeed: 12.5
   turnSpeed: 4
-  safeDistance: 50
+  safeDistance: 75
   hoverForce: 90
   hoverHeight: 3.5
   bullet: {fileID: 1603877288706312, guid: 9be5e4fcb2e4e3d4bafb8ab115c2616b, type: 2}
@@ -184,3 +184,4 @@ MonoBehaviour:
   fireIndication: 1.5
   isWithinRange: 0
   currentPoint: 0
+  distanceOfPlayer: 0

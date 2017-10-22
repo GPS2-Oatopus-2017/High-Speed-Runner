@@ -36,13 +36,13 @@ public class HuntingDroneScript : MonoBehaviour {
 
 	void Awake()
 	{
+		player = GameObject.FindWithTag("Player");
 		huntingDroneRigidbody = GetComponent<Rigidbody>();
 	}
 
 
 	void Start()
 	{
-		player = GameObject.FindWithTag("Player");
 		SpawnManagerScript.Instance.CalculateSpawnPoint();
 		currentPoint = SpawnManagerScript.Instance.currentSpawnIndex + 1;
 		target = player.transform.position + player.transform.forward * targetOffset;
@@ -79,7 +79,9 @@ public class HuntingDroneScript : MonoBehaviour {
 		if(Vector2.Distance(new Vector2(chasingPosition.x, chasingPosition.z), new Vector2(transform.position.x, transform.position.z)) <= 0.1f)
 		{
 			if(currentPoint < WaypointManagerScript.Instance.tracePlayerNodes.Count)
+			{
 				currentPoint++;
+			}
 		}
 
 		Transform chasingTrans = player.transform;
@@ -103,7 +105,7 @@ public class HuntingDroneScript : MonoBehaviour {
 			isWithinRange = false;
 			huntingDroneRigidbody.velocity = huntingDroneRigidbody.velocity * 0.9f;
 
-			Debug.Log("Hunting Drone No Longer Chasing Player (More Than safeDistance)");
+			//Debug.Log("Hunting Drone No Longer Chasing Player (More Than safeDistance)");
 		}
 		else
 		{
