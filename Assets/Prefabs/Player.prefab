@@ -71,7 +71,8 @@ GameObject:
   m_Component:
   - component: {fileID: 4078900665523428}
   - component: {fileID: 114275308034884388}
-  - component: {fileID: 65996970811147036}
+  - component: {fileID: 65556928717575720}
+  - component: {fileID: 135045308250135966}
   m_Layer: 11
   m_Name: WallCheck
   m_TagString: Untagged
@@ -94,7 +95,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &1615084222219014
 GameObject:
   m_ObjectHideFlags: 0
@@ -193,7 +194,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1454558705084866}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0, y: 0.75, z: 1.06}
+  m_LocalPosition: {x: 0, y: 0.5, z: 1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4734511995618848}
@@ -260,8 +261,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1615084222219014}
-  m_LocalRotation: {x: -0, y: 0.7081499, z: -0, w: 0.70606214}
-  m_LocalPosition: {x: -225.42, y: 0.69, z: -194.7}
+  m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
+  m_LocalPosition: {x: -222, y: 0.7, z: -195}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4761456717833042}
@@ -269,7 +270,7 @@ Transform:
   - {fileID: 4078900665523428}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 90.16901, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
 --- !u!4 &4761456717833042
 Transform:
   m_ObjectHideFlags: 1
@@ -434,7 +435,7 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 1
---- !u!65 &65996970811147036
+--- !u!65 &65556928717575720
 BoxCollider:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -444,7 +445,7 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1.5, y: 0.3, z: 0.3}
+  m_Size: {x: 0.3, y: 0.3, z: 0.3}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!81 &81191965907833656
 AudioListener:
@@ -618,11 +619,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerRb: {fileID: 54979846990232922}
-  knockBackForce: 50
+  knockbackForce: 50
   isStun: 0
+  isKnockingBack: 0
   stunDuration: 1
   stunCounter: 0
   originalSpeed: 0
+  knockbackCounter: 0
+  knockbackSpeed: 0.03
+  knockbackDistance: 10
+  knockbackTime: 0.5
+  knockbackCountdown: 0
+  endPos: {x: 0, y: 0, z: 0}
+  startPos: {x: 0, y: 0, z: 0}
 --- !u!114 &114374877548353218
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -756,7 +765,7 @@ MonoBehaviour:
     slowDownRate: 20
     airControl: 0
     shellOffset: 0
-  rotAngle: 0
+  rotAngle: 90
   isSliding: 0
   slideDuration: 2
   doOnce: 1
@@ -873,6 +882,18 @@ SphereCollider:
   m_Enabled: 1
   serializedVersion: 2
   m_Radius: 100
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!135 &135045308250135966
+SphereCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1454558705084866}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 0
+  serializedVersion: 2
+  m_Radius: 0.3
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!136 &136128970076697708
 CapsuleCollider:

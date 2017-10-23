@@ -10,15 +10,28 @@ public class CheckForWallScript : MonoBehaviour
 
 	RigidbodyFirstPersonController rbController;
 
-	public float knockBackForce = 100f;
+	public float knockbackForce = 100f;
 	//public float upwardForce = 10f;
 
 	public bool isStun = false;
+
+	public bool isKnockingBack = false;
 
 	public float stunDuration = 1f;
 	public float stunCounter = 0f;
 
 	public float originalSpeed;
+
+	public float knockbackCounter;
+	public float knockbackSpeed = 0.02f;
+
+	public float knockbackDistance;
+
+	public float knockbackTime;
+	public float knockbackCountdown;
+
+	public Vector3 endPos;
+	public Vector3 startPos;
 
 	void Start ()
 	{
@@ -30,6 +43,8 @@ public class CheckForWallScript : MonoBehaviour
 
 	void Update ()
 	{
+		CheckKnockBack ();
+
 		CheckStun ();
 	}
 
@@ -41,20 +56,66 @@ public class CheckForWallScript : MonoBehaviour
 	
 			//playerRb.AddForce (Vector3.back * 1000f * Time.deltaTime, ForceMode.Impulse);
 	
-			//playerRb.AddRelativeForce (Vector3.back * knockBackForce, ForceMode.VelocityChange);
+			//playerRb.AddRelativeForce (Vector3.back * knockbackForce, ForceMode.VelocityChange);
 
-			//playerRb.velocity += Vector3.back * knockBackForce;
+			//playerRb.velocity += Vector3.back * knockbackForce;
 
-			//playerRb.velocity = -(transform.forward * knockBackForce) + (transform.up * upwardForce);
+			//playerRb.velocity = -(transform.forward * knockbackForce) + (transform.up * upwardForce);
 
 			//playerRb.velocity = (transform.up * upwardForce);
 
-			playerRb.velocity = -(transform.forward * knockBackForce);
+			//playerRb.velocity = -(transform.forward * knockbackForce);
 
-			isStun = true;
-	
+			//endPos = rbController.transform.position + new Vector3 (-knockbackDistance, 0f, 0f);
+
+			//startPos = rbController.transform.position;
+
+			//endPos = rbController.transform.position + transform.forward * -knockbackDistance;
+
+			isKnockingBack = true;
+
 		}
 	}
+
+
+	void CheckKnockBack ()
+	{
+		if (isKnockingBack) {
+
+			/*
+			knockbackCounter += knockbackSpeed;
+
+			rbController.transform.position = Vector3.Lerp (startPos, endPos, knockbackCounter);
+
+			if (rbController.transform.position == endPos) {
+
+				isKnockingBack = false;
+
+				knockbackCounter = 0.0f;
+
+				isStun = true;
+
+			}
+			*/
+
+			if (knockbackCountdown <= knockbackTime) {
+
+				knockbackCountdown += Time.deltaTime;
+
+				playerRb.velocity = -(transform.forward * knockbackForce);
+
+			} else {
+
+				knockbackCountdown = 0f;
+
+				isKnockingBack = false;
+
+				isStun = true;
+
+			}
+		}
+	}
+
 
 	void CheckStun ()
 	{
@@ -66,6 +127,8 @@ public class CheckForWallScript : MonoBehaviour
 
 				rbController.movementSettings.ForwardSpeed = 0f;
 
+				rbController.GetComponent<Rigidbody> ().constraints = RigidbodyConstraints.FreezeAll;
+
 			} else {
 
 				stunCounter = 0f;
@@ -73,6 +136,8 @@ public class CheckForWallScript : MonoBehaviour
 				rbController.movementSettings.ForwardSpeed = originalSpeed;
 
 				isStun = false;
+
+				rbController.GetComponent<Rigidbody> ().constraints = ~RigidbodyConstraints.FreezeAll;
 
 			}
 
