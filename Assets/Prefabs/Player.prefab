@@ -194,7 +194,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1454558705084866}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.5, z: 1}
+  m_LocalPosition: {x: 0, y: 1, z: 1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4734511995618848}
@@ -619,15 +619,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerRb: {fileID: 54979846990232922}
-  knockbackForce: 50
   isStun: 0
   isKnockingBack: 0
   stunDuration: 1
   stunCounter: 0
   originalSpeed: 0
   knockbackCounter: 0
-  knockbackSpeed: 0.03
-  knockbackDistance: 10
+  knockbackSpeed: 0.02
+  knockbackDistance: 25
+  knockbackForce: 50
   knockbackTime: 0.5
   knockbackCountdown: 0
   endPos: {x: 0, y: 0, z: 0}
@@ -765,7 +765,7 @@ MonoBehaviour:
     slowDownRate: 20
     airControl: 0
     shellOffset: 0
-  rotAngle: 90
+  rotAngle: 0
   isSliding: 0
   slideDuration: 2
   doOnce: 1

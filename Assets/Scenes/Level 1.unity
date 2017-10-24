@@ -10156,16 +10156,6 @@ Prefab:
       propertyPath: m_RootOrder
       value: 12
       objectReference: {fileID: 0}
-    - target: {fileID: 114497469779155040, guid: 4ef5f8b54447a1e42805771279bfb24e,
-        type: 2}
-      propertyPath: surveillanceDrones.Array.data[0]
-      value: 
-      objectReference: {fileID: 1047626958}
-    - target: {fileID: 114497469779155040, guid: 4ef5f8b54447a1e42805771279bfb24e,
-        type: 2}
-      propertyPath: surveillanceDrones.Array.data[1]
-      value: 
-      objectReference: {fileID: 1670835}
     - target: {fileID: 114374877548353218, guid: 4ef5f8b54447a1e42805771279bfb24e,
         type: 2}
       propertyPath: motionDetectors.Array.data[0]
@@ -10206,6 +10196,16 @@ Prefab:
       propertyPath: switches.Array.data[3]
       value: 
       objectReference: {fileID: 1499537828}
+    - target: {fileID: 114497469779155040, guid: 4ef5f8b54447a1e42805771279bfb24e,
+        type: 2}
+      propertyPath: surveillanceDrones.Array.data[0]
+      value: 
+      objectReference: {fileID: 1047626958}
+    - target: {fileID: 114497469779155040, guid: 4ef5f8b54447a1e42805771279bfb24e,
+        type: 2}
+      propertyPath: surveillanceDrones.Array.data[1]
+      value: 
+      objectReference: {fileID: 1670835}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 4ef5f8b54447a1e42805771279bfb24e, type: 2}
   m_IsPrefabParent: 0

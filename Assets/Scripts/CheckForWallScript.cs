@@ -3,15 +3,13 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityStandardAssets.Characters.FirstPerson;
 
+[System.Serializable]
 public class CheckForWallScript : MonoBehaviour
 {
 
 	public Rigidbody playerRb;
 
 	RigidbodyFirstPersonController rbController;
-
-	public float knockbackForce = 100f;
-	//public float upwardForce = 10f;
 
 	public bool isStun = false;
 
@@ -25,9 +23,12 @@ public class CheckForWallScript : MonoBehaviour
 	public float knockbackCounter;
 	public float knockbackSpeed = 0.02f;
 
-	public float knockbackDistance;
+	public float knockbackDistance = 10f;
 
-	public float knockbackTime;
+	public float knockbackForce = 100f;
+	//public float upwardForce = 10f;
+
+	public float knockbackTime = 0.5f;
 	public float knockbackCountdown;
 
 	public Vector3 endPos;
@@ -73,7 +74,6 @@ public class CheckForWallScript : MonoBehaviour
 			//endPos = rbController.transform.position + transform.forward * -knockbackDistance;
 
 			isKnockingBack = true;
-
 		}
 	}
 
@@ -99,6 +99,8 @@ public class CheckForWallScript : MonoBehaviour
 			*/
 
 			if (knockbackCountdown <= knockbackTime) {
+				
+				rbController.GetComponent<Rigidbody> ().constraints = RigidbodyConstraints.FreezePositionY;
 
 				knockbackCountdown += Time.deltaTime;
 
@@ -121,13 +123,13 @@ public class CheckForWallScript : MonoBehaviour
 	{
 		if (isStun) {
 
+			rbController.GetComponent<Rigidbody> ().constraints = RigidbodyConstraints.FreezeAll;
+
 			if (stunDuration >= stunCounter) {
 
 				stunCounter += Time.deltaTime;
 
 				rbController.movementSettings.ForwardSpeed = 0f;
-
-				rbController.GetComponent<Rigidbody> ().constraints = RigidbodyConstraints.FreezeAll;
 
 			} else {
 
