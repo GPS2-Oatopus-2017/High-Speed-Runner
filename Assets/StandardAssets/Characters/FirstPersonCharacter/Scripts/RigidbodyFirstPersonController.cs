@@ -151,12 +151,16 @@ namespace UnityStandardAssets.Characters.FirstPerson
 			}
 
 			if (!isSliding && (SwipeScript.Instance.GetSwipe () == SwipeDirection.Down || Input.GetKeyDown (KeyCode.S))) {
-				isSliding = true;
-				slideTimer = 0.0f;
+				if (!RotateCamera.FindObjectOfType<RotateCamera> ().isEvent) {
+					isSliding = true;
+					slideTimer = 0.0f;
+				}
 			}
 
 			Sliding ();
 		}
+
+
 
 
 		private void FixedUpdate ()
@@ -166,7 +170,7 @@ namespace UnityStandardAssets.Characters.FirstPerson
 
 			if ((Mathf.Abs (input.x) > float.Epsilon || Mathf.Abs (input.y) > float.Epsilon) && (advancedSettings.airControl || m_IsGrounded)) {
 				// always move along the camera forward as it is the direction that it being aimed at
-				Vector3 desiredMove = cam.transform.forward * input.y;// + cam.transform.right*input.x;
+				Vector3 desiredMove = transform.forward * input.y;// + cam.transform.right*input.x;
 				desiredMove = Vector3.ProjectOnPlane (desiredMove, m_GroundContactNormal).normalized;
 
 				desiredMove.x = desiredMove.x * movementSettings.CurrentTargetSpeed;
