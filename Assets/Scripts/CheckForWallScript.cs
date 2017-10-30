@@ -12,16 +12,15 @@ public class CheckForWallScript : MonoBehaviour
 	RigidbodyFirstPersonController rbController;
 
 	public bool isStun = false;
-
 	public bool isKnockingBack = false;
 
 	public float stunDuration = 1f;
-	public float stunCounter = 0f;
+	public float stunCounter = 0.0f;
 
 	public float originalSpeed;
 
-	public float knockbackCounter;
 	public float knockbackSpeed = 0.02f;
+	public float knockbackCounter = 0.0f;
 
 	public float knockbackDistance = 10f;
 

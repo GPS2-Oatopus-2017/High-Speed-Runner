@@ -13,6 +13,11 @@ public class RotateCamera : MonoBehaviour
 	public float rotationCounter = 0f;
 
 	public bool isRolling = false;
+	public bool isEvent = false;
+	public bool isAbleToRoll = false;
+
+	public float eventBraceTime = 1f;
+	public float eventCounter = 0f;
 
 	void Awake ()
 	{
@@ -27,7 +32,29 @@ public class RotateCamera : MonoBehaviour
 
 	void Update ()
 	{
+		//CheckRollBrace ();
+
 		CheckSlide ();
+	}
+
+	void CheckRollBrace ()
+	{
+		if (!isEvent) {
+
+			eventCounter += Time.deltaTime;
+
+			if (eventCounter >= eventBraceTime) {
+
+				isAbleToRoll = true;
+
+				eventCounter = 0f;
+
+			}
+		} else if (isEvent) {
+
+			isAbleToRoll = false;
+
+		}
 	}
 
 	void CheckSlide ()
@@ -37,7 +64,7 @@ public class RotateCamera : MonoBehaviour
 		float rotation = rotationSpeed * Time.deltaTime;
 
 		if (rbController.isSliding) {
-
+			
 			isRolling = true;
 
 		}
