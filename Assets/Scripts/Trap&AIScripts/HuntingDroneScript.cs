@@ -20,13 +20,12 @@ public class HuntingDroneScript : MonoBehaviour {
 	public float hoverHeight = 3.5f;
 
 	private Rigidbody huntingDroneRigidbody;
-
 	public GameObject bullet;
-	public Transform droneGunHardPoint;
+	public Transform droneGunHardPointUp;
+	public Transform droneGunHardPointDown;
 	public float fireRate = 4.0f;
 	public float fireIndication = 1.5f;
 	private float nextFire;
-	private bool lastGunHardPoint;
 
 	public bool isWithinRange;
 
@@ -127,9 +126,17 @@ public class HuntingDroneScript : MonoBehaviour {
 
 			if(Time.time > nextFire)
 			{
+				int randUpDown = Random.Range(0,2);
 				nextFire = Time.time + fireRate;
-				Instantiate(bullet, droneGunHardPoint.position, droneGunHardPoint.rotation);
 
+				if(randUpDown == 0)
+				{
+					Instantiate(bullet, droneGunHardPointUp.position, droneGunHardPointUp.rotation); // Shoot from TOP HARDPOINT
+				}
+				else
+				{
+					Instantiate(bullet, droneGunHardPointDown.position, droneGunHardPointDown.rotation); // Shoot from BOTTOM HARDPOINT
+				}
 			}
 		}
 	}
