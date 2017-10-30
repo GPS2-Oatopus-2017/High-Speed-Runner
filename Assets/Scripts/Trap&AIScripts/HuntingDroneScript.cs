@@ -120,7 +120,7 @@ public class HuntingDroneScript : MonoBehaviour {
 				fireIndication = Time.time + fireRate;
 
 				target = player.transform.position + (player.transform.forward * targetOffset);
-				GameObject indicator = Instantiate(enemyAttackIndicator, new Vector3(target.x, 0.1f, target.z), Quaternion.LookRotation(enemyAttackIndicator.transform.up));
+				GameObject indicator = Instantiate(enemyAttackIndicator, new Vector3(target.x, 0.1f, target.z), enemyAttackIndicator.transform.rotation);
 				Destroy(indicator, 2f);
 			}
 
