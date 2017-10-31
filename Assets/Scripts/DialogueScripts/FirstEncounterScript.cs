@@ -6,6 +6,10 @@ using UnityEngine.UI;
 public class FirstEncounterScript : MonoBehaviour 
 {
     [Header("Lists of Objects in-Scene")]
+    public GameObject dirIndicator;
+    public List<GameObject> turn;
+    public List<GameObject> lowObstacle;
+    public List<GameObject> highObstacle;
     public List<GameObject> surveillanceDrones;
     public List<GameObject> motionDetectors;
     public List<GameObject> switches;
@@ -21,6 +25,10 @@ public class FirstEncounterScript : MonoBehaviour
     public static FirstEncounterScript Instance;
 
     public bool[] seenObj; 
+
+    float timer;
+    float setTimer = 3f;
+    bool activateTimer;
    
     void Awake()
     {
@@ -30,6 +38,10 @@ public class FirstEncounterScript : MonoBehaviour
 	// Use this for initialization
 	void Start () 
     {
+        dirIndicator.SetActive(false);
+        timer = setTimer;
+        activateTimer = false;
+
         for(int i = 0; i < seenObj.Length; i++) // Seen Object is all set to false because player have not seen these objects before.
         {
             seenObj[i] = false;
@@ -38,11 +50,57 @@ public class FirstEncounterScript : MonoBehaviour
 
     void Update()
     {
+        if(activateTimer == true)
+        {
+            timer -= Time.deltaTime;
+        }
+
+        if(timer <= 0)
+        {
+            dirIndicator.SetActive(false);
+        }
+
         ObjectEncounter();
     }
 
     public void ObjectEncounter()
     {
+        for(int i = 0; i < turn.Count; i++)
+        {
+            if(Vector3.Distance(transform.position, turn[i].transform.position)  <= distanceFromObject[5] && seenObj[5] == false)
+            {
+                activateTimer = true;
+                seenObj[5] = true; // Player is currently withing range of an obj.
+                dirIndicator.SetActive(true);
+            }
+        }
+
+        for(int i = 0; i < lowObstacle.Count; i++)
+        {
+            // Calculates distance of player and obj and decides if it is in range. 
+            if (Vector3.Distance(transform.position, lowObstacle[i].transform.position)  <= distanceFromObject[6] && seenObj[6] == false)
+            {
+                seenObj[6] = true; // Player is currently withing range of an obj.
+
+                // Highlight that particular object
+                defaultMat= lowObstacle[i].transform.GetComponentInChildren<MeshRenderer>().material; // Set objects' default material to it's current material.
+                lowObstacle[i].transform.GetComponentInChildren<MeshRenderer>().material = highlightMat; // Set objects' material to "highlightMat".
+            }
+        }
+
+        for(int i = 0; i < highObstacle.Count; i++)
+        {
+            // Calculates distance of player and obj and decides if it is in range. 
+            if (Vector3.Distance(transform.position, highObstacle[i].transform.position)  <= distanceFromObject[7] && seenObj[7] == false)
+            {
+                seenObj[7] = true; // Player is currently withing range of an obj.
+
+                // Highlight that particular object
+                defaultMat= highObstacle[i].transform.GetComponentInChildren<MeshRenderer>().material; // Set objects' default material to it's current material.
+                highObstacle[i].transform.GetComponentInChildren<MeshRenderer>().material = highlightMat; // Set objects' material to "highlightMat".
+            }
+        }
+
         for(int i = 0; i < surveillanceDrones.Count; i++)
 		{
             // Calculates distance of player and obj and decides if it is in range. 

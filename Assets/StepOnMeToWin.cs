@@ -8,7 +8,12 @@ public class StepOnMeToWin : MonoBehaviour
 	{
 		if(other.gameObject.tag == "Player")
 		{
-			GetComponent<ChangeSceneScript>().ChangeScenes(0);
+            DialogueManager.Instance.WinSceneDialogue();
+
+            if(DialogueManager.Instance.winIndex >= DialogueManager.Instance.winDialogue.Count)
+            {
+                GetComponent<ChangeSceneScript>().ChangeScenes(0);
+            }
 		}
 	}
 }
