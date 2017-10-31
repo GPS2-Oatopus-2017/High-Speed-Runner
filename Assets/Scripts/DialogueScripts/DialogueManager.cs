@@ -8,12 +8,16 @@ public class DialogueManager : MonoBehaviour
     [Header("Variables")]
     public int bsIndex = 0; // BeginningScene Index count.
     public int feIndex = 0; // First Encounter Index count.
+    public int loseIndex = 0; // Lose Scene transition dialogue count.
+    public int winIndex = 0; // Win Scene transition dialogue count.
 
     [Header("Text Settings")]
     public Text dialogue;   
     public Text countDown;
     public List<string> beginningScene; // List of dialogues used at the beginning of the game.
     public List<string> firstEncounter; // List of dialogues used for every FIRST encounter with an object.
+    public List<string> loseDialogue;
+    public List<string> winDialogue;
 
     [Header("Game Objects")]
     public GameObject dialogueBox;
@@ -117,14 +121,26 @@ public class DialogueManager : MonoBehaviour
 
     public void WinSceneDialogue() // Call this function at win scene, may not be nessecary if we transition to win scene.
     {                              // DialogueManager.Instance.WinSceneDialogue();
+        Time.timeScale = 0;
         dialogueBox.SetActive(true);
-        dialogue.text = "Proceed to the delivery mission";
+        dialogue.text = winDialogue[winIndex];
+
+        if(((Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Began) || Input.GetMouseButtonDown(0)) && winIndex <= winDialogue.Count )
+        {
+            winIndex++;
+        }
     }
 
     public void LoseSceneDialogue() // Call this function when player loses the game either by dying or by failing to reach end point in time, may not be nessecary if we transition to lose scene.
     {                               // DialogueManager.Instance.LoseSceneDialogue();
-        dialogueBox.SetActive(true); 
-        dialogue.text = "Another failure";
+        Time.timeScale = 0;
+        dialogueBox.SetActive(true);
+        dialogue.text = loseDialogue[loseIndex];
+
+        if(((Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Began) || Input.GetMouseButtonDown(0)) && loseIndex <= loseDialogue.Count )
+        {
+            loseIndex++;
+        }
     }
 
     public void FirstEncounterDialogue() // Displays a brief run-down of the objects during player's first encounter with it.
