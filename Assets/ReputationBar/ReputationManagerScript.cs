@@ -17,10 +17,10 @@ public class ReputationManagerScript : MonoBehaviour {
 		else if(mInstance != this) Destroy(this.gameObject);
 	}
 
-	public int maxRep;
+	public ReputationData reputation_Data;
+
 	public int currentRep;
 	public int lastRep;
-	public int value;
 
 	public int deadSD;
 	public int deadHD;
@@ -29,11 +29,9 @@ public class ReputationManagerScript : MonoBehaviour {
 	public int deadHDMax;
 
 	public float resetCounter;
-	public float resetTime;
 
 	public Text enemyAmountText;
 	public Text playerStatus;
-	string displayECount;
 	string status;
 	public Sprite lightUp;
 	public List<Image> starList = new List<Image>();
@@ -41,20 +39,18 @@ public class ReputationManagerScript : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		UpdateCount();
-		maxRep = starList.Count;
+		//maxRep = starList.Count;
 		//currentRep = maxRep;
 	}
 	
 	// Update is called once per frame
 	void Update () {
-		if(resetCounter >= resetTime)
+		if(resetCounter >= reputation_Data.timeToDecrease)
 		{
 			DecreaseReputation();
 			resetCounter = 0;
 		}
 		UpdateBar();
-		UpdateCount();
 		UpdateStatus();
 		UpdateDeadDrones();
 	}
@@ -62,17 +58,17 @@ public class ReputationManagerScript : MonoBehaviour {
 
 	public void IncreaseReputation()
 	{
-		currentRep += value;
+		currentRep += reputation_Data.increaseValue;
 		resetCounter = 0;
-		if(currentRep > maxRep)
+		if(currentRep > reputation_Data.maxReputation)
 		{
-			currentRep = maxRep;
+			currentRep = reputation_Data.maxReputation;
 		}
 	}
 
 	void DecreaseReputation()
 	{
-		currentRep -= value;
+		currentRep -= reputation_Data.decreaseValue;
 		if(currentRep <= 0)
 		{
 			currentRep = 0;
@@ -94,15 +90,15 @@ public class ReputationManagerScript : MonoBehaviour {
 		}
 	}
 
-	void UpdateCount() //need to change to sd and hd
-	{
+//	void UpdateCount() //need to change to sd and hd
+//	{
 		//displayECount = "SD Count: " + SpawnManagerScript.Instance.sdCount + "\nHD Count: "+ SpawnManagerScript.Instance.hdCount;
-		enemyAmountText.text = displayECount;
-	}
+		//enemyAmountText.text = displayECount;
+//	}
 
 	void UpdateStatus()
 	{
-		for(int i=0; i<=maxRep; i++)
+		for(int i=0; i<=reputation_Data.maxReputation; i++)
 		{
 			if(currentRep == i)
 			{
@@ -120,20 +116,20 @@ public class ReputationManagerScript : MonoBehaviour {
 		switch(currentRep)
 		{
 			case 1:
-				deadSDMax = 1;
-				deadHDMax = 1;
+				deadSDMax = reputation_Data.deadSDCountList[0];
+				deadHDMax = reputation_Data.deadHDCountList[0];
 				break;
 			case 2:
-				deadSDMax = 2;
-				deadHDMax = 2;
+				deadSDMax = reputation_Data.deadSDCountList[1];
+				deadHDMax = reputation_Data.deadHDCountList[1];
 				break;
 			case 3:
-				deadSDMax = 2;
-				deadHDMax = 2;
+				deadSDMax = reputation_Data.deadSDCountList[2];
+				deadHDMax = reputation_Data.deadHDCountList[2];
 				break;
 			case 4:
-				deadSDMax = 3;
-				deadHDMax = 2;
+				deadSDMax = reputation_Data.deadSDCountList[3];
+				deadHDMax = reputation_Data.deadHDCountList[3];
 				break;
 			default:
 				deadSDMax = -1;

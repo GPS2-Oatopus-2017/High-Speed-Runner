@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class HuntingDroneScript : MonoBehaviour {
 
+	public EnemyData surveillance_Drone;
 	public GameObject player;
 	public GameObject enemyAttackIndicator;
 	public Vector3 chasingPosition;
@@ -11,10 +12,10 @@ public class HuntingDroneScript : MonoBehaviour {
 	private Vector3 target;
 	public float targetOffset;
 
-	public float movementSpeed = 12.5f;
-	public float turnSpeed = 4.0f;
-
-	public float safeDistance = 50.0f;
+//	public float movementSpeed = 12.5f;
+//	public float turnSpeed = 4.0f;
+//
+//	public float safeDistance = 50.0f;
 
 	public float hoverForce = 90.0f;
 	public float hoverHeight = 3.5f;
@@ -23,7 +24,7 @@ public class HuntingDroneScript : MonoBehaviour {
 	public GameObject bullet;
 	public Transform droneGunHardPointUp;
 	public Transform droneGunHardPointDown;
-	public float fireRate = 4.0f;
+	//public float fireRate = 4.0f;
 	public float fireIndication = 1.5f;
 	private float nextFire;
 
@@ -49,7 +50,8 @@ public class HuntingDroneScript : MonoBehaviour {
 		float randNum = Random.Range(3,6);
 		hoverHeight = randNum;
 
-		nextFire = fireRate;
+		//nextFire = fireRate;
+		nextFire = surveillance_Drone.attackSpeed;
 	}
 
 
@@ -61,6 +63,7 @@ public class HuntingDroneScript : MonoBehaviour {
 		if(ReputationManagerScript.Instance.currentRep == 0)
 		{
 			PoolManagerScript.Instance.Despawn(this.gameObject);
+			TimelineScript.Instance.DestroyEnemyIcon(this.gameObject.name, 1);
 		}
 
 		distanceOfPlayer = Vector3.Distance(transform.position, player.transform.position);
@@ -99,7 +102,8 @@ public class HuntingDroneScript : MonoBehaviour {
 	{
 		transform.LookAt(chasingPosition);
 
-		if(Vector3.Distance(transform.position, player.transform.position) >= safeDistance)
+		//if(Vector3.Distance(transform.position, player.transform.position) >= safeDistance)
+		if(Vector3.Distance(transform.position, player.transform.position) >= surveillance_Drone.safeDistance)
 		{
 			isWithinRange = false;
 			huntingDroneRigidbody.velocity = huntingDroneRigidbody.velocity * 0.9f;
@@ -110,15 +114,16 @@ public class HuntingDroneScript : MonoBehaviour {
 		{
 			isWithinRange = true;
 
-			transform.position += transform.forward * movementSpeed * Time.deltaTime;
+			//transform.position += transform.forward * movementSpeed * Time.deltaTime;
+			transform.position += transform.forward * surveillance_Drone.movementSpeed * Time.deltaTime;
 		}
 			
 		if(isWithinRange == true)
 		{
 			if(Time.time > fireIndication)
 			{
-				fireIndication = Time.time + fireRate;
-
+				//fireIndication = Time.time + fireRate;
+				fireIndication = Time.time + surveillance_Drone.attackSpeed;
 				target = player.transform.position + (player.transform.forward * targetOffset);
 				GameObject indicator = Instantiate(enemyAttackIndicator, new Vector3(target.x, 0.1f, target.z), enemyAttackIndicator.transform.rotation);
 				Destroy(indicator, 2f);
@@ -127,8 +132,8 @@ public class HuntingDroneScript : MonoBehaviour {
 			if(Time.time > nextFire)
 			{
 				int randUpDown = Random.Range(0,2);
-				nextFire = Time.time + fireRate;
-
+				//nextFire = Time.time + fireRate;
+				nextFire = Time.time + surveillance_Drone.attackSpeed;
 				if(randUpDown == 0)
 				{
 					Instantiate(bullet, droneGunHardPointUp.position, droneGunHardPointUp.rotation); // Shoot from TOP HARDPOINT

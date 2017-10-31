@@ -334,6 +334,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4cce249cf9761194e9e44ffe8e1c39a1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  surveillance_Drone: {fileID: 11400000, guid: 0e45a285535afaf42a42967ec4702130, type: 2}
   player: {fileID: 0}
   enemyAttackIndicator: {fileID: 1697361152441738, guid: 9502dd6241a42eb419e0fa70099cb5d0,
     type: 2}

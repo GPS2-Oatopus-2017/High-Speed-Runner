@@ -755,6 +755,12 @@ Prefab:
       propertyPath: m_Name
       value: Box001_Trap
       objectReference: {fileID: 0}
+    - target: {fileID: 114145465019013712, guid: e80c18a5ced881942bdf880e707d07ec,
+        type: 2}
+      propertyPath: electricFence_Data
+      value: 
+      objectReference: {fileID: 11400000, guid: 4576b3d7a05a9b442879708575a5cd20,
+        type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: e80c18a5ced881942bdf880e707d07ec, type: 2}
   m_IsPrefabParent: 0
@@ -10576,22 +10582,6 @@ GameObject:
   m_PrefabParentObject: {fileID: 1985219180281790, guid: e80c18a5ced881942bdf880e707d07ec,
     type: 2}
   m_PrefabInternal: {fileID: 297927216}
---- !u!114 &278247605
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 278247600}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 84c9bc139a269234d9358e1e38a490cd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  slowDuration: 3
-  slowTimer: 0
-  speedReducedValue: 2
-  player: {fileID: 1640676984}
-  playerIsSlowed: 0
 --- !u!1 &294395945
 GameObject:
   m_ObjectHideFlags: 0
@@ -10721,6 +10711,12 @@ Prefab:
       propertyPath: m_Name
       value: Box001_Trap
       objectReference: {fileID: 0}
+    - target: {fileID: 114145465019013712, guid: e80c18a5ced881942bdf880e707d07ec,
+        type: 2}
+      propertyPath: electricFence_Data
+      value: 
+      objectReference: {fileID: 11400000, guid: 4576b3d7a05a9b442879708575a5cd20,
+        type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: e80c18a5ced881942bdf880e707d07ec, type: 2}
   m_IsPrefabParent: 0
@@ -11365,14 +11361,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6d6e815246c83c94aa88472936d866d0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  spawn_Data: {fileID: 11400000, guid: 424c20cd04c5c1443add0556683a58f9, type: 2}
   player: {fileID: 1640676996}
   reputation: 0
   countDownTimer: 0
-  spawnTime: 10
   sdCount: 0
   hdCount: 0
   isHorizontal: 0
-  spawnDistance: 4
   target: {fileID: 0}
   prevDistance: 0
   distance: 0
@@ -13003,6 +12998,12 @@ Prefab:
       propertyPath: resetTime
       value: 20
       objectReference: {fileID: 0}
+    - target: {fileID: 114204334325596234, guid: 97f2ed329ededc14ab3590315d71cf8e,
+        type: 2}
+      propertyPath: reputation_Data
+      value: 
+      objectReference: {fileID: 11400000, guid: 9255ca54dc114d24f9f8321049ca1e79,
+        type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 97f2ed329ededc14ab3590315d71cf8e, type: 2}
   m_IsPrefabParent: 0
