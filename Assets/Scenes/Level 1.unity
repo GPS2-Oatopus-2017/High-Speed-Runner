@@ -10600,7 +10600,7 @@ MonoBehaviour:
   slowDuration: 3
   slowTimer: 0
   speedReducedValue: 2
-  player: {fileID: 1640676984}
+  player: {fileID: 0}
   playerIsSlowed: 0
 --- !u!1 &294395945
 GameObject:
@@ -11379,7 +11379,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6d6e815246c83c94aa88472936d866d0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 1640676996}
+  player: {fileID: 0}
   reputation: 0
   countDownTimer: 0
   spawnTime: 10
@@ -29033,11 +29033,6 @@ BoxCollider:
 --- !u!1 &1640676984 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 1615084222219014, guid: 4ef5f8b54447a1e42805771279bfb24e,
-    type: 2}
-  m_PrefabInternal: {fileID: 928226325}
---- !u!4 &1640676996 stripped
-Transform:
-  m_PrefabParentObject: {fileID: 4734511995618848, guid: 4ef5f8b54447a1e42805771279bfb24e,
     type: 2}
   m_PrefabInternal: {fileID: 928226325}
 --- !u!114 &1640676998
