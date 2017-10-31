@@ -11,16 +11,17 @@ public class SpawnManagerScript : MonoBehaviour {
 		get { return mInstance; }
 	}
 
+	public SpawnData spawn_Data;
+
+
 	public Transform player;
 	public int reputation;
 	public float countDownTimer;
-	public float spawnTime;
 	public int sdCount;
 	public int hdCount;
 
 	//calculation
 	public bool isHorizontal;
-	public float spawnDistance = 4.0f;
 	public Transform target; //change to waypoints
 	public float prevDistance;
 	public float distance;
@@ -33,6 +34,11 @@ public class SpawnManagerScript : MonoBehaviour {
 	{
 		if(mInstance == null) mInstance = this;
 		else if(mInstance != this) Destroy(this.gameObject);
+	}
+
+	void Start()
+	{
+		
 	}
 
 	// Update is called once per frame
@@ -48,72 +54,72 @@ public class SpawnManagerScript : MonoBehaviour {
 		//currentSpawnIndex 
 		reputation = ReputationManagerScript.Instance.lastRep;
 
-		if(countDownTimer >= spawnTime)
+		if(countDownTimer >= spawn_Data.spawnTime)
 		{
 			countDownTimer = 0;
 			//CalculateSpawnPoint();
 			if(reputation == 1)
 			{
-				sdCount+=1;
-				hdCount+=1;
+				sdCount+=spawn_Data.spawnSDCount[0];
+				hdCount+=spawn_Data.spawnHDCount[0];
 				Spawn("Hunting_Droid");
 				Spawn("Surveillance_Drone");
 				//PoolManagerScript.Instance.Spawn("Surveillance_Drone",spawnPoint,Quaternion.identity);
 				//PoolManagerScript.Instance.Spawn("Hunting_Droid",spawnPoint,Quaternion.identity);
-				TimelineScript.Instance.CreateEnemyIcon("Surveillance_Drone", 1);
-				TimelineScript.Instance.CreateEnemyIcon("Hunting_Droid", 1);
+				TimelineScript.Instance.CreateEnemyIcon("Surveillance_Drone", spawn_Data.spawnSDCount[0]);
+				TimelineScript.Instance.CreateEnemyIcon("Hunting_Droid", spawn_Data.spawnHDCount[0]);
 			}
 			else if(reputation == 2)
 			{
-				hdCount+=2;
-				SpawnMultiple("Hunting_Droid",2);
+				hdCount+=spawn_Data.spawnHDCount[1];
+				SpawnMultiple("Hunting_Droid",spawn_Data.spawnHDCount[1]);
 				//PoolManagerScript.Instance.SpawnMuliple("Hunting_Droid",spawnPoint,Quaternion.identity,2,offsetY,offset,isHorizontal);
-				TimelineScript.Instance.CreateEnemyIcon("Hunting_Droid", 2);
+				TimelineScript.Instance.CreateEnemyIcon("Hunting_Droid", spawn_Data.spawnHDCount[1]);
 			}
 			else if(reputation == 3)
 			{
-				sdCount+=1;
-				hdCount+=2;
+				sdCount+=spawn_Data.spawnSDCount[2];
+				hdCount+=spawn_Data.spawnHDCount[2];
 				Spawn("Surveillance_Drone");
 				//PoolManagerScript.Instance.Spawn("Surveillance_Drone",spawnPoint,Quaternion.identity);
 				ApplyOffsetVertically();
-				SpawnMultiple("Hunting_Droid",2);
+				SpawnMultiple("Hunting_Droid",spawn_Data.spawnHDCount[2]);
 				//PoolManagerScript.Instance.SpawnMuliple("Hunting_Droid",spawnPoint,Quaternion.identity,2,offsetY,offset,isHorizontal);
-				TimelineScript.Instance.CreateEnemyIcon("Surveillance_Drone", 1);
-				TimelineScript.Instance.CreateEnemyIcon("Hunting_Droid", 2);
+				TimelineScript.Instance.CreateEnemyIcon("Surveillance_Drone", spawn_Data.spawnSDCount[2]);
+				TimelineScript.Instance.CreateEnemyIcon("Hunting_Droid", spawn_Data.spawnHDCount[2]);
 			}
 			else if(reputation == 4)
 			{
-				sdCount+=1;
-				hdCount+=3;
+				sdCount+=spawn_Data.spawnSDCount[3];
+				hdCount+=spawn_Data.spawnHDCount[3];
 				Spawn("Surveillance_Drone");
 				//PoolManagerScript.Instance.Spawn("Surveillance_Drone",spawnPoint,Quaternion.identity);
 				ApplyOffsetVertically();
-				SpawnMultiple("Hunting_Droid",3);
+				SpawnMultiple("Hunting_Droid",spawn_Data.spawnHDCount[3]);
 				/*for(int i=0; i<3; i++)
 				{
 					PoolManagerScript.Instance.Spawn("Hunting_Droid",spawnPoint,Quaternion.identity);
 				}*/
-				TimelineScript.Instance.CreateEnemyIcon("Surveillance_Drone", 1);
-				TimelineScript.Instance.CreateEnemyIcon("Hunting_Droid", 3);
+				TimelineScript.Instance.CreateEnemyIcon("Surveillance_Drone", spawn_Data.spawnSDCount[3]);
+				TimelineScript.Instance.CreateEnemyIcon("Hunting_Droid", spawn_Data.spawnHDCount[3]);
 			}
 			else if(reputation == 5)
 			{
-				sdCount+=3;
-				hdCount+=3;
-				SpawnMultiple("Surveillance_Drone",3);
+				sdCount+=spawn_Data.spawnSDCount[4];
+				hdCount+=spawn_Data.spawnHDCount[4];
+				SpawnMultiple("Surveillance_Drone",spawn_Data.spawnSDCount[4]);
 //				for(int i=0; i<3; i++)
 //				{
 //					PoolManagerScript.Instance.Spawn("Surveillance_Drone",spawnPoint,Quaternion.identity);
 //				}
 				ApplyOffsetVertically();
-				SpawnMultiple("Hunting_Droid",3);
+				SpawnMultiple("Hunting_Droid",spawn_Data.spawnHDCount[4]);
 //				for(int i=0; i<3; i++)
 //				{
 //					PoolManagerScript.Instance.Spawn("Hunting_Droid",spawnPoint,Quaternion.identity);
 //				}
-				TimelineScript.Instance.CreateEnemyIcon("Surveillance_Drone", 3);
-				TimelineScript.Instance.CreateEnemyIcon("Hunting_Droid", 3);
+				TimelineScript.Instance.CreateEnemyIcon("Surveillance_Drone", spawn_Data.spawnSDCount[4]);
+				TimelineScript.Instance.CreateEnemyIcon("Hunting_Droid", spawn_Data.spawnHDCount[4]);
 			}
 		}
 	}
@@ -146,33 +152,33 @@ public class SpawnManagerScript : MonoBehaviour {
 		spawnPoint = Vector3.zero;
 		target = WaypointManagerScript.Instance.tracePlayerNodes[WaypointManagerScript.Instance.tracePlayerNodes.Count-1].transform;
 		distance = Vector3.Distance(player.position,target.transform.position);
-		if(distance == spawnDistance)
+		if(distance == spawn_Data.spawnDistance)
 		{
 			spawnPoint = target.transform.position;
 			currentSpawnIndex = WaypointManagerScript.Instance.tracePlayerNodes.Count-1;
 		}
-		else if (distance > spawnDistance)
+		else if (distance > spawn_Data.spawnDistance)
 		{
-			spawnPoint = Vector3.Lerp(player.position,target.transform.position,CalculateRange(player.position,target.transform.position,spawnDistance));
+			spawnPoint = Vector3.Lerp(player.position,target.transform.position,CalculateRange(player.position,target.transform.position,spawn_Data.spawnDistance));
 			currentSpawnIndex = WaypointManagerScript.Instance.tracePlayerNodes.Count-1;
 		}
-		else if(distance < spawnDistance)
+		else if(distance < spawn_Data.spawnDistance)
 		{
 			for(int i = WaypointManagerScript.Instance.tracePlayerNodes.Count-2; i >= 0; i--)
 			{
 				prevDistance = distance;
 				distance += Vector3.Distance(target.transform.position,WaypointManagerScript.Instance.tracePlayerNodes[i].transform.position);
-				if(distance >= spawnDistance)
+				if(distance >= spawn_Data.spawnDistance)
 				{
-					if(distance == spawnDistance)
+					if(distance == spawn_Data.spawnDistance)
 					{
 						spawnPoint = WaypointManagerScript.Instance.tracePlayerNodes[i].transform.position;
 						currentSpawnIndex = i;
 						break;
 					}
-					else if(distance > spawnDistance)
+					else if(distance > spawn_Data.spawnDistance)
 					{
-						distance = spawnDistance - prevDistance;
+						distance = spawn_Data.spawnDistance - prevDistance;
 						spawnPoint = Vector3.Lerp(target.transform.position,WaypointManagerScript.Instance.tracePlayerNodes[i].transform.position,CalculateRange(target.transform.position,WaypointManagerScript.Instance.tracePlayerNodes[i].transform.position,distance));
 						currentSpawnIndex = i;
 						break;

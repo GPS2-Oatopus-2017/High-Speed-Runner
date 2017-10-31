@@ -5,7 +5,8 @@ using UnityEngine;
 public class ElectricWallScript : MonoBehaviour 
 {
     [Header("Electric Wall Settings")]
-    public float slowDuration;
+	public TrapData electricFence_Data;
+  //  public float slowDuration;
     public float slowTimer;
     public float speedReducedValue;
     public GameObject player;
@@ -14,7 +15,8 @@ public class ElectricWallScript : MonoBehaviour
 	void Start() 
 	{
 		player = GameObject.FindWithTag("Player");
-        slowTimer = slowDuration; // Set Countdown timer to the duration player is slowed
+      //  slowTimer = slowDuration; // Set Countdown timer to the duration player is slowed
+		slowTimer = electricFence_Data.slowDuration;
         playerIsSlowed = false; // Boolean indicating if player is slowed
 	}
 
@@ -28,7 +30,8 @@ public class ElectricWallScript : MonoBehaviour
 
             if(slowTimer <= 0) // After timer reaches 0, slow debuff will be lifted
             {
-                slowTimer = slowDuration;
+               // slowTimer = slowDuration;
+				slowTimer = electricFence_Data.slowDuration;
                 playerIsSlowed = false;
                 player.GetComponent<PlayerCoreController>().ToggleRunning(true);
                 Debug.Log("Speed slow debuff is lifted!");

@@ -4,10 +4,12 @@ using UnityEngine;
 
 public class MotionSensorScript : MonoBehaviour {
 
+	public TrapData motionSensor_Data;
+
 	public GameObject player;
 	public bool isActive;
 	public Material mat;
-	public float alertDistance = 12;
+	//public float alertDistance = 12;
 	public float distanceOfPlayer;
 
 	void Awake()
@@ -70,7 +72,7 @@ public class MotionSensorScript : MonoBehaviour {
 
 	void motionDetectorMainFunctions()
 	{
-		if(Vector3.Distance(transform.position, player.transform.position) <= alertDistance && isActive == true)
+		if(Vector3.Distance(transform.position, player.transform.position) <= motionSensor_Data.alertDistance && isActive == true)
 		{
 			isActive = false;
 
@@ -80,7 +82,7 @@ public class MotionSensorScript : MonoBehaviour {
 			}
 
 			SpawnManagerScript.Instance.CalculateSpawnPoint();
-			SpawnManagerScript.Instance.SpawnMultiple("Hunting_Droid",2);
+			SpawnManagerScript.Instance.SpawnMultiple("Hunting_Droid",motionSensor_Data.spawnHDCount);
 			//PoolManagerScript.Instance.SpawnMuliple("Hunting_Droid",SpawnManagerScript.Instance.spawnPoint,Quaternion.identity,2,0,3.5f,SpawnManagerScript.Instance.isHorizontal);
 		}
 		else if(isActive == false)

@@ -168,12 +168,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3d0f77f3483b5fd4ab7c1b4cd62ef889, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  surveillance_Droid: {fileID: 11400000, guid: 414870ec3389ca7498511f792536c3d5, type: 2}
   player: {fileID: 0}
   chasingPosition: {x: 0, y: 0, z: 0}
-  movementSpeed: 14
   turnSpeed: 8
-  alertDistance: 25
-  safeDistance: 75
   hoverForce: 90
   hoverHeight: 3.5
   hasBeenDetected: 0

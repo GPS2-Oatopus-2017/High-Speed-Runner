@@ -222,7 +222,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 84c9bc139a269234d9358e1e38a490cd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  slowDuration: 3
+  electricFence_Data: {fileID: 11400000, guid: 4576b3d7a05a9b442879708575a5cd20, type: 2}
   slowTimer: 0
   speedReducedValue: 2
   player: {fileID: 0}

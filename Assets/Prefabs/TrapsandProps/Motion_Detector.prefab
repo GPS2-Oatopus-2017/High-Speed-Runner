@@ -110,8 +110,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4469952486045b342baa46ff130f06f6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  motionSensor_Data: {fileID: 11400000, guid: 3881bc8e847e9e7429cd2fa6999d895c, type: 2}
   player: {fileID: 0}
   isActive: 0
   mat: {fileID: 2100000, guid: 53ea2be2502e8114baf9d0177e2323a1, type: 2}
-  alertDistance: 12
   distanceOfPlayer: 0
