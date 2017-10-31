@@ -7,7 +7,8 @@ public class InteractScript : MonoBehaviour
 {
 
 	RaycastHit hit;
-	Ray ray;
+	Ray mouseRay;
+
 	UnityStandardAssets.Characters.FirstPerson.RigidbodyFirstPersonController controller;
 	PlayerCoreController player;
 
@@ -22,6 +23,11 @@ public class InteractScript : MonoBehaviour
 	public static InteractScript _instance;
 
 	public static InteractScript Instance { get { return _instance; } }
+
+	public bool isUsingObject = false;
+
+	public float activateObjectTimer = 2f;
+	public float activateCounter = 0f;
 
 	void Awake ()
 	{
@@ -44,7 +50,15 @@ public class InteractScript : MonoBehaviour
 
 	void Update ()
 	{
-		CheckInteract ();
+		
+	}
+
+	void FixedUpdate ()
+	{
+		//CheckInteract ();
+		CheckDoor ();
+		CheckSwitch ();
+		CheckPushable ();
 	}
 
 	//When left mouse button is pressed, shoot out a ray cast from screen to pointer.//
@@ -53,10 +67,10 @@ public class InteractScript : MonoBehaviour
 	void CheckInteract ()
 	{
 		if (Input.GetMouseButtonDown (0) || Input.touchCount > 0) {
-			
-			ray = Camera.main.ScreenPointToRay (Input.mousePosition);
 
-			if (Physics.Raycast (ray, out hit, rayDistance)) {
+			mouseRay = Camera.main.ScreenPointToRay (Input.mousePosition);
+
+			if (Physics.Raycast (mouseRay, out hit, rayDistance)) {
 				
 				//Debug.DrawRay (transform.position, hit.transform.position, Color.red);
 				//Debug.Log (hit.transform.name);
@@ -84,8 +98,21 @@ public class InteractScript : MonoBehaviour
 						doorThing.gameObject.SetActive (true);
 					}
 				}
+
+			}
+		}
+	}
+
+	void CheckSwitch ()
+	{
+		if (Input.GetMouseButtonDown (0) || Input.touchCount > 0) {
+
+			mouseRay = Camera.main.ScreenPointToRay (Input.mousePosition);
+
+			if (Physics.Raycast (mouseRay, out hit, rayDistance)) {
+				
 				if (hit.transform.tag == "TrapSwitch") {
-					
+
 					Transform trapThing = hit.transform.GetChild (1);
 
 					Renderer trapRender0 = hit.transform.GetChild (0).gameObject.GetComponent<Renderer> ();
@@ -93,35 +120,40 @@ public class InteractScript : MonoBehaviour
 					Transform trapObject1 = hit.transform.GetChild (1).gameObject.GetComponent<Transform> ();
 
 					if (trapRender0.material.color == Color.red || trapRender1.material.color == Color.red) {
-						
+
 						trapRender0.material.color = Color.green;
 						trapRender1.material.color = Color.green;
 						trapObject1.transform.eulerAngles = new Vector3 (120.0f, trapObject1.transform.rotation.y, trapObject1.transform.rotation.z);
+						//trapObject1.transform.Rotate (new Vector3 (1f, 0f, 0f), 30f);
 						//trapThing.gameObject.SetActive (false);
 
 					} else {
-						
+
 						trapRender0.material.color = Color.red;
 						trapRender1.material.color = Color.red;
-						trapObject1.transform.eulerAngles = new Vector3 (-140.0f, trapObject1.transform.rotation.y, trapObject1.transform.rotation.z);
+						trapObject1.transform.eulerAngles = new Vector3 (-120.0f, trapObject1.transform.rotation.y, trapObject1.transform.rotation.z);
+						//trapObject1.transform.Rotate (new Vector3 (1f, 0f, 0f), -90f);
 						//trapThing.gameObject.SetActive (true);
 
 					}
 				}
 			}
 		}
+	}
 
+	void CheckDoor ()
+	{
 		if (Input.GetMouseButton (0) || Input.touchCount > 0) {
-			
-			ray = Camera.main.ScreenPointToRay (Input.mousePosition);
 
-			if (Physics.Raycast (ray, out hit, rayDistance)) {
+			mouseRay = Camera.main.ScreenPointToRay (Input.mousePosition);
+
+			if (Physics.Raycast (mouseRay, out hit, rayDistance)) {
 
 				//Debug.DrawRay (transform.position, hit.transform.position, Color.red);
 				//Debug.Log (hit.transform.name);
 
 				if (hit.transform.tag == "Interactable") {
-					
+
 					player.RotateTowards (hit.transform.position);
 
 					currentDoor = hit.transform.gameObject;
@@ -133,11 +165,77 @@ public class InteractScript : MonoBehaviour
 			}
 		}
 
-
 		if (SwipeScript.Instance.GetSwipe () == SwipeDirection.Right || Input.GetKeyDown (KeyCode.D)) {
+			
 			if (toOpenDoor) {
+				
 				Debug.Log ("Open Door");
+
 				currentDoor.SetActive (false);
+			}
+		}
+	}
+
+	GameObject objectToStore;
+
+	public float pushDistance = 5f;
+
+	void CheckPushable ()
+	{
+		if (Input.GetMouseButton (0) || Input.touchCount > 0) {
+
+			mouseRay = Camera.main.ScreenPointToRay (Input.mousePosition);
+
+			if (Physics.Raycast (mouseRay, out hit, rayDistance)) {
+
+				if (hit.transform.tag == "Pushable" && !isUsingObject) {
+
+					objectToStore = hit.transform.gameObject;
+
+					Debug.Log ("Pushing Object Detected");
+
+					isUsingObject = true;
+
+				}
+			}
+		}
+
+		if (isUsingObject) {
+
+			activateCounter += Time.deltaTime;
+
+			Vector3 playerPosition = new Vector3 (player.transform.position.x, objectToStore.transform.position.y, player.transform.position.z);
+
+			objectToStore.transform.LookAt (playerPosition);
+
+			if (activateCounter >= activateObjectTimer) {
+
+				activateCounter = 0f;
+
+				isUsingObject = false;
+
+			}
+
+			if (TerrenceSwipeScript.instance.IsSwiping (_SwipeDirection.LEFT)) {
+
+				objectToStore.transform.Translate (-Vector3.left * pushDistance, Space.Self);
+
+				//Vector3.Lerp (objectToStore.transform.position, new Vector3 (objectToStore.transform.position.x, objectToStore.transform.position.y + 10f, objectToStore.transform.position.x), 1f);
+
+				activateCounter = 0f;
+
+				isUsingObject = false;
+
+			} else if (TerrenceSwipeScript.instance.IsSwiping (_SwipeDirection.RIGHT)) {
+
+				objectToStore.transform.Translate (-Vector3.right * pushDistance, Space.Self);
+
+				//Vector3.Lerp (objectToStore.transform.position, new Vector3 (objectToStore.transform.position.x, objectToStore.transform.position.y + 10f, objectToStore.transform.position.x), 1f);
+
+				activateCounter = 0f;
+
+				isUsingObject = false;
+
 			}
 		}
 	}
