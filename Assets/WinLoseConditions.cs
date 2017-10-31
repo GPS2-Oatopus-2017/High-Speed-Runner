@@ -18,7 +18,12 @@ public class WinLoseConditions : MonoBehaviour
     {
         if(timerScript.totalTimeLevel1 <= 0) // After count-down timer reaches "0" change scene to [LoseScene]
         {
-            GetComponent<ChangeSceneScript>().ChangeScenes(1); 
+            DialogueManager.Instance.LoseSceneDialogue();
+
+            if(DialogueManager.Instance.loseIndex >= DialogueManager.Instance.loseDialogue.Count)
+            {
+                GetComponent<ChangeSceneScript>().ChangeScenes(1);
+            }
         }
     }
 
@@ -26,7 +31,12 @@ public class WinLoseConditions : MonoBehaviour
     {
         if(PlayerScript.Instance.health <= 0) //After character health reaches "0" change scene to [LoseScene]
         {
-            GetComponent<ChangeSceneScript>().ChangeScenes(1);
+            DialogueManager.Instance.LoseSceneDialogue();
+
+            if(DialogueManager.Instance.loseIndex >= DialogueManager.Instance.loseDialogue.Count)
+            {
+                GetComponent<ChangeSceneScript>().ChangeScenes(1);
+            }
         }
     }
 }
