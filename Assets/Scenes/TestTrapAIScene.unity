@@ -2650,14 +2650,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6d6e815246c83c94aa88472936d866d0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  spawn_Data: {fileID: 0}
   player: {fileID: 1640676996}
   reputation: 0
   countDownTimer: 0
-  spawnTime: 10
   sdCount: 0
   hdCount: 0
   isHorizontal: 0
-  spawnDistance: 4
   target: {fileID: 0}
   prevDistance: 0
   distance: 0
@@ -7198,6 +7197,11 @@ Prefab:
         type: 2}
       propertyPath: movementSettings.RunMultiplier
       value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 114677140464309904, guid: 4ef5f8b54447a1e42805771279bfb24e,
+        type: 2}
+      propertyPath: movementSettings.JumpForce
+      value: 75
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 4ef5f8b54447a1e42805771279bfb24e, type: 2}
@@ -13750,6 +13754,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 96ff17e42733b8149ab5091f62998998, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  dirIndicator: {fileID: 0}
+  turn: []
+  lowObstacle: []
+  highObstacle: []
   surveillanceDrones:
   - {fileID: 1047626958}
   - {fileID: 1670835}

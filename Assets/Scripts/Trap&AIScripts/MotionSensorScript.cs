@@ -9,6 +9,7 @@ public class MotionSensorScript : MonoBehaviour {
 	public GameObject player;
 	public bool isActive;
 	public Material mat;
+	public Renderer rend;
 	//public float alertDistance = 12;
 	public float distanceOfPlayer;
 
@@ -21,6 +22,8 @@ public class MotionSensorScript : MonoBehaviour {
 	void Start() 
 	{
 		isActive = true;
+		rend = GetComponent<Renderer>();
+		rend.material.color = Color.red;
 	}
 
 
@@ -87,7 +90,8 @@ public class MotionSensorScript : MonoBehaviour {
 		}
 		else if(isActive == false)
 		{
-			GetComponent<MeshRenderer>().material = mat;
+			rend.material.color = Color.green;
+			//GetComponent<MeshRenderer>().material = mat; // Old Material, not done by Wong
 		}
 	}
 }
