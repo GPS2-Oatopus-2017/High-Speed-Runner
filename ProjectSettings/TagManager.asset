@@ -18,6 +18,7 @@ TagManager:
   - SoundManager
   - Enemy
   - Pushable
+  - GameManager
   layers:
   - Default
   - TransparentFX

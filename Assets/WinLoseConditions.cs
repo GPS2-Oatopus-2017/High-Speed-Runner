@@ -1,7 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 public class WinLoseConditions : MonoBehaviour 
 {
@@ -22,7 +21,7 @@ public class WinLoseConditions : MonoBehaviour
 
             if(DialogueManager.Instance.loseIndex >= DialogueManager.Instance.loseDialogue.Count)
             {
-                GetComponent<ChangeSceneScript>().ChangeScenes(1);
+                GameObject.FindWithTag("GameManager").GetComponent<ChangeSceneScript>().ChangeScenes(1);
             }
         }
     }
@@ -35,7 +34,7 @@ public class WinLoseConditions : MonoBehaviour
 
             if(DialogueManager.Instance.loseIndex >= DialogueManager.Instance.loseDialogue.Count)
             {
-                GetComponent<ChangeSceneScript>().ChangeScenes(1);
+                GameObject.FindWithTag("GameManager").GetComponent<ChangeSceneScript>().ChangeScenes(1);
             }
         }
     }

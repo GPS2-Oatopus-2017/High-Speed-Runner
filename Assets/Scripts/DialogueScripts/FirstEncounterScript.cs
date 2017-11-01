@@ -150,8 +150,8 @@ public class FirstEncounterScript : MonoBehaviour
                 seenObj[3] = true;
 
                 // Highlight that particular object
-                defaultMat= electricFences[i].GetComponent<MeshRenderer>().material; // Set objects' default material to it's current material.
-                electricFences[i].GetComponent<MeshRenderer>().material = highlightMat; // Set objects' material to "highlightMat".
+                defaultMat= electricFences[i].GetComponentInChildren<MeshRenderer>().material; // Set objects' default material to it's current material.
+                electricFences[i].GetComponentInChildren<MeshRenderer>().material = highlightMat; // Set objects' material to "highlightMat".
             }
         }
 
